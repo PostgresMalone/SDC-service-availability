@@ -15,7 +15,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <Location type={this.state.type}/>
-        <Review />
+        {/* <Review />
         <Book /> */}
       </div>
     )
