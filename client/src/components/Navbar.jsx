@@ -1,5 +1,5 @@
 import React from 'react';
-import Location from '.Location.jsx';
+import Location from './Location.jsx';
 
 class Navbar extends React.Component {
   constructor(props) {
