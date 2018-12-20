@@ -1,8 +1,8 @@
 import React from 'react';
 
-const City = ({city}) => (
+const City = ({location}) => (
   <div>
-    <span>{city}</span>
+    <span>{location}</span>
   </div>
 );
 

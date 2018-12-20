@@ -8,7 +8,7 @@ const Location = ({type, location}) => {
       <Type type={type}/>
       <City location={location}/>
     </div>
-  )
+  );
 };
 
 export default Location;

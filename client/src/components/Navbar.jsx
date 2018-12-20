@@ -14,11 +14,11 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <Location type={this.state.type}/>
+        <Location type={this.state.type} location={this.state.location}/>
         {/* <Review />
         <Book /> */}
       </div>
-    )
+    );
   }
     
 }

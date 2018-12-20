@@ -7,7 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {}
-    }
+    };
   }
 
   render() {
@@ -15,7 +15,7 @@ class App extends React.Component {
       <div>
         <Navbar />
       </div>
-    )
+    );
   }
 
   componentDidMount() {
