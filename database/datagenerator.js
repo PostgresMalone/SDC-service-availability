@@ -19,25 +19,24 @@ const generateInfo = () => {
   return {
     price: generatePrice(),
     vacancy: generateVacancy()
-  }
+  };
 };
 
 const daysAssigner = (databaseUpToYear, month) => {
   if (month === 'February') {
     days28.map(day => {
       databaseUpToYear[month][day] = generateInfo();
-    })
+    });
   } else if (month === 'January' || month === 'March' || month === 'May' || month === 'July' || month === 'August' || month === 'October' || month === 'December') {
     days31.map(day => {
       databaseUpToYear[month][day] = generateInfo();
-    })
+    });
   } else {
     days30.map(day => {
       databaseUpToYear[month][day] = generateInfo();
-    })
+    });
   }
-
-}
+};
 
 for (let i = 1; i < 101; i++) {
   database.availability[i] = {};
@@ -54,7 +53,7 @@ for (let i = 1; i < 101; i++) {
 }
 
 fs.writeFile('data.txt', JSON.stringify(database), (err, data) => {
-  if (err) return console.log('Error in writing', err);
+  if (err) { return console.log('Error in writing', err); }
   console.log('Success!', data);
 });
 
