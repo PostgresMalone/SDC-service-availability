@@ -11,16 +11,26 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Navbar />
-      </div>
-    );
+    console.log(this.state.data[1]);
+    if (Object.keys(this.state.data).length) {
+      return (
+        <div>
+          <Navbar type={this.state.data[1].type} location={this.state.data[1].location}/>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )
+    }
   }
 
   componentDidMount() {
     axios.get('/availabilities')
-      .then(data => {
+      .then(result => {
+        const data = result.data[0].availability;
         this.setState({data});
       })
       .catch(err => console.log('Err in getting data', err));

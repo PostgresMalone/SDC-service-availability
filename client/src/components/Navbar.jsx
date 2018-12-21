@@ -1,20 +1,15 @@
 import React from 'react';
-import Location from './Location.jsx';
+import Summary from './Summary.jsx';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      type: '',
-      location: '',
-      reviewsummary: '' 
-    };
   }
 
   render() {
     return (
       <div>
-        <Location type={this.state.type} location={this.state.location}/>
+        <Summary type={this.props.type} location={this.props.location}/>
         {/* <Review />
         <Book /> */}
       </div>
