@@ -4,7 +4,7 @@ const path = require('path');
 const Schema = mongoose.Schema;
 
 let database = {availability: {}};
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = Array.from(Array(12), (el,ind) => ind);
 const years = ['2019', '2020', '2021'];
 const days31 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 const days30 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
@@ -27,11 +27,11 @@ const generateInfo = () => {
 };
 
 const daysAssigner = (databaseUpToYear, month) => {
-  if (month === 'February') {
+  if (month === 1) {
     days28.map(day => {
       databaseUpToYear[month][day] = generateInfo();
     });
-  } else if (month === 'January' || month === 'March' || month === 'May' || month === 'July' || month === 'August' || month === 'October' || month === 'December') {
+  } else if (month === 0 || month === 2 || month === 4 || month === 6 || month === 7 || month === 9 || month === 11) {
     days31.map(day => {
       databaseUpToYear[month][day] = generateInfo();
     });
