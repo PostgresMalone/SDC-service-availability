@@ -20,10 +20,13 @@ const vacancySchema = new Schema({
 
 const Vacancy = mongoose.model('vacancy', vacancySchema);
 
-const getVacancy = (callback) => {
-  Vacancy.find()
-    .then(results => callback(results))
-    .catch(err => console.log('Error in getting from DB.', err));
-};
-
-module.exports = { getVacancy };
+fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
+  if (err) return console.log('Error in reading file.', err);
+  const parsed = JSON.parse(data);
+  const availabilities = new Vacancy(parsed);
+  availabilities.save((err) => {
+    if (err) return console.log('Error in saving.', err);
+    console.log('Success in saving!');
+    mongoose.connection.close();
+  });
+});

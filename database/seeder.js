@@ -1,4 +1,7 @@
+const mongoose = require('mongoose');
 const fs = require('fs');
+const path = require('path');
+const Schema = mongoose.Schema;
 
 let database = {availability: {}};
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -12,6 +15,7 @@ const loc = ['San Francisco', 'Los Angeles', 'New York', 'Houston', 'Boston'];
 const generatePrice = () => Math.floor(Math.random() * 150) + 50;
 const generateVacancy = () => Math.round(Math.random()) === 0 ? false : true;
 const generateReviews = () => (Math.random() * 5).toFixed(1);
+const generateReviewNum = () => Math.floor((Math.random() * 120));
 const generateType = () => type[Math.floor(Math.random() * 2)];
 const generateLocation = () => loc[Math.floor(Math.random() * 5)];
 
@@ -43,6 +47,7 @@ for (let i = 1; i < 101; i++) {
   database.availability[i]['reviewsummary'] = generateReviews();
   database.availability[i]['type'] = generateType();
   database.availability[i]['location'] = generateLocation();
+  database.availability[i]['reviewnum'] = generateReviewNum();
   years.map(year => {
     database.availability[i][year] = {};
     months.map(month => {
@@ -52,9 +57,34 @@ for (let i = 1; i < 101; i++) {
   });
 }
 
-fs.writeFile('data.txt', JSON.stringify(database), (err, data) => {
+const vacancySchema = new Schema({
+  roomId: {
+    type: Number,
+    min: 1,
+    max: 100,
+    unique: true
+  },
+  availability: Object
+});
+
+const Vacancy = mongoose.model('vacancy', vacancySchema);
+
+fs.writeFile('data.txt', JSON.stringify(database), err => {
   if (err) { return console.log('Error in writing', err); }
-  console.log('Success!', data);
+  mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
+    if (err) { return console.log('Failed in connecting to MongoDB.', err); }
+    console.log('Connected to MongoDB!');
+    fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
+      if (err) return console.log('Error in reading file.', err);
+      const parsed = JSON.parse(data);
+      const availabilities = new Vacancy(parsed);
+      availabilities.save((err) => {
+        mongoose.connection.close(); 
+        if (err) return console.log('Error in saving.', err);
+        console.log('Success in saving!');
+      });
+    });
+  });
 });
 
 console.log(database);
