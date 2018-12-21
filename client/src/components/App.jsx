@@ -23,7 +23,7 @@ class App extends React.Component {
         <div>
           <h1>Loading...</h1>
         </div>
-      )
+      );
     }
   }
 
