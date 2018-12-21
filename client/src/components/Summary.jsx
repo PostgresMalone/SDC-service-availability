@@ -1,9 +1,16 @@
 import React from 'react';
+import makeStar from '../scripts/starCreator';
 
-const Summary = ({type, location}) => {
+const Summary = ({type, location, reviews, stars}) => {
+  const star = makeStar(stars);
   return (
     <div>
-      <span>{type} in {location}</span>
+      <div>
+        <span>{type} in {location}</span>
+      </div>
+      <div>
+        <span>{star} {reviews}</span>
+      </div>
     </div>
   );
 };

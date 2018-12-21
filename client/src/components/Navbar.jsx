@@ -9,7 +9,8 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <Summary type={this.props.type} location={this.props.location}/>
+        <Summary type={this.props.type} location={this.props.location}
+        stars={this.props.stars} reviews={this.props.reviews}/>
         {/* <Review />
         <Book /> */}
       </div>

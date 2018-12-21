@@ -11,11 +11,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.data[1]);
     if (Object.keys(this.state.data).length) {
       return (
         <div>
-          <Navbar type={this.state.data[1].type} location={this.state.data[1].location}/>
+          <Navbar type={this.state.data[1].type} location={this.state.data[1].location}
+          reviews={this.state.data[1].reviewnum} stars={this.state.data[1].reviewsummary}/>
         </div>
       );
     } else {
