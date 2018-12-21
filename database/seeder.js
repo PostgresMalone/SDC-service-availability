@@ -69,7 +69,7 @@ const vacancySchema = new Schema({
 
 const Vacancy = mongoose.model('vacancy', vacancySchema);
 
-fs.writeFile('data.txt', JSON.stringify(database), err => {
+fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err => {
   if (err) { return console.log('Error in writing', err); }
   mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
     if (err) { return console.log('Failed in connecting to MongoDB.', err); }
