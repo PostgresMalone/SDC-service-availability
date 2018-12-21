@@ -14,7 +14,6 @@ class App extends React.Component {
   render() {
     if (Object.keys(this.state.data).length) {
       const date = new Date;
-      console.log(this.state.data[1], date.getFullYear() + 1)
       return (
         <div>
           <Navbar type={this.state.data[1].type} location={this.state.data[1].location}
