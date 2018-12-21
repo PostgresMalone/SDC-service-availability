@@ -1,6 +1,7 @@
 import React from 'react';
 import Summary from './Summary.jsx';
 import Price from './Price.jsx';
+import Book from './Book.jsx';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -9,9 +10,7 @@ class Navbar extends React.Component {
 
   render() {
     const date = new Date;
-    // console.log(this.props.year);
     const price = this.props.year[date.getMonth()][date.getDate()]['price'];
-    // console.log(price);
 
     return (
       <div>
