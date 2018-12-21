@@ -4,7 +4,7 @@ const path = require('path');
 const Schema = mongoose.Schema;
 
 let database = {availability: {}};
-const months = Array.from(Array(12), (el,ind) => ind);
+const months = Array.from(Array(12), (el, ind) => ind);
 const years = ['2019', '2020', '2021'];
 const days31 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 const days30 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
@@ -75,12 +75,12 @@ fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err 
     if (err) { return console.log('Failed in connecting to MongoDB.', err); }
     console.log('Connected to MongoDB!');
     fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
-      if (err) return console.log('Error in reading file.', err);
+      if (err) { return console.log('Error in reading file.', err); }
       const parsed = JSON.parse(data);
       const availabilities = new Vacancy(parsed);
       availabilities.save((err) => {
         mongoose.connection.close(); 
-        if (err) return console.log('Error in saving.', err);
+        if (err) { return console.log('Error in saving.', err); }
         console.log('Success in saving!');
       });
     });

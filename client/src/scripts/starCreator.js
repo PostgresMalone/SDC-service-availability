@@ -1,5 +1,5 @@
 const makeStar = (stars) => {
-  let str = ''
+  let str = '';
   while (stars > 0) {
     str += '★';
     stars--;
