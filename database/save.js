@@ -21,11 +21,11 @@ const vacancySchema = new Schema({
 const Vacancy = mongoose.model('vacancy', vacancySchema);
 
 fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
-  if (err) return console.log('Error in reading file.', err);
+  if (err) { return console.log('Error in reading file.', err); }
   const parsed = JSON.parse(data);
   const availabilities = new Vacancy(parsed);
   availabilities.save((err) => {
-    if (err) return console.log('Error in saving.', err);
+    if (err) { return console.log('Error in saving.', err); }
     console.log('Success in saving!');
     mongoose.connection.close();
   });

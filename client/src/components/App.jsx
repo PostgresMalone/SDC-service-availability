@@ -17,8 +17,8 @@ class App extends React.Component {
       return (
         <div>
           <Navbar type={this.state.data[1].type} location={this.state.data[1].location}
-          reviews={this.state.data[1].reviewnum} stars={this.state.data[1].reviewsummary}
-          year={this.state.data[1][date.getFullYear() + 1]} click={() => {this.toggleModal()}}/>
+            reviews={this.state.data[1].reviewnum} stars={this.state.data[1].reviewsummary}
+            year={this.state.data[1][date.getFullYear() + 1]} click={() => this.toggleModal()}/>
         </div>
       );
     } else {

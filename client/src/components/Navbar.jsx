@@ -15,7 +15,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <Summary type={this.props.type} location={this.props.location}
-        stars={this.props.stars} reviews={this.props.reviews}/>
+          stars={this.props.stars} reviews={this.props.reviews}/>
         <Price price={price}/>
         <Book click={this.props.click}/>
       </div>
