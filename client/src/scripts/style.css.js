@@ -25,5 +25,6 @@ const modalMain = {
 
 module.exports = {
   showModal,
-  hideModal
+  hideModal,
+  modalMain
 }
