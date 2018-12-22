@@ -7,11 +7,11 @@ const showModal = {
   top: '50%',
   left: '50%',
   background: 'rgba(255, 255, 255, 0.6)'
-}
+};
 
 const hideModal = {
   display: 'none'
-}
+};
 
 const modalMain = {
   position: 'fixed',
@@ -21,10 +21,10 @@ const modalMain = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%,-50%)'
-}
+};
 
 module.exports = {
   showModal,
   hideModal,
   modalMain
-}
+};
