@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {},
-      modal: false
+      modal: false,
+      listingId: 23
     };
   }
 
@@ -17,9 +18,9 @@ class App extends React.Component {
       const date = new Date;
       return (
         <div>
-          <Navbar type={this.state.data[1].type} location={this.state.data[1].location}
-            reviews={this.state.data[1].reviewnum} stars={this.state.data[1].reviewsummary}
-            year={this.state.data[1][date.getFullYear() + 1]} click={() => this.showModal()}/>
+          <Navbar type={this.state.data[this.state.listingId].type} location={this.state.data[this.state.listingId].location}
+            reviews={this.state.data[this.state.listingId].reviewnum} stars={this.state.data[this.state.listingId].reviewsummary}
+            year={this.state.data[this.state.listingId][date.getFullYear() + 1]} click={() => this.showModal()}/>
           <Modal show={this.state.modal} hide={() => this.closeModal()}/>
         </div>
       );
