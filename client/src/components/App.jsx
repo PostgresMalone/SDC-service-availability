@@ -19,8 +19,8 @@ class App extends React.Component {
       return (
         <div>
           <Navbar type={this.state.data[this.state.listingId].type} location={this.state.data[this.state.listingId].location}
-            reviews={this.state.data[this.state.listingId].reviewnum} stars={this.state.data[this.state.listingId].reviewsummary}
-            year={this.state.data[this.state.listingId][date.getFullYear() + 1]} click={() => this.showModal()}/>
+            reviews={this.state.data[this.state.listingId].reviewNum} stars={this.state.data[this.state.listingId].reviewSummary}
+            year={this.state.data[this.state.listingId][date.getFullYear()]} click={() => this.showModal()}/>
           <Modal show={this.state.modal} hide={() => this.closeModal()}/>
         </div>
       );
