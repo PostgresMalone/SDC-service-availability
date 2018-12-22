@@ -2,28 +2,45 @@ import React from 'react';
 import style from '../scripts/style.css.js';
 import CheckIn from './CheckIn.jsx';
 import CheckOut from './CheckOut.jsx';
+import Calendar from './Calendar.jsx';
 
-const Modal = ({show, hide}) => {
-  const displayModal = show ? style.showModal : style.hideModal;
-  return (
-    <div style={displayModal}>
-      <section style={style.modalMain}>
-        <button onClick={hide}>x</button>
-        <div>
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      calendar: false
+    };
+  }
+
+  render () {
+    const displayModal = this.props.show ? style.showModal : style.hideModal;
+    return (
+      <div style={displayModal}>
+        <section style={style.modalMain}>
+          <button onClick={this.props.hide}>x</button>
           <div>
-            <label>
-              <span>Dates</span>
-            </label>
+            <div>
+              <label>
+                <span>Dates</span>
+              </label>
+              </div>
+            <div>
+              <CheckIn click={() => this.showCalendar()}/>
+              <div>-></div>
+              <CheckOut click={() => this.showCalendar()}/>
+              {this.state.calendar 
+                ? <Calendar /> 
+                : null}
             </div>
-          <div>
-            <CheckIn />
-            <div>-></div>
-            <CheckOut />
           </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+        </section>
+      </div>
+    );
+  };
+
+  showCalendar() {
+    this.setState({calendar: true});
+  }
+}
 
 export default Modal;
