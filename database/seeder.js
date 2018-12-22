@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 let database = {availability: {}};
 const months = Array.from(Array(12), (el, ind) => ind);
-const years = ['2019', '2020', '2021'];
+const years = ['2018', '2019', '2020', '2021'];
 const days31 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 const days30 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 const days28 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
@@ -44,10 +44,11 @@ const daysAssigner = (databaseUpToYear, month) => {
 
 for (let i = 1; i < 101; i++) {
   database.availability[i] = {};
-  database.availability[i]['reviewsummary'] = generateReviews();
+  database.availability[i]['reviewSummary'] = generateReviews();
   database.availability[i]['type'] = generateType();
   database.availability[i]['location'] = generateLocation();
-  database.availability[i]['reviewnum'] = generateReviewNum();
+  database.availability[i]['reviewNum'] = generateReviewNum();
+  database.availability[i]['monthMin'] = generateVacancy();
   years.map(year => {
     database.availability[i][year] = {};
     months.map(month => {
