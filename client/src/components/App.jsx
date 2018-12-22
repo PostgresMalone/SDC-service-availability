@@ -19,8 +19,8 @@ class App extends React.Component {
         <div>
           <Navbar type={this.state.data[1].type} location={this.state.data[1].location}
             reviews={this.state.data[1].reviewnum} stars={this.state.data[1].reviewsummary}
-            year={this.state.data[1][date.getFullYear() + 1]} click={() => this.toggleModal()}/>
-          <Modal show={this.state.modal}/>
+            year={this.state.data[1][date.getFullYear() + 1]} click={() => this.showModal()}/>
+          <Modal show={this.state.modal} hide={() => this.closeModal()}/>
         </div>
       );
     } else {
@@ -41,8 +41,12 @@ class App extends React.Component {
       .catch(err => console.log('Err in getting data', err));
   }
 
-  toggleModal() {
-    this.setState({modal: !this.state.modal});
+  showModal() {
+    this.setState({modal: true});
+  }
+
+  closeModal() {
+    this.setState({modal: false});
   }
 
 }
