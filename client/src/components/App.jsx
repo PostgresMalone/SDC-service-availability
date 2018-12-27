@@ -21,7 +21,8 @@ class App extends React.Component {
           <Navbar type={this.state.data[this.state.listingId].type} location={this.state.data[this.state.listingId].location}
             reviews={this.state.data[this.state.listingId].reviewNum} stars={this.state.data[this.state.listingId].reviewSummary}
             year={this.state.data[this.state.listingId][date.getFullYear()]} click={() => this.showModal()}/>
-          <Modal show={this.state.modal} hide={() => this.closeModal()}/>
+          <Modal show={this.state.modal} hide={() => this.closeModal()}
+            dates={this.state.data[this.state.listingId]}/>
         </div>
       );
     } else {
