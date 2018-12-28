@@ -9,8 +9,9 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       calendar: false,
-      start: 0,
-      end: 0
+      start: null,
+      end: null,
+      weeks: []
     };
   }
 
@@ -31,10 +32,11 @@ class Modal extends React.Component {
               <div>-></div>
               <CheckOut click={() => this.showCalendar()}/>
               {this.state.calendar 
-                ? <Calendar /> 
+                ? <Calendar weeks={this.state.weeks}/> 
                 : null}
             </div>
           </div>
+          <button onClick={() => console.log(this.state)}>Test</button>
         </section>
       </div>
     );
@@ -53,16 +55,27 @@ class Modal extends React.Component {
       day--;
       day < 0 ? day = 6 : day;
     }
+    this.setState({ start: day });
+    this.buildWeeks(null, day, null);
   }
 
-  buildWeeks(dates, start) {
+  findEndOfMonth(weeks) {
+    const len = weeks.length - 1;
+    for (let i = 0; i < 7; i++) {
+      if (weeks[len][i] === null) {
+        return i - 1;
+      }
+    }
+  }
+
+  buildWeeks(dates, start, end) {
     if (start < 0 || start > 6) {
       return console.log('start date out of bounds');
     }
     const now = new Date; 
     const year = now.getFullYear();
     const month = now.getMonth();
-    const days = Object.keys(this.props.dates[year][month]);
+    const days = dates || Object.keys(this.props.dates[year][month]);
     let weeks = [];
     let week = [];
     let count = 0;
@@ -84,6 +97,12 @@ class Modal extends React.Component {
       }
       count++;
     }
+    const newEnd = this.findEndOfMonth(weeks)
+    this.setState({ weeks, end: newEnd });
+  }
+
+  componentDidMount() {
+    this.findFirstOfMonth();
   }
 
 }
