@@ -10,7 +10,7 @@ const Calendar = ({ weeks }) => {
         <div>F</div>
       </div>
       <div>
-      <table>
+        <table>
           <tbody>
             <tr>
               <th>Su</th>
@@ -26,7 +26,7 @@ const Calendar = ({ weeks }) => {
         </table>
       </div>
     </div>
-  )
+  );
 };
 
 export default Calendar;

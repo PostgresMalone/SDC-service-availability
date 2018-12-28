@@ -26,7 +26,7 @@ class Modal extends React.Component {
               <label>
                 <span>Dates</span>
               </label>
-              </div>
+            </div>
             <div>
               <CheckIn click={() => this.showCalendar()}/>
               <div>-></div>
@@ -40,7 +40,7 @@ class Modal extends React.Component {
         </section>
       </div>
     );
-  };
+  }
 
   showCalendar() {
     this.setState({calendar: true});
@@ -97,7 +97,7 @@ class Modal extends React.Component {
       }
       count++;
     }
-    const newEnd = this.findEndOfMonth(weeks)
+    const newEnd = this.findEndOfMonth(weeks);
     this.setState({ weeks, end: newEnd });
   }
 
