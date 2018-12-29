@@ -2,9 +2,9 @@ import React from 'react';
 import focusText from '../scripts/focusText.js';
 
 const CheckOut = ({click}) => (
-  <div className="check-out">
+  <div>
     <input type="text" readOnly value="Check Out" 
-      onFocus={focusText} onClick={click}></input>
+      onFocus={focusText} onClick={click} className="check-out"></input>
   </div>
 );
 
