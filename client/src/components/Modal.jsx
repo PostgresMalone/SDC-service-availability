@@ -58,7 +58,7 @@ class Modal extends React.Component {
       day < 0 ? day = 6 : day;
     }
     this.setState({ start: day });
-    callback(day);
+    callback ? callback(null, day, null) : null;
   }
 
   findEndOfMonth(weeks) {
