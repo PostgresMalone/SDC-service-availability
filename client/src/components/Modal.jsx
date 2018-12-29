@@ -11,7 +11,9 @@ class Modal extends React.Component {
       calendar: false,
       start: null,
       end: null,
-      weeks: []
+      weeks: [], 
+      month: null,
+      year: null
     };
   }
 
@@ -46,7 +48,7 @@ class Modal extends React.Component {
     this.setState({calendar: true});
   }
 
-  findFirstOfMonth() {
+  findFirstOfMonth(callback) {
     const today = new Date;
     let day = today.getDay();
     let date = today.getDate();
@@ -56,7 +58,7 @@ class Modal extends React.Component {
       day < 0 ? day = 6 : day;
     }
     this.setState({ start: day });
-    this.buildWeeks(null, day, null);
+    callback(day);
   }
 
   findEndOfMonth(weeks) {
@@ -66,6 +68,13 @@ class Modal extends React.Component {
         return i - 1;
       }
     }
+  }
+
+  setYearAndMonth() {
+    const today = new Date;
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    this.setState({year, month});
   }
 
   buildWeeks(dates, start, end) {
@@ -102,7 +111,8 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.findFirstOfMonth();
+    this.findFirstOfMonth((start) => this.buildWeeks(null, start, null));
+    this.setYearAndMonth();
   }
 
 }
