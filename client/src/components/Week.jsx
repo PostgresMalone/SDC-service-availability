@@ -3,7 +3,7 @@ import Day from './Day.jsx';
 
 const Week = ({ week }) => (
   <tr>
-    {week.map(day => <Day day={day}/>)}
+    {week.map((day, ind) => <Day key={ind} day={day}/>)}
   </tr>
 );
 

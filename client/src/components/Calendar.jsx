@@ -3,7 +3,7 @@ import Week from './Week.jsx';
 
 const Calendar = ({ weeks }) => {
   return (
-    <div>
+    <div className="calendar">
       <div>
         <div>B</div>
         <div>Month</div>
@@ -21,7 +21,7 @@ const Calendar = ({ weeks }) => {
               <th>Fr</th>
               <th>Sa</th>
             </tr>
-            {weeks.map(week => <Week week={week}/>)}
+            {weeks.map((week, ind) => <Week key={ind} week={week}/>)}
           </tbody>
         </table>
       </div>
