@@ -77,13 +77,13 @@ class Modal extends React.Component {
     this.setState({year, month});
   }
 
-  buildWeeks(dates, start, end) {
+  buildWeeks(dates, start, end, year, month) {
     if (start < 0 || start > 6) {
       return console.log('start date out of bounds');
     }
     const now = new Date; 
-    const year = now.getFullYear();
-    const month = now.getMonth();
+    const year = year || now.getFullYear();
+    const month = month || now.getMonth();
     const days = dates || Object.keys(this.props.dates[year][month]);
     let weeks = [];
     let week = [];
