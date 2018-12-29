@@ -21,5 +21,6 @@ coverage
 .grunt
 
 public/bundle.js
-package-lock.js
+package-lock.json
+
 
