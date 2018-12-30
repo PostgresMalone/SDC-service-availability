@@ -1,5 +1,6 @@
 import React from 'react';
 import Week from './Week.jsx';
+import convertToMonth from '../scripts/monthConverter.js';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -57,7 +58,11 @@ class Calendar extends React.Component {
     days = days ? days : Object.keys(this.props.dates[year][month]);
     if (start) {
       this.buildFromStart(days, start);
-    } 
+    } else if (end) {
+      this.buildFromEnd(days, end);
+    } else {
+      console.log('Something went wrong...');
+    }
   }
 
   buildFromStart(days, start) {
