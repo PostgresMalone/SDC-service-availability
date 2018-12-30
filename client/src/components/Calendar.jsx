@@ -118,11 +118,12 @@ class Calendar extends React.Component {
   }
 
   render() {
+    const month = convertToMonth(this.state.month);
     return (
       <div className="calendar">
         <div>
           <div>B</div>
-          <div>Month</div>
+          <div>{month}</div>
           <div>F</div>
         </div>
         <div>
