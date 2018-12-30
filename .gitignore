@@ -22,3 +22,7 @@ coverage
 
 public/bundle.js
 package-lock.json
+<<<<<<< HEAD
+=======
+__tests__/__snapshots__/
+>>>>>>> b7a864c9a64632e41a803f6231f33c56a1694fd6

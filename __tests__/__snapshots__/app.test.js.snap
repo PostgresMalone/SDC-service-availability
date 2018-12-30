@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Render render() Renders the top-level component 1`] = `
+<div>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;
+
+exports[`App Render render() renders the component 1`] = `
+<div>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;

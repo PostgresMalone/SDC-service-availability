@@ -3,7 +3,7 @@ import Week from './Week.jsx';
 
 const Calendar = ({ weeks }) => {
   return (
-    <div>
+    <div className="calendar">
       <div>
         <div>B</div>
         <div>Month</div>
