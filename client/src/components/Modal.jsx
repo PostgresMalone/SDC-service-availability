@@ -143,7 +143,8 @@ class Modal extends React.Component {
       }
       count--;
     }
-    this.setState({ weeks });
+    const start = this.findFirstOfMonth(weeks);
+    this.setState({ weeks, start });
   }
 
   componentDidMount() {
