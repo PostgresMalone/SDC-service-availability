@@ -119,11 +119,12 @@ class Calendar extends React.Component {
 
   render() {
     const month = convertToMonth(this.state.month);
+    const year = this.state.year;
     return (
       <div className="calendar">
         <div>
           <div>B</div>
-          <div>{month}</div>
+          <div className="month-header">{month} {year}</div>
           <div>F</div>
         </div>
         <div>
