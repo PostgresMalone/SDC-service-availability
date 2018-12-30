@@ -118,7 +118,7 @@ class Modal extends React.Component {
     let week = [];
     let count = days.length + 6 - end;
     while (count > 0) {
-      if (count > days.length + end) {
+      if (count > days.length) {
         week.unshift(null);
       } else {
         week.unshift(days[count - 1]);
@@ -128,14 +128,14 @@ class Modal extends React.Component {
         week = [];
       }
       if (count === 1 && week.length && week.length < 7) {
-        while (week.length < 6) {
+        while (week.length < 7) {
           week.unshift(null);
         }
         weeks.unshift(week);
       }
       count--;
     }
-
+    this.setState({ weeks });
   }
 
   componentDidMount() {
