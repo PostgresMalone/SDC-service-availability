@@ -113,6 +113,31 @@ class Modal extends React.Component {
     this.setState({ weeks, end: newEnd });
   }
 
+  buildFromEnd(days, end) {
+    let weeks = [];
+    let week = [];
+    let count = days.length + 6 - end;
+    while (count > 0) {
+      if (count > days.length + end) {
+        week.unshift(null);
+      } else {
+        week.unshift(days[count - 1]);
+      }
+      if (week.length === 7) {
+        weeks.unshift(week);
+        week = [];
+      }
+      if (count === 1 && week.length && week.length < 7) {
+        while (week.length < 6) {
+          week.unshift(null);
+        }
+        weeks.unshift(week);
+      }
+      count--;
+    }
+
+  }
+
   componentDidMount() {
     this.findFirstOfMonth((start) => this.buildWeeks(null, start));
     this.setYearAndMonth();
