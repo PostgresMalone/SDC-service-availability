@@ -61,6 +61,14 @@ class Modal extends React.Component {
     callback ? callback(day) : null;
   }
 
+  findFirstOfMonth(weeks) {
+    for (let i = 0; i < 7; i++) {
+      if (weeks[0][i] === null) {
+        return i;
+      }
+    }
+  }
+
   findEndOfMonth(weeks) {
     const len = weeks.length - 1;
     for (let i = 0; i < 7; i++) {
@@ -109,8 +117,8 @@ class Modal extends React.Component {
       }
       count++;
     }
-    const newEnd = this.findEndOfMonth(weeks);
-    this.setState({ weeks, end: newEnd });
+    const end = this.findEndOfMonth(weeks);
+    this.setState({ weeks, end });
   }
 
   buildFromEnd(days, end) {
