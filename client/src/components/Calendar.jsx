@@ -117,15 +117,41 @@ class Calendar extends React.Component {
     this.setState({ weeks, start });
   }
 
+  plusMonth() {
+    let month = this.state.month;
+    let year = this.state.year;
+    month++;
+    if (month > 11) {
+      month = 0;
+      year++;
+      this.setState({ month, year });
+    } else {
+      this.setState({ month });
+    }
+  }
+
+  minusMonth() {
+    let month = this.state.month;
+    let year = this.state.year;
+    month--;
+    if (month < 0) {
+      month = 11;
+      year--;
+      this.setState({ month, year });
+    } else {
+      this.setState({ month });
+    }
+  }
+
   render() {
     const month = convertToMonth(this.state.month);
     const year = this.state.year;
     return (
       <div className="calendar">
         <div>
-          <div className="previous-month-button"><i className="fas fa-arrow-left"></i></div>
+          <div className="previous-month-button" onClick={() => this.minusMonth()}><i className="fas fa-arrow-left"></i></div>
           <div className="month-header">{month} {year}</div>
-          <div className="next-month-button"><i className="fas fa-arrow-right"></i></div>
+          <div className="next-month-button" onClick={() => this.plusMonth()}><i className="fas fa-arrow-right"></i></div>
         </div>
         <div>
           <table>
