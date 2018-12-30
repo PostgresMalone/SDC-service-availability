@@ -48,7 +48,7 @@ class Modal extends React.Component {
     this.setState({calendar: true});
   }
 
-  findFirstOfMonth(callback) {
+  initialStart(callback) {
     const today = new Date;
     let day = today.getDay();
     let date = today.getDate();
