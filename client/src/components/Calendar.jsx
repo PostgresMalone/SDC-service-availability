@@ -123,9 +123,9 @@ class Calendar extends React.Component {
     return (
       <div className="calendar">
         <div>
-          <div>B</div>
+          <div className="previous-month-button"><i className="fas fa-arrow-left"></i></div>
           <div className="month-header">{month} {year}</div>
-          <div>F</div>
+          <div className="next-month-button"><i className="fas fa-arrow-right"></i></div>
         </div>
         <div>
           <table>
