@@ -58,7 +58,6 @@ class Calendar extends React.Component {
     year = year ? year : now.getFullYear();
     month = month ? month : now.getMonth();
     const days = Object.keys(this.props.dates[year][month]);
-    console.log(start, end);
     if (start >= 0) {
       this.buildFromStart(days, start);
     } else if (end >= 0) {
@@ -131,10 +130,10 @@ class Calendar extends React.Component {
     } else {
       this.setState({ month });
     }
-    let newEnd = this.state.end;
-    newEnd++;
-    newEnd = newEnd > 6 ? 0 : newEnd;
-    this.buildWeeks(newEnd, null, year, month);
+    let end = this.state.end;
+    end++;
+    end = end > 6 ? 0 : end;
+    this.buildWeeks(end, null, year, month);
   }
 
   minusMonth() {
