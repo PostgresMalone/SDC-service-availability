@@ -29,7 +29,7 @@ class Calendar extends React.Component {
 
   findFirstOfMonth(weeks) {
     for (let i = 0; i < 7; i++) {
-      if (weeks[0][i] === null) {
+      if (weeks[0][i] !== null) {
         return i;
       }
     }
@@ -58,9 +58,9 @@ class Calendar extends React.Component {
     year = year ? year : now.getFullYear();
     month = month ? month : now.getMonth();
     const days = Object.keys(this.props.dates[year][month]);
-    if (start >= 0) {
+    if (start !== null) {
       this.buildFromStart(days, start);
-    } else if (end >= 0) {
+    } else if (end !== null) {
       this.buildFromEnd(days, end);
     } else {
       console.log('Something went wrong...');
@@ -90,10 +90,11 @@ class Calendar extends React.Component {
       count++;
     }
     const end = this.findEndOfMonth(weeks);
-    this.setState({ weeks, end });
+    this.setState({ weeks, end, start });
   }
 
   buildFromEnd(days, end) {
+    console.log(end);
     let weeks = [];
     let week = [];
     let count = days.length + 6 - end;
@@ -116,7 +117,8 @@ class Calendar extends React.Component {
       count--;
     }
     const start = this.findFirstOfMonth(weeks);
-    this.setState({ weeks, start });
+    console.log(start);
+    this.setState({ weeks, start, end });
   }
 
   plusMonth() {
@@ -147,6 +149,10 @@ class Calendar extends React.Component {
     } else {
       this.setState({ month });
     }
+    let start = this.state.start;
+    start--;
+    start = start < 0 ? 6 : start;
+    this.buildWeeks(null, start, year, month);
   }
 
   render() {
