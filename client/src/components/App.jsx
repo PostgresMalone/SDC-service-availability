@@ -29,7 +29,7 @@ class App extends React.Component {
           <Navbar type={type} location={location} reviews={reviews} stars={stars}
             price={price} click={() => this.showModal()}/>
           <Modal show={this.state.modal} hide={() => this.closeModal()}
-            dates={dates} reviews={reviews} stars={stars}/>
+            dates={dates} reviews={reviews} stars={stars} price={price}/>
         </div>
       );
     } else {
