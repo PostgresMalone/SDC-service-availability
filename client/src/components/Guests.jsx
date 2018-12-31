@@ -7,7 +7,7 @@ class Guests extends React.Component {
     super(props);
     this.state = {
       showGuests: false,
-      total: 1,
+      total: this.state.adults + this.state.children + this.state.infants,
       adults: 1,
       children: 0,
       infants: 0
@@ -19,7 +19,11 @@ class Guests extends React.Component {
   }
 
   render() {
-    const guests = this.state.total > 1 ? 'guests' : 'guest';
+    const total = this.state.total;
+    const adults = this.state.adults;
+    const children = this.state.children;
+    const infants = this.state.infants;
+    const guests = total > 1 ? 'guests' : 'guest';
     return (
       <div>
         <div>Guests</div>
@@ -36,9 +40,10 @@ class Guests extends React.Component {
               </span>
           </div>
           {this.state.showGuests
-            ? <Count />
+            ? <Count adults={adults} children={children} infants={infants}/>
             : <div></div>}
         </div>
+        <button onClick={() => console.log(this.state)}>Test</button>
       </div>
     )
   }
