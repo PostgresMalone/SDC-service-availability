@@ -66,9 +66,8 @@ const Star = ({ stars }) => {
       <div>
         <i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i>
       </div>
-    )
-  }
-  else {
+    );
+  } else {
     return null;
   }
 };

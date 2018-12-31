@@ -12,6 +12,6 @@ const Navbar = ({ type, location, stars, reviews, price, click }) => {
       <Book click={click}/>
     </div>
   );
-}
+};
 
 export default Navbar;
