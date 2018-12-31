@@ -2,7 +2,6 @@ import React from 'react';
 import Star from './Star.jsx';
 
 const Summary = ({type, location, reviews, stars}) => {
-  console.log(stars);
   return (
     <div>
       <div>
