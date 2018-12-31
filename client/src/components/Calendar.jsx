@@ -33,6 +33,7 @@ class Calendar extends React.Component {
         return i;
       }
     }
+    return 6;
   }
 
   findEndOfMonth(weeks) {
@@ -42,6 +43,7 @@ class Calendar extends React.Component {
         return i - 1;
       }
     }
+    return 6;
   }
 
   setYearAndMonth() {
@@ -51,14 +53,15 @@ class Calendar extends React.Component {
     this.setState({year, month});
   }
 
-  buildWeeks(days, start, end, year, month) {
+  buildWeeks(start, end, year, month) {
     const now = new Date; 
     year = year ? year : now.getFullYear();
     month = month ? month : now.getMonth();
-    days = days ? days : Object.keys(this.props.dates[year][month]);
-    if (start) {
+    const days = Object.keys(this.props.dates[year][month]);
+    console.log(start, end);
+    if (start >= 0) {
       this.buildFromStart(days, start);
-    } else if (end) {
+    } else if (end >= 0) {
       this.buildFromEnd(days, end);
     } else {
       console.log('Something went wrong...');
@@ -128,6 +131,10 @@ class Calendar extends React.Component {
     } else {
       this.setState({ month });
     }
+    let newEnd = this.state.end;
+    newEnd++;
+    newEnd = newEnd > 6 ? 0 : newEnd;
+    this.buildWeeks(newEnd, null, year, month);
   }
 
   minusMonth() {
@@ -177,7 +184,7 @@ class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    this.initialStart((start) => this.buildWeeks(null, start));
+    this.initialStart((start) => this.buildWeeks(start));
     this.setYearAndMonth();
   }
 
