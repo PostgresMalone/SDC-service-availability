@@ -26,11 +26,14 @@ const generateInfo = () => {
   };
 };
 
-const daysAssigner = (databaseUpToYear, month) => {
+const daysAssigner = (databaseUpToYear, month, year) => {
   if (month === 1) {
     days28.map(day => {
       databaseUpToYear[month][day] = generateInfo();
     });
+    if (year % 4 === 0) {
+      databaseUpToYear[month][29] = generateInfo();
+    }
   } else if (month === 0 || month === 2 || month === 4 || month === 6 || month === 7 || month === 9 || month === 11) {
     days31.map(day => {
       databaseUpToYear[month][day] = generateInfo();
@@ -53,7 +56,7 @@ for (let i = 1; i < 101; i++) {
     database.availability[i][year] = {};
     months.map(month => {
       database.availability[i][year][month] = {};
-      daysAssigner(database.availability[i][year], month);
+      daysAssigner(database.availability[i][year], month, year);
     });
   });
 }
