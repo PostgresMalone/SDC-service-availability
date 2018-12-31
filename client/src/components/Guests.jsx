@@ -7,15 +7,18 @@ class Guests extends React.Component {
     super(props);
     this.state = {
       showGuests: false,
-      total: this.state.adults + this.state.children + this.state.infants,
-      adults: 1,
       children: 0,
-      infants: 0
+      infants: 0, 
+      total: 1
     }
   }
 
   showGuests() {
     this.setState({showGuests: true});
+  }
+
+  hideGuests() {
+    this.setState({showGuests: false});
   }
 
   render() {
@@ -40,7 +43,7 @@ class Guests extends React.Component {
               </span>
           </div>
           {this.state.showGuests
-            ? <Count adults={adults} children={children} infants={infants}/>
+            ? <Count total={total} adults={adults} children={children} infants={infants} close={() => this.hideGuests()}/>
             : <div></div>}
         </div>
         <button onClick={() => console.log(this.state)}>Test</button>
