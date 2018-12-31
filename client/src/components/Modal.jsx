@@ -3,6 +3,7 @@ import style from '../scripts/style.css.js';
 import CheckIn from './CheckIn.jsx';
 import CheckOut from './CheckOut.jsx';
 import Calendar from './Calendar.jsx';
+import Star from './Star.jsx';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -20,9 +21,24 @@ class Modal extends React.Component {
     return (
       <div style={displayModal}>
         <section style={style.modalMain}>
-          <button onClick={this.props.hide}>x</button>
-          <div>
+          <button onClick={this.props.hide}>X</button>
+          <section>
             <div>
+              <div>
+                <div>
+                  <div>
+                    <span>{this.props.price}</span>
+                    <span>/night</span>
+                  </div>
+                  <div>
+                    <span><Star stars={this.props.stars}/></span>
+                    <span>{this.props.reviews}</span>
+                  </div>
+                </div>
+                <div>
+                  <div>-----------------</div>
+                </div>
+              </div>
               <label>
                 <span>Dates</span>
               </label>
@@ -35,7 +51,7 @@ class Modal extends React.Component {
                 ? <Calendar weeks={this.state.weeks}/> 
                 : null}
             </div>
-          </div>
+          </section>
           <button onClick={() => console.log(this.state)}>Test</button>
         </section>
       </div>
