@@ -27,8 +27,8 @@ class Modal extends React.Component {
               <div>
                 <div>
                   <div>
-                    <span>{this.props.price}</span>
-                    <span>/night</span>
+                    <span>${this.props.price}</span>
+                    <span> / night</span>
                   </div>
                   <div>
                     <span><Star stars={this.props.stars}/></span>
