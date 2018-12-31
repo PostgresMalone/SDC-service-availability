@@ -1,5 +1,6 @@
 import React from 'react';
 import Count from './Count.jsx';
+import focusText from '../scripts/focusText.js';
 
 class Guests extends React.Component {
   constructor(props) {
@@ -13,32 +14,33 @@ class Guests extends React.Component {
     }
   }
 
+  showGuests() {
+    this.setState({showGuests: true});
+  }
+
   render() {
-    guests = this.state.total > 1 ? 'guests' : 'guest';
+    const guests = this.state.total > 1 ? 'guests' : 'guest';
     return (
       <div>
         <div>Guests</div>
         <div>
-          <button onClick={() => this.showGuests()}>
+          <div onClick={() => this.showGuests()}>
             <div>
-              <span>{this.state.numGuests} {guests}</span>
+              <input readOnly type="text" onClick={(e) => focusText(e)}
+              className="show-count" value={`${this.state.total} ${guests}`}></input>
             </div>
               <span>
                 {this.state.showGuests
-                  ? '^'
-                  : 'v'}
+                  ? <i className="fas fa-chevron-up"></i>
+                  : <i className="fas fa-chevron-down"></i>}
               </span>
-          </button>
+          </div>
           {this.state.showGuests
             ? <Count />
             : <div></div>}
         </div>
       </div>
     )
-  }
-
-  showGuests() {
-    this.setState({showGuests: true});
   }
 }
 
