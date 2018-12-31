@@ -16,19 +16,20 @@ class App extends React.Component {
   render() {
     if (Object.keys(this.state.data).length) {
       const date = new Date;
-      const type = this.state.data[this.state.listingId].type;
-      const location = this.state.data[this.state.listingId].location;
-      const reviews = this.state.data[this.state.listingId].reviewNum;
-      const stars = this.state.data[this.state.listingId].reviewSummary;
-      const year = this.state.data[this.state.listingId][date.getFullYear()];
-      const dates = this.state.data[this.state.listingId];
+      const id = this.state.listingId;
+      const type = this.state.data[id].type;
+      const location = this.state.data[id].location;
+      const reviews = this.state.data[id].reviewNum;
+      const stars = this.state.data[id].reviewSummary;
+      const dates = this.state.data[id];
+      const price = this.state.data[id][date.getFullYear()][date.getMonth()][date.getDate()]['price'];
       
       return (
         <div>
           <Navbar type={type} location={location} reviews={reviews} stars={stars}
-            year={year} click={() => this.showModal()}/>
+            price={price} click={() => this.showModal()}/>
           <Modal show={this.state.modal} hide={() => this.closeModal()}
-            dates={dates} />
+            dates={dates} reviews={reviews} stars={stars}/>
         </div>
       );
     } else {
