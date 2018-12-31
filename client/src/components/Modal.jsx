@@ -48,12 +48,8 @@ class Modal extends React.Component {
                 ? <Calendar dates={this.props.dates}/> 
                 : null}
             </div>
-<<<<<<< HEAD
           </section>
           <button onClick={() => console.log(this.state)}>Test</button>
-=======
-          </div>
->>>>>>> cd3d4d1028d61df5d3f078efb608df36d1eee28b
         </section>
       </div>
     );
