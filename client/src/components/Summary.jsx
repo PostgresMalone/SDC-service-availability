@@ -1,8 +1,8 @@
 import React from 'react';
-import makeStar from '../scripts/starCreator';
 import Star from './Star.jsx';
 
 const Summary = ({type, location, reviews, stars}) => {
+  console.log(stars);
   return (
     <div>
       <div>
