@@ -7,6 +7,7 @@ class Guests extends React.Component {
     super(props);
     this.state = {
       showGuests: false,
+      adults: 1,
       children: 0,
       infants: 0, 
       total: 1
