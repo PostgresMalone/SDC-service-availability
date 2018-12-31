@@ -94,7 +94,6 @@ class Calendar extends React.Component {
   }
 
   buildFromEnd(days, end) {
-    console.log(end);
     let weeks = [];
     let week = [];
     let count = days.length + 6 - end;
@@ -117,7 +116,6 @@ class Calendar extends React.Component {
       count--;
     }
     const start = this.findFirstOfMonth(weeks);
-    console.log(start);
     this.setState({ weeks, start, end });
   }
 
