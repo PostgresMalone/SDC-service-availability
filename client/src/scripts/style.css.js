@@ -35,6 +35,10 @@ const selected = {
   color: 'orange'
 }
 
+const checkdate = {
+  color: 'green'
+}
+
 module.exports = {
   showModal,
   hideModal,
@@ -42,4 +46,5 @@ module.exports = {
   unavailable,
   available,
   selected,
+  checkdate,
 };

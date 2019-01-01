@@ -40,8 +40,10 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
       const inMonth = checkIn[0];
       const inDay = checkIn[1];
       const inYear = checkIn[2];
-      if (inMonth <= dayMonth && inDay <= dayDay && inYear <= dayYear && dayMonth <= outMonth && dayDay <= outDay && dayYear <= outYear) {
+      if (inMonth <= dayMonth && inDay < dayDay && inYear <= dayYear && dayMonth <= outMonth && dayDay < outDay && dayYear <= outYear) {
         text = style.selected;
+      } else if ((inMonth === dayMonth && inDay === dayDay && inYear === dayYear) || dayMonth === outMonth && dayDay === outDay && dayYear === outYear) {
+        text = style.checkdate;
       }
     } else if (checkin) {
       const checkIn = getMonthDayYear(checkin);
@@ -53,6 +55,9 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
         || (dayYear === inYear && dayMonth < inMonth)
       ) {
         text = style.unavailable;
+      }
+      if (dayMonth === inMonth && dayDay === inDay && dayYear === inYear) {
+        text =style.checkdate;
       }
     }
     return (
