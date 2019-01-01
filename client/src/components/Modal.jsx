@@ -44,13 +44,13 @@ class Modal extends React.Component {
     let year = arr[2];
     let truth = true;
     let vacancies = this.props.dates[year][month];
-    let len = Object.keys(vacancies).length
+    let len = Object.keys(vacancies).length;
     while (truth) {
       day++;
       if (day > len) {
-        month++
+        month++;
         if (month > 11) {
-          year++
+          year++;
           month = 0;
         }
         vacancies = this.props.dates[year][month];
@@ -58,7 +58,7 @@ class Modal extends React.Component {
       }
       if (!vacancies[day].vacancy) {
         truth = false;
-        this.setState({limit: `${month + 1}/${day}/${year}`})
+        this.setState({limit: `${month + 1}/${day}/${year}`});
       }
     }
   }
@@ -101,7 +101,7 @@ class Modal extends React.Component {
                   checkin={this.state.in}
                   checkout={this.state.out}
                   limit={this.state.limit}
-                  /> 
+                /> 
                 : null}
             </div>
             <button onClick={() => console.log(this.state)}>Modal</button>

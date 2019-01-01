@@ -96,7 +96,7 @@ class Guests extends React.Component {
               minusChildren={() => this.minusChildren()}
               addInfant={() => this.addInfant()} 
               minusInfant={() => this.minusInfant()}
-              />
+            />
             : <div></div>}
         </div>
       </div>
