@@ -7,7 +7,7 @@ const Day = ({ day, vacancy, select, year, month }) => {
     return (
       vacancy
       ? <td style={text} id={`${year}/${month}/${day}`} onClick={(e) => select(e)}>{day}</td>
-      : <td style={text} value={day}>{day}</td>
+      : <td style={text}>{day}</td>
     )
   } else {
     return (
