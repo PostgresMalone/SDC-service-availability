@@ -21,6 +21,14 @@ class Counter extends React.Component {
     this.setState({addDisabled: false});
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.total >= 3 && props.total) {
+      return {addDisabled: true};
+    } else {
+      return {addDisabled: false};
+    }
+  }
+
   render() {
     return (
       <div>

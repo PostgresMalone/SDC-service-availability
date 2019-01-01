@@ -9,7 +9,7 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult, 
           Adults
         </div>
         <div>
-          <Counter who={adults} add={addAdult} minus={minusAdult} minimum={1}/>
+          <Counter who={adults} add={addAdult} minus={minusAdult} minimum={1} total={total}/>
         </div>
       </div>
       <div>
@@ -17,7 +17,7 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult, 
           Children
         </div>
         <div>
-          <Counter who={children} add={addChildren} minus={minusChildren} minimum={0}/>
+          <Counter who={children} add={addChildren} minus={minusChildren} minimum={0} total={total}/>
         </div>
       </div>
       <div>
@@ -25,7 +25,7 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult, 
           Infants
         </div>
         <div>
-          <Counter who={infants} add={addAdult} minus={minusAdult} minimum={0}/>
+          {/* <Counter who={infants} add={addAdult} minus={minusAdult} minimum={0}/> */}
         </div>
       </div>
       <div>
