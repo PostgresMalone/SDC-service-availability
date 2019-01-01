@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../scripts/style.css.js';
 import getMonthDayYear from '../scripts/getMonthDayYear.js';
 
-const Day = ({ day, vacancy, select, year, month, checkin }) => {
+const Day = ({ day, vacancy, select, year, month, checkin, limit }) => {
   if (vacancy !== undefined) {
     let text = vacancy ? style.available : style.unavailable;
     const today = new Date;
@@ -21,6 +21,15 @@ const Day = ({ day, vacancy, select, year, month, checkin }) => {
       const inDay = Number(check[1]);
       const inYear = Number(check[2]);
       if (dayYear < inYear || (dayMonth === inMonth && dayYear === inYear && dayDay < inDay) || (dayYear === inYear && dayMonth < inMonth)) {
+        text = style.unavailable;
+      }
+    }
+    if (limit) {
+      const check = getMonthDayYear(limit);
+      const limMonth = Number(check[0]);
+      const limDay = Number(check[1]);
+      const limYear = Number(check[2]);
+      if (dayYear > limYear || (dayMonth === limMonth && dayYear === limYear && dayDay >= limDay) || (dayYear === limYear && dayMonth > limMonth)) {
         text = style.unavailable;
       }
     }

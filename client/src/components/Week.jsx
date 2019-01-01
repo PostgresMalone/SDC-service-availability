@@ -1,7 +1,7 @@
 import React from 'react';
 import Day from './Day.jsx';
 
-const Week = ({ week, vacancy, select, year, month, checkin }) => (
+const Week = ({ week, vacancy, select, year, month, checkin, limit }) => (
   <tr>
     {week.map((day, ind) => {
       if (day) {
@@ -13,6 +13,7 @@ const Week = ({ week, vacancy, select, year, month, checkin }) => (
           year={year}
           month={month}
           checkin={checkin}
+          limit={limit}
           />
         )
       } else {

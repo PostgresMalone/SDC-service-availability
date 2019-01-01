@@ -5,6 +5,7 @@ import CheckOut from './CheckOut.jsx';
 import Calendar from './Calendar.jsx';
 import Guests from './Guests.jsx';
 import Star from './Star.jsx';
+import getMonthDayYear from '../scripts/getMonthDayYear.js';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Modal extends React.Component {
       calendar: false,
       selected: [],
       in: null,
-      out: null
+      out: null,
+      limit: null
     };
   }
 
@@ -25,6 +27,34 @@ class Modal extends React.Component {
     if (!this.state.in) {
       const date = event.target.id;
       this.setState({in: date});
+      this.makeUnavailableAfterLimit(date);
+    }
+
+  }
+
+  makeUnavailableAfterLimit(checkin) {
+    const arr = getMonthDayYear(checkin); // checkin is in mm/dd/yyyy format
+    let month = arr[0];
+    let day = arr[1];
+    let year = arr[2];
+    let truth = true;
+    let vacancies = this.props.dates[year][month];
+    let len = Object.keys(vacancies).length
+    while (truth) {
+      day++;
+      if (day > len) {
+        month++
+        if (month > 11) {
+          year++
+          month = 0;
+        }
+        vacancies = this.props.dates[year][month];
+        day = 1;
+      }
+      if (!vacancies[day].vacancy) {
+        truth = false;
+        this.setState({limit: `${month + 1}/${day}/${year}`})
+      }
     }
   }
 
@@ -64,6 +94,7 @@ class Modal extends React.Component {
                   dates={this.props.dates}
                   select={(e) => this.selectDates(e)}
                   checkin={this.state.in}
+                  limit={this.state.limit}
                   /> 
                 : null}
             </div>
