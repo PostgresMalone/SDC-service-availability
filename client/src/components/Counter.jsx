@@ -6,7 +6,7 @@ class Counter extends React.Component {
     this.state = {
       minusDisabled: true,
       addDisabled: false
-    }
+    };
   }
 
   addClick() {
@@ -50,6 +50,6 @@ class Counter extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Counter;

@@ -37,7 +37,7 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult, 
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Count;
