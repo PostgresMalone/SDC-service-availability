@@ -3,6 +3,7 @@ import style from '../scripts/style.css.js';
 import CheckIn from './CheckIn.jsx';
 import CheckOut from './CheckOut.jsx';
 import Calendar from './Calendar.jsx';
+import Guests from './Guests.jsx';
 import Star from './Star.jsx';
 
 class Modal extends React.Component {
@@ -48,8 +49,8 @@ class Modal extends React.Component {
                 ? <Calendar dates={this.props.dates}/> 
                 : null}
             </div>
+            <Guests />
           </section>
-          <button onClick={() => console.log(this.state)}>Test</button>
         </section>
       </div>
     );

@@ -180,7 +180,6 @@ class Calendar extends React.Component {
                 : null}
             </tbody>
           </table>
-          <button onClick={() => console.log(this.state)}>Test</button>
         </div>
       </div>
     );
