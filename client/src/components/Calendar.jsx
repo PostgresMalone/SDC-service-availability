@@ -10,7 +10,8 @@ class Calendar extends React.Component {
       end: null,
       weeks: [], 
       month: null,
-      year: null
+      year: null,
+      vacancies: {}
     };
   }
 
@@ -46,11 +47,16 @@ class Calendar extends React.Component {
     return 6;
   }
 
-  setYearAndMonth() {
+  getVacancies(year, month) {
+    this.setState({ vacancies: this.props.dates[year][month] });
+  }
+
+  setYearAndMonth(callback) {
     const today = new Date;
     const year = today.getFullYear();
     const month = today.getMonth();
     this.setState({year, month});
+    callback(year, month);
   }
 
   buildWeeks(start, end, year, month) {
@@ -134,6 +140,7 @@ class Calendar extends React.Component {
     end++;
     end = end > 6 ? 0 : end;
     this.buildWeeks(end, null, year, month);
+    this.getVacancies(year, month);
   }
 
   minusMonth() {
@@ -151,6 +158,12 @@ class Calendar extends React.Component {
     start--;
     start = start < 0 ? 6 : start;
     this.buildWeeks(null, start, year, month);
+    this.getVacancies(year, month);
+  }
+
+  componentDidMount() {
+    this.initialStart((start) => this.buildWeeks(start));
+    this.setYearAndMonth((year, month) => this.getVacancies(year, month));
   }
 
   render() {
@@ -176,18 +189,25 @@ class Calendar extends React.Component {
                 <th>Sa</th>
               </tr>
               {this.state.weeks.length
-                ? this.state.weeks.map((week, ind) => <Week key={ind} week={week}/>)
+                ? this.state.weeks.map((week, ind) => 
+                  <Week 
+                    key={ind} 
+                    week={week}
+                    year={this.state.year}
+                    month={this.state.month}
+                    vacancy={this.state.vacancies}
+                    select={this.props.select}
+                    checkin={this.props.checkin}
+                    checkout={this.props.checkout}
+                    limit={this.props.limit}
+                  />)
                 : null}
             </tbody>
           </table>
+          <button onClick={() => console.log(this.state)}>Test</button>
         </div>
       </div>
     );
-  }
-
-  componentDidMount() {
-    this.initialStart((start) => this.buildWeeks(start));
-    this.setYearAndMonth();
   }
 
 }

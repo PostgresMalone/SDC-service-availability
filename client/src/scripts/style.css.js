@@ -23,8 +23,23 @@ const modalMain = {
   transform: 'translate(-50%,-50%)'
 };
 
+const unavailable = {
+  color: 'red'
+}
+
+const available = {
+  color: 'blue'
+}
+
+const selected = {
+  color: 'orange'
+}
+
 module.exports = {
   showModal,
   hideModal,
-  modalMain
+  modalMain,
+  unavailable,
+  available,
+  selected,
 };
