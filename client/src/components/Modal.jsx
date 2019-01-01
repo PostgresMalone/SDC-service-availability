@@ -10,8 +10,15 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      calendar: false
+      calendar: false,
+      selected: [],
+      in: null,
+      out: null
     };
+  }
+
+  showCalendar() {
+    this.setState({calendar: true});
   }
 
   render () {
@@ -54,10 +61,6 @@ class Modal extends React.Component {
         </section>
       </div>
     );
-  }
-
-  showCalendar() {
-    this.setState({calendar: true});
   }
 
 }
