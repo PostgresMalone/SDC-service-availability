@@ -199,6 +199,7 @@ class Calendar extends React.Component {
                   vacancy={this.state.vacancies}
                   select={this.props.select}
                   checkin={this.props.checkin}
+                  checkout={this.props.checkout}
                   limit={this.props.limit}
                   />)})
                 : null}

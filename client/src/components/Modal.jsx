@@ -100,6 +100,7 @@ class Modal extends React.Component {
                   dates={this.props.dates}
                   select={(e) => this.selectDates(e)}
                   checkin={this.state.in}
+                  checkout={this.state.out}
                   limit={this.state.limit}
                   /> 
                 : null}
