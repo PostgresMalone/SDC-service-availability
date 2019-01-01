@@ -63,9 +63,11 @@ class Modal extends React.Component {
                 ? <Calendar 
                   dates={this.props.dates}
                   select={(e) => this.selectDates(e)}
+                  checkin={this.state.in}
                   /> 
                 : null}
             </div>
+            <button onClick={() => console.log(this.state)}>Modal</button>
             <Guests />
           </section>
         </section>

@@ -198,6 +198,7 @@ class Calendar extends React.Component {
                   month={this.state.month}
                   vacancy={this.state.vacancies}
                   select={this.props.select}
+                  checkin={this.props.checkin}
                   />)})
                 : null}
             </tbody>
