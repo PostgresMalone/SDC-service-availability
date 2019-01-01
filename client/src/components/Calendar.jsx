@@ -11,7 +11,7 @@ class Calendar extends React.Component {
       weeks: [], 
       month: null,
       year: null
-    }
+    };
   }
 
   initialStart(callback) {
@@ -182,7 +182,7 @@ class Calendar extends React.Component {
           </table>
         </div>
       </div>
-    )
+    );
   }
 
   componentDidMount() {
@@ -190,6 +190,6 @@ class Calendar extends React.Component {
     this.setYearAndMonth();
   }
 
-};
+}
 
 export default Calendar;
