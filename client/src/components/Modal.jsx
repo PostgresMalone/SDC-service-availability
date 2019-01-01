@@ -93,7 +93,7 @@ class Modal extends React.Component {
             <div>
               <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
               <div><i className="fas fa-long-arrow-alt-right"></i></div>
-              <CheckOut click={() => this.showCalendar()}/>
+              <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
               {this.state.calendar 
                 ? <Calendar 
                   dates={this.props.dates}
