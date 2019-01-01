@@ -22,7 +22,7 @@ class Counter extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.total >= 3 && props.total) {
+    if ((props.total >= 3 && props.total) || (props.maximum && props.who >= props.maximum)) {
       return {addDisabled: true};
     } else {
       return {addDisabled: false};
