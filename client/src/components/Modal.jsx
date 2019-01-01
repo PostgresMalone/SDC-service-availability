@@ -22,7 +22,7 @@ class Modal extends React.Component {
   }
 
   selectDates(event) {
-    if (this.state.in) {
+    if (!this.state.in) {
       const date = event.target.id;
       this.setState({in: date});
     }
@@ -56,7 +56,7 @@ class Modal extends React.Component {
               </label>
             </div>
             <div>
-              <CheckIn click={() => this.showCalendar()}/>
+              <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
               <div><i className="fas fa-long-arrow-alt-right"></i></div>
               <CheckOut click={() => this.showCalendar()}/>
               {this.state.calendar 
