@@ -15,11 +15,17 @@ class Counter extends React.Component {
     this.setState({minusDisabled: false});
   }
 
+  minusClick() {
+    const minus = this.props.minus();
+    if (minus <= this.props.minimum) { this.setState({minusDisabled: true}); }
+    this.setState({addDisabled: false});
+  }
+
   render() {
     return (
       <div>
         <div>
-          <button disabled={this.state.disabled}>
+          <button disabled={this.state.minusDisabled} onClick={() => this.minusClick()}>
             <i className="fas fa-minus"></i>
           </button>
         </div>
