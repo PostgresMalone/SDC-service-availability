@@ -26,7 +26,7 @@ class Guests extends React.Component {
     const adults = this.state.adults + 1;
     const total = this.state.total + 1;
     this.setState({ adults, total });
-    return adults === 3 ? true : false;
+    return total === 3 ? true : false;
   }
 
   render() {
