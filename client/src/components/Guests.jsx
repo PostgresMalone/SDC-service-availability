@@ -22,15 +22,10 @@ class Guests extends React.Component {
     this.setState({showGuests: false});
   }
 
-  totalGuests() {
-    return this.state.adults + this.state.children + this.state.infants;
-  }
-
   addAdult() {
-    let adults = this.state.adults;
-    adults++;
-    console.log(adults);
-    this.setState({ adults });
+    const adults = this.state.adults + 1;
+    const total = this.state.total + 1;
+    this.setState({ adults, total });
   }
 
   render() {
@@ -56,7 +51,7 @@ class Guests extends React.Component {
           </div>
           {this.state.showGuests
             ? <Count total={total} adults={adults} children={children} infants={infants} 
-                close={() => this.hideGuests()} addAdult={() => this.addAdult()}/>
+                close={() => this.hideGuests()} addAdult={() => this.addAdult()} minusAdult={() => this.minusAdult()}/>
             : <div></div>}
         </div>
         <button onClick={() => console.log(this.state)}>Test</button>
