@@ -189,7 +189,16 @@ class Calendar extends React.Component {
                 <th>Sa</th>
               </tr>
               {this.state.weeks.length
-                ? this.state.weeks.map((week, ind) => <Week key={ind} week={week} vacancy={this.state.vacancies}/>)
+                ? this.state.weeks.map((week, ind) => {
+                  return (
+                  <Week 
+                  key={ind} 
+                  week={week}
+                  year={this.state.year}
+                  month={this.state.month}
+                  vacancy={this.state.vacancies}
+                  select={this.props.select}
+                  />)})
                 : null}
             </tbody>
           </table>

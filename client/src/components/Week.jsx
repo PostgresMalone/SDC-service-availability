@@ -1,11 +1,11 @@
 import React from 'react';
 import Day from './Day.jsx';
 
-const Week = ({ week, vacancy }) => (
+const Week = ({ week, vacancy, select, year, month }) => (
   <tr>
     {week.map((day, ind) => {
       if (day) {
-        return <Day key={ind} day={day} vacancy={vacancy[day].vacancy} />
+        return <Day key={ind} day={day} vacancy={vacancy[day].vacancy} select={select} year={year} month={month}/>
       } else {
         return <Day key={ind} day={day} />
       }})}

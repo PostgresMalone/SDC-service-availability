@@ -21,6 +21,13 @@ class Modal extends React.Component {
     this.setState({calendar: true});
   }
 
+  selectDates(event) {
+    if (this.state.in) {
+      const date = event.target.id;
+      this.setState({in: date});
+    }
+  }
+
   render () {
     const displayModal = this.props.show ? style.showModal : style.hideModal;
     return (
@@ -53,7 +60,10 @@ class Modal extends React.Component {
               <div>-></div>
               <CheckOut click={() => this.showCalendar()}/>
               {this.state.calendar 
-                ? <Calendar dates={this.props.dates}/> 
+                ? <Calendar 
+                  dates={this.props.dates}
+                  select={(e) => this.selectDates(e)}
+                  /> 
                 : null}
             </div>
             <Guests />
