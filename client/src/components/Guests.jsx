@@ -84,10 +84,19 @@ class Guests extends React.Component {
             </span>
           </div>
           {this.state.showGuests
-            ? <Count total={total} adults={adults} children={children} infants={infants} 
-              close={() => this.hideGuests()} addAdult={() => this.addAdult()} minusAdult={() => this.minusAdult()}
-              addChildren={() => this.addChildren()} minusChildren={() => this.minusChildren()}
-              addInfant={() => this.addInfant()} minusInfant={() => this.minusInfant()}/>
+            ? <Count 
+              total={total} 
+              adults={adults} 
+              children={children} 
+              infants={infants} 
+              close={() => this.hideGuests()} 
+              addAdult={() => this.addAdult()} 
+              minusAdult={() => this.minusAdult()}
+              addChildren={() => this.addChildren()} 
+              minusChildren={() => this.minusChildren()}
+              addInfant={() => this.addInfant()} 
+              minusInfant={() => this.minusInfant()
+              }/>
             : <div></div>}
         </div>
       </div>
