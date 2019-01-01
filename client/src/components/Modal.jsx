@@ -24,12 +24,18 @@ class Modal extends React.Component {
   }
 
   selectDates(event) {
+    const date = event.target.id;
     if (!this.state.in) {
-      const date = event.target.id;
       this.setState({in: date});
       this.makeUnavailableAfterLimit(date);
     }
-
+    if (this.state.in) {
+      this.setState({ out: date, limit: null });
+    }
+    if (this.state.in && this.state.out) {
+      this.setState({in: date, out: null});
+      this.makeUnavailableAfterLimit(date);
+    }
   }
 
   makeUnavailableAfterLimit(checkin) {

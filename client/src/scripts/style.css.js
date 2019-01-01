@@ -31,10 +31,15 @@ const available = {
   color: 'blue'
 }
 
+const selected = {
+  color: 'orange'
+}
+
 module.exports = {
   showModal,
   hideModal,
   modalMain,
   unavailable,
-  available
+  available,
+  selected,
 };
