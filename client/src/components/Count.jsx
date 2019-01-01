@@ -1,7 +1,7 @@
 import React from 'react';
 import Counter from './Counter.jsx';
 
-const Count = ({ close, total, adults, children, infants, addAdult, minusAdult }) => {
+const Count = ({ close, total, adults, children, infants, addAdult, minusAdult, addChildren, minusChildren }) => {
   return (
     <div>
       <div>
@@ -17,7 +17,7 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult }
           Children
         </div>
         <div>
-          <Counter who={children} add={addAdult} minus={minusAdult} minimum={0}/>
+          <Counter who={children} add={addChildren} minus={minusChildren} minimum={0}/>
         </div>
       </div>
       <div>

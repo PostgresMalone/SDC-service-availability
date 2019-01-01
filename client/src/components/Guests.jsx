@@ -26,7 +26,7 @@ class Guests extends React.Component {
     const adults = this.state.adults + 1;
     const total = this.state.total + 1;
     this.setState({ adults, total });
-    return total === 3 ? true : false;
+    return total >= 3 ? true : false;
   }
 
   minusAdult() {
@@ -34,6 +34,20 @@ class Guests extends React.Component {
     const total = this.state.total - 1;
     this.setState({ adults, total });
     return adults;
+  }
+
+  addChildren() {
+    const children = this.state.children + 1;
+    const total = this.state.total + 1;
+    this.setState({ children, total });
+    return total >= 3 ? true : false;
+  }
+
+  minusChildren() {
+    const children = this.state.children - 1;
+    const total = this.state.total - 1;
+    this.setState({ children, total });
+    return children;
   }
 
   render() {
@@ -59,7 +73,8 @@ class Guests extends React.Component {
           </div>
           {this.state.showGuests
             ? <Count total={total} adults={adults} children={children} infants={infants} 
-                close={() => this.hideGuests()} addAdult={() => this.addAdult()} minusAdult={() => this.minusAdult()}/>
+                close={() => this.hideGuests()} addAdult={() => this.addAdult()} minusAdult={() => this.minusAdult()}
+                addChildren={() => this.addChildren()} minusChildren={() => this.minusChildren()}/>
             : <div></div>}
         </div>
         <button onClick={() => console.log(this.state)}>Test</button>
