@@ -3,7 +3,7 @@ import focusText from '../scripts/focusText.js';
 
 const CheckIn = ({click}) => (
   <div>
-    <input type="text" readOnly value="Check In" 
+    <input type="text" readOnly value="Check in" 
       onFocus={focusText} onClick={click} className="check-in"></input>
   </div>
 );
