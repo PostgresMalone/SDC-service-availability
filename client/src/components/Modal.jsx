@@ -12,7 +12,6 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       calendar: false,
-      selected: [],
       in: null,
       out: null,
       limit: null
