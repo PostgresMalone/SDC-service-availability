@@ -29,7 +29,9 @@ const Count = ({ close, total, adults, children, infants, addAdult, minusAdult }
         </div>
       </div>
       <div>
-        <div></div>
+        <div>
+          3 guests maximum. Infants don’t count toward the number of guests.
+        </div>
         <div>
           <button onClick={close}>Close</button>
         </div>
