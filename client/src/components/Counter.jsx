@@ -4,13 +4,15 @@ class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: true,
+      minusDisabled: true,
+      addDisabled: false
     }
   }
 
   addClick() {
-    this.props.add();
-    this.setState({disabled: false});
+    const add = this.props.add();
+    if (add) { this.setState({addDisabled: true}); }
+    this.setState({minusDisabled: false});
   }
 
   render() {
@@ -27,7 +29,7 @@ class Counter extends React.Component {
           </div>
         </div>
         <div>
-          <button onClick={() => this.addClick()}>
+          <button disabled={this.state.addDisabled} onClick={() => this.addClick()}>
             <i className="fas fa-plus"></i>
           </button>
         </div>
