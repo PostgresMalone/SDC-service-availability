@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar.jsx';
 import axios from 'axios';
 import Modal from './Modal.jsx';
+import style from '../scripts/style.css.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.body.style.margin = '0';
     axios.get(`/availabilities/${this.state.listingId}`)
       .then(result => {
         const data = result.data[0].availability;

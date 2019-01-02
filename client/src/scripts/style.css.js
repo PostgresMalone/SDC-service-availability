@@ -25,19 +25,33 @@ const modalMain = {
 
 const unavailable = {
   color: 'red'
-}
+};
 
 const available = {
   color: 'blue'
-}
+};
 
 const selected = {
   color: 'orange'
-}
+};
 
 const checkdate = {
   color: 'green'
-}
+};
+
+const navbar = {
+  position: 'fixed',
+  overflow: 'hidden',
+  margin: '0',
+  bottom: '0',
+  width: '101%',
+  border: '1px solid rgba(230, 230, 230, 0.8)',
+  boxShadow: '0px -1px 3px rgba(230, 230, 230, 0.8)'
+};
+
+const body = {
+  margin: '0px'
+};
 
 module.exports = {
   showModal,
@@ -47,4 +61,6 @@ module.exports = {
   available,
   selected,
   checkdate,
+  navbar,
+  body,
 };
