@@ -24,6 +24,10 @@ class Modal extends React.Component {
     this.setState({calendar: true});
   }
 
+  clearDates() {
+    this.setState({in: null, out: null, limit: null});
+  }
+
   selectDates(event) {
     const date = event.target.id;
     if (!this.state.in) {
@@ -161,10 +165,10 @@ class Modal extends React.Component {
                   checkin={this.state.in}
                   checkout={this.state.out}
                   limit={this.state.limit}
+                  clear={() => this.clearDates()}
                 /> 
                 : null}
             </div>
-            <button onClick={() => console.log(this.state)}>Modal</button>
             <Guests />
             <div className="final-book">
               <button>

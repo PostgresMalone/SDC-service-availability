@@ -170,41 +170,52 @@ class Calendar extends React.Component {
     const month = convertToMonth(this.state.month);
     const year = this.state.year;
     return (
-      <div className="calendar">
-        <div>
-          <div className="previous-month-button" onClick={() => this.minusMonth()}><i className="fas fa-arrow-left"></i></div>
-          <div className="month-header">{month} {year}</div>
-          <div className="next-month-button" onClick={() => this.plusMonth()}><i className="fas fa-arrow-right"></i></div>
+      <div className="calendar-modal">
+        <div className="calendar-body">
+          <div>
+            <div className="previous-month-button" onClick={() => this.minusMonth()}><i className="fas fa-arrow-left"></i></div>
+            <div className="month-header">{month} {year}</div>
+            <div className="next-month-button" onClick={() => this.plusMonth()}><i className="fas fa-arrow-right"></i></div>
+          </div>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Su</th>
+                  <th>Mo</th>
+                  <th>Tu</th>
+                  <th>We</th>
+                  <th>Th</th>
+                  <th>Fr</th>
+                  <th>Sa</th>
+                </tr>
+                {this.state.weeks.length
+                  ? this.state.weeks.map((week, ind) => 
+                    <Week 
+                      key={ind} 
+                      week={week}
+                      year={this.state.year}
+                      month={this.state.month}
+                      vacancy={this.state.vacancies}
+                      select={this.props.select}
+                      checkin={this.props.checkin}
+                      checkout={this.props.checkout}
+                      limit={this.props.limit}
+                    />)
+                  : null}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <th>Su</th>
-                <th>Mo</th>
-                <th>Tu</th>
-                <th>We</th>
-                <th>Th</th>
-                <th>Fr</th>
-                <th>Sa</th>
-              </tr>
-              {this.state.weeks.length
-                ? this.state.weeks.map((week, ind) => 
-                  <Week 
-                    key={ind} 
-                    week={week}
-                    year={this.state.year}
-                    month={this.state.month}
-                    vacancy={this.state.vacancies}
-                    select={this.props.select}
-                    checkin={this.props.checkin}
-                    checkout={this.props.checkout}
-                    limit={this.props.limit}
-                  />)
-                : null}
-            </tbody>
-          </table>
-          <button onClick={() => console.log(this.state)}>Test</button>
+        <div className="update-and-clear">
+          <div>
+            <span>
+              <div>Updated 1 month ago</div>
+            </span>
+            <div>
+              <button className="clear-dates" onClick={this.props.clear}>Clear dates</button>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -40,8 +40,10 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
       const inMonth = checkIn[0];
       const inDay = checkIn[1];
       const inYear = checkIn[2];
-      if (inMonth <= dayMonth && inDay <= dayDay && inYear <= dayYear && dayMonth <= outMonth && dayDay <= outDay && dayYear <= outYear) {
+      if (inMonth <= dayMonth && inDay < dayDay && inYear <= dayYear && dayMonth <= outMonth && dayDay < outDay && dayYear <= outYear) {
         text = style.selected;
+      } else if ((inMonth === dayMonth && inDay === dayDay && inYear === dayYear) || dayMonth === outMonth && dayDay === outDay && dayYear === outYear) {
+        text = style.checkdate;
       }
     } else if (checkin) {
       const checkIn = getMonthDayYear(checkin);
@@ -54,10 +56,18 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
       ) {
         text = style.unavailable;
       }
+      if (dayMonth === inMonth && dayDay === inDay && dayYear === inYear) {
+        text =style.checkdate;
+      }
     }
     return (
       vacancy
-        ? <td style={text} id={`${month + 1}/${day}/${year}`} onClick={(e) => select(e)}>{day}</td>
+        ? <td 
+          style={text} 
+          id={`${month + 1}/${day}/${year}`} 
+          onClick={(e) => select(e)}
+          onMouseOver={}
+          >{day}</td>
         : <td style={text}>{day}</td>
     );
   } else {
