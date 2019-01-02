@@ -12,9 +12,7 @@ app.use(express.static('public'));
 
 app.get('/availabilities/:id', (req, res) => {
   const listingId = req.params.id;
-  console.log(listingId);
   db.getVacancy(listingId, result => {
-    console.log(result);
     res.status(200).send(JSON.stringify(result));
   });
 });
