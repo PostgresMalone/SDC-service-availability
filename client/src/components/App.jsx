@@ -27,20 +27,20 @@ class App extends React.Component {
       return (
         <div>
           <Navbar 
-          type={type} 
-          location={location} 
-          reviews={reviews} 
-          stars={stars}
-          price={price} click={() => this.showModal()}
+            type={type} 
+            location={location} 
+            reviews={reviews} 
+            stars={stars}
+            price={price} click={() => this.showModal()}
           />
           <Modal 
-          show={this.state.modal} 
-          hide={() => this.closeModal()}
-          dates={dates} 
-          reviews={reviews} 
-          stars={stars} 
-          price={price}
-          id={id}
+            show={this.state.modal} 
+            hide={() => this.closeModal()}
+            dates={dates} 
+            reviews={reviews} 
+            stars={stars} 
+            price={price}
+            id={id}
           />
         </div>
       );
