@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const Schema = mongoose.Schema;
 
-let database = {availability: {}};
+let database = [];
 const months = Array.from(Array(12), (el, ind) => ind);
 const years = ['2018', '2019', '2020', '2021'];
 const days31 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
@@ -46,19 +46,22 @@ const daysAssigner = (databaseUpToYear, month, year) => {
 };
 
 for (let i = 1; i < 101; i++) {
-  database.availability[i] = {};
-  database.availability[i]['reviewSummary'] = generateReviews();
-  database.availability[i]['type'] = generateType();
-  database.availability[i]['location'] = generateLocation();
-  database.availability[i]['reviewNum'] = generateReviewNum();
-  database.availability[i]['monthMin'] = generateVacancy();
+  let obj = {}
+  obj.roomId = i;
+  obj.availability = {};
+  obj.availability['reviewSummary'] = generateReviews();
+  obj.availability['type'] = generateType();
+  obj.availability['location'] = generateLocation();
+  obj.availability['reviewNum'] = generateReviewNum();
+  obj.availability['monthMin'] = generateVacancy();
   years.map(year => {
-    database.availability[i][year] = {};
+    obj.availability[year] = {};
     months.map(month => {
-      database.availability[i][year][month] = {};
-      daysAssigner(database.availability[i][year], month, year);
+      obj.availability[year][month] = {};
+      daysAssigner(obj.availability[year], month, year);
     });
   });
+  database.push(obj);
 }
 
 const vacancySchema = new Schema({
@@ -81,8 +84,7 @@ fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err 
     fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
       if (err) { return console.log('Error in reading file.', err); }
       const parsed = JSON.parse(data);
-      const availabilities = new Vacancy(parsed);
-      availabilities.save((err) => {
+      Vacancy.insertMany(parsed, err => {
         mongoose.connection.close(); 
         if (err) { return console.log('Error in saving.', err); }
         console.log('Success in saving!');
@@ -91,4 +93,4 @@ fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err 
   });
 });
 
-console.log(database);
+// console.log(database);

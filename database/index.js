@@ -20,10 +20,17 @@ const vacancySchema = new Schema({
 
 const Vacancy = mongoose.model('vacancy', vacancySchema);
 
-const getVacancy = (callback) => {
-  Vacancy.find()
+const getVacancy = (listingId, callback) => {
+  Vacancy.find({roomId: listingId})
     .then(results => callback(results))
     .catch(err => console.log('Error in getting from DB.', err));
 };
 
-module.exports = { getVacancy };
+const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
+  Vacancy.update({roomId: listingId}, {availability: updatedObj}, (err, raw) => {
+    if (err) { return console.log('Err in database in saving, error ', raw); }
+    callback(null);
+  });
+};
+
+module.exports = { getVacancy, updateVacancy };

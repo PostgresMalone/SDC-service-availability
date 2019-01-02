@@ -66,7 +66,6 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
           style={text} 
           id={`${month + 1}/${day}/${year}`} 
           onClick={(e) => select(e)}
-          onMouseOver={}
           >{day}</td>
         : <td style={text}>{day}</td>
     );
