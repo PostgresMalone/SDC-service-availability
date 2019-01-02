@@ -17,6 +17,11 @@ app.get('/availabilities/:id', (req, res) => {
   });
 });
 
+app.put('/availabilities/:id', (req, res) => {
+  const listingId = req.params.id;
+  
+});
+
 const port = 1001;
 
 app.listen(port, (err) => {

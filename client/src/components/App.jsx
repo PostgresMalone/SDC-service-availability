@@ -26,10 +26,22 @@ class App extends React.Component {
       
       return (
         <div>
-          <Navbar type={type} location={location} reviews={reviews} stars={stars}
-            price={price} click={() => this.showModal()}/>
-          <Modal show={this.state.modal} hide={() => this.closeModal()}
-            dates={dates} reviews={reviews} stars={stars} price={price}/>
+          <Navbar 
+          type={type} 
+          location={location} 
+          reviews={reviews} 
+          stars={stars}
+          price={price} click={() => this.showModal()}
+          />
+          <Modal 
+          show={this.state.modal} 
+          hide={() => this.closeModal()}
+          dates={dates} 
+          reviews={reviews} 
+          stars={stars} 
+          price={price}
+          id={id}
+          />
         </div>
       );
     } else {
@@ -44,9 +56,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(`/availabilities/${this.state.listingId}`)
       .then(result => {
-        console.log(result);
         const data = result.data[0].availability;
-        console.log(data);
         this.setState({data});
       })
       .catch(err => console.log('Err in getting data', err));
