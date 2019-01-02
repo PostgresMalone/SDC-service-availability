@@ -16,7 +16,8 @@ class Modal extends React.Component {
       calendar: false,
       in: null,
       out: null,
-      limit: null
+      limit: null,
+      dates: this.props.dates
     };
   }
 
@@ -46,12 +47,21 @@ class Modal extends React.Component {
   bookDates(start, end) {
     if (start && end) {
       const dates = this.createBookedArray(start, end);
-      const vacancies = this.updateAvailabilities(dates, this.props.dates);
-      axios.put(`/availabilities/${this.props.id}`, JSON.stringify(vacancies))
+      const avaiability = this.updateAvailabilities(dates, this.state.dates);
+      axios({
+        method: 'put',
+        url: `/availabilities/${this.props.id}`,
+        data: { avaiability }
+      })
         .then(() => {
           window.alert(`You have booked the dates ${start} to ${end}`);
+          axios.get(`/availabilities/${this.props.id}`)
+            .then(result => {
+              const data = result.data[0].availability;
+              this.setState({data, in: null, out: null, limit: null});
+            })
         })
-        .catch((err) => 'Failed to update in database');
+        .catch(() => console.log('Failed to update in database'));
     } else {
       this.setState({calendar: true});
     }
@@ -105,7 +115,7 @@ class Modal extends React.Component {
     let day = arr[1];
     let year = arr[2];
     let truth = true;
-    let vacancies = this.props.dates[year][month];
+    let vacancies = this.state.dates[year][month];
     let len = Object.keys(vacancies).length;
     while (truth) {
       day++;
@@ -115,7 +125,7 @@ class Modal extends React.Component {
           year++;
           month = 0;
         }
-        vacancies = this.props.dates[year][month];
+        vacancies = this.state.dates[year][month];
         day = 1;
       }
       if (!vacancies[day].vacancy) {
@@ -160,7 +170,7 @@ class Modal extends React.Component {
               <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
               {this.state.calendar 
                 ? <Calendar 
-                  dates={this.props.dates}
+                  dates={this.state.dates}
                   select={(e) => this.selectDates(e)}
                   checkin={this.state.in}
                   checkout={this.state.out}

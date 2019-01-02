@@ -19,9 +19,11 @@ app.get('/availabilities/:id', (req, res) => {
 
 app.put('/availabilities/:id', (req, res) => {
   const listingId = req.params.id;
-  const availabilities = req.body;
-  console.log(req);
-
+  const availability = req.body.avaiability;
+  db.updateVacancy(listingId, availability, () => { // delete this callback later
+    console.log('Success in updating!');
+    res.status(204).end();
+  })
 });
 
 const port = 1001;

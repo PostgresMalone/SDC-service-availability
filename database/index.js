@@ -26,9 +26,11 @@ const getVacancy = (listingId, callback) => {
     .catch(err => console.log('Error in getting from DB.', err));
 };
 
-const updateVacancy = (listingId, callback) => {
-  Vacancy.find({roomId: listingId})
-    
-}
+const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
+  Vacancy.update({roomId: listingId}, {availability: updatedObj}, (err, raw) => {
+    if (err) { return console.log('Err in database in saving, error ', raw); }
+    callback(null);
+  });
+};
 
 module.exports = { getVacancy, updateVacancy };
