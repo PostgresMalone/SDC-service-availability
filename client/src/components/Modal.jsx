@@ -40,9 +40,12 @@ class Modal extends React.Component {
   }
 
   bookDates(start, end) {
-    const dates = this.createBookedArray(start, end);
-    const vacancies = this.updateAvailabilities(dates, this.props.dates);
-
+    if (start && end) {
+      const dates = this.createBookedArray(start, end);
+      const vacancies = this.updateAvailabilities(dates, this.props.dates);
+    } else {
+      this.setState({calendar: true});
+    }
   }
 
   createBookedArray(start, end) {
@@ -77,9 +80,9 @@ class Modal extends React.Component {
   updateAvailabilities(dateArray, vacancies) {
     dateArray.map(date => {
       const booking = getMonthDayYear(date);
-      const month = date[0];
-      const day = date[1];
-      const year = date[2];
+      const month = booking[0];
+      const day = booking[1];
+      const year = booking[2];
       vacancies[year][month][day].vacancy = false;
     });
 
@@ -160,7 +163,7 @@ class Modal extends React.Component {
             <Guests />
             <div className="final-book">
               <button>
-                <div className="button-book" onClick={() => this.bookDates()}>Book</div>
+                <div className="button-book" onClick={() => this.bookDates(this.state.in, this.state.out)}>Book</div>
               </button>
             </div>
             <div>
