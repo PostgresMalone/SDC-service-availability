@@ -43,7 +43,11 @@ class Modal extends React.Component {
     if (start && end) {
       const dates = this.createBookedArray(start, end);
       const vacancies = this.updateAvailabilities(dates, this.props.dates);
-      window.alert(`You have booked the dates ${start} to ${end}`);
+      axios.put(`/availabilities/${this.props.id}`, JSON.stringify(vacancies))
+        .then(() => {
+          window.alert(`You have booked the dates ${start} to ${end}`);
+        })
+        .catch((err) => 'Failed to update in database');
     } else {
       this.setState({calendar: true});
     }

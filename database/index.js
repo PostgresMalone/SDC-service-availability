@@ -26,4 +26,9 @@ const getVacancy = (listingId, callback) => {
     .catch(err => console.log('Error in getting from DB.', err));
 };
 
-module.exports = { getVacancy };
+const updateVacancy = (listingId, callback) => {
+  Vacancy.find({roomId: listingId})
+    
+}
+
+module.exports = { getVacancy, updateVacancy };

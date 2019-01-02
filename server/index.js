@@ -19,7 +19,9 @@ app.get('/availabilities/:id', (req, res) => {
 
 app.put('/availabilities/:id', (req, res) => {
   const listingId = req.params.id;
-  
+  const availabilities = req.body;
+  console.log(req);
+
 });
 
 const port = 1001;
