@@ -1,15 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
+const path = require('path');
 const app = express();
 
+app.use(express.static(path.resolve(__dirname + '/../public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-app.get('/availabilities', (req, res) => {
-  db.getVacancy(result => {
+app.get('/availabilities/:id', (req, res) => {
+  const listingId = req.params.id;
+  console.log(listingId);
+  db.getVacancy(listingId, result => {
+    console.log(result);
     res.status(200).send(JSON.stringify(result));
   });
 });

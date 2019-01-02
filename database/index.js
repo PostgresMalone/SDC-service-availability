@@ -20,8 +20,8 @@ const vacancySchema = new Schema({
 
 const Vacancy = mongoose.model('vacancy', vacancySchema);
 
-const getVacancy = (callback) => {
-  Vacancy.find()
+const getVacancy = (listingId, callback) => {
+  Vacancy.find({availability: listingId})
     .then(results => callback(results))
     .catch(err => console.log('Error in getting from DB.', err));
 };

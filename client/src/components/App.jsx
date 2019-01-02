@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/availabilities')
+    axios.get(`/availabilities/${this.state.listingId}`)
       .then(result => {
         const data = result.data[0].availability;
         this.setState({data});
