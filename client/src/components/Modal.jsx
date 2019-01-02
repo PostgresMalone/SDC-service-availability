@@ -7,7 +7,7 @@ import Guests from './Guests.jsx';
 import Star from './Star.jsx';
 import getMonthDayYear from '../scripts/getMonthDayYear.js';
 import axios from 'axios';
-import monthLengths from '../scripts/monthLengths.js'
+import monthLengths from '../scripts/monthLengths.js';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class Modal extends React.Component {
             .then(result => {
               const data = result.data[0].availability;
               this.setState({data, in: null, out: null, limit: null});
-            })
+            });
         })
         .catch(() => console.log('Failed to update in database'));
     } else {
@@ -90,7 +90,7 @@ class Modal extends React.Component {
         }
       }
       month++;
-      date = [month, day, year].join('/')
+      date = [month, day, year].join('/');
     }
     dates.push(end);
     return dates;

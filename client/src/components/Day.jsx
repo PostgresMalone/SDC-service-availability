@@ -57,7 +57,7 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
         text = style.unavailable;
       }
       if (dayMonth === inMonth && dayDay === inDay && dayYear === inYear) {
-        text =style.checkdate;
+        text = style.checkdate;
       }
     }
     return (
@@ -66,7 +66,7 @@ const Day = ({ day, vacancy, select, year, month, checkin, checkout, limit }) =>
           style={text} 
           id={`${month + 1}/${day}/${year}`} 
           onClick={(e) => select(e)}
-          >{day}</td>
+        >{day}</td>
         : <td style={text}>{day}</td>
     );
   } else {
