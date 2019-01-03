@@ -1,9 +1,4176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Availability Render render() Renders the top-level component 1`] = `
-<div>
-  <h1>
-    Loading...
-  </h1>
-</div>
+exports[`Availability Render Availability Renders the top-level component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <h1>
+        Loading...
+      </h1>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Loading...",
+      },
+      "ref": null,
+      "rendered": "Loading...",
+      "type": "h1",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <h1>
+          Loading...
+        </h1>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Loading...",
+        },
+        "ref": null,
+        "rendered": "Loading...",
+        "type": "h1",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Availability Render Calendar Renders with data 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Calendar
+    checkin={null}
+    checkout={null}
+    dates={
+      Object {
+        "2019": Object {
+          "0": Object {
+            "1": Object {
+              "price": 177,
+              "vacancy": true,
+            },
+          },
+          "1": Object {
+            "1": Object {
+              "price": 177,
+              "vacancy": true,
+            },
+          },
+        },
+      }
+    }
+    limit={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="calendar-body"
+        >
+          <div>
+            <div
+              className="previous-month-button"
+              onClick={[Function]}
+            >
+              <i
+                className="fas fa-arrow-left"
+              />
+            </div>
+            <div
+              className="month-header"
+            >
+              January
+               
+              2019
+            </div>
+            <div
+              className="next-month-button"
+              onClick={[Function]}
+            >
+              <i
+                className="fas fa-arrow-right"
+              />
+            </div>
+          </div>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <th>
+                    Su
+                  </th>
+                  <th>
+                    Mo
+                  </th>
+                  <th>
+                    Tu
+                  </th>
+                  <th>
+                    We
+                  </th>
+                  <th>
+                    Th
+                  </th>
+                  <th>
+                    Fr
+                  </th>
+                  <th>
+                    Sa
+                  </th>
+                </tr>
+                <Week
+                  checkin={null}
+                  checkout={null}
+                  limit={null}
+                  month={0}
+                  vacancy={
+                    Object {
+                      "1": Object {
+                        "price": 177,
+                        "vacancy": true,
+                      },
+                    }
+                  }
+                  week={
+                    Array [
+                      null,
+                      null,
+                      "1",
+                      null,
+                      null,
+                      null,
+                      null,
+                    ]
+                  }
+                  year={2019}
+                />
+              </tbody>
+            </table>
+          </div>
+        </div>,
+        <div
+          className="update-and-clear"
+        >
+          <div>
+            <span>
+              <div>
+                Updated 1 month ago
+              </div>
+            </span>
+            <div>
+              <button
+                className="clear-dates"
+              >
+                Clear dates
+              </button>
+            </div>
+          </div>
+        </div>,
+      ],
+      "className": "calendar-modal",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div>
+              <div
+                className="previous-month-button"
+                onClick={[Function]}
+              >
+                <i
+                  className="fas fa-arrow-left"
+                />
+              </div>
+              <div
+                className="month-header"
+              >
+                January
+                 
+                2019
+              </div>
+              <div
+                className="next-month-button"
+                onClick={[Function]}
+              >
+                <i
+                  className="fas fa-arrow-right"
+                />
+              </div>
+            </div>,
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>
+                      Su
+                    </th>
+                    <th>
+                      Mo
+                    </th>
+                    <th>
+                      Tu
+                    </th>
+                    <th>
+                      We
+                    </th>
+                    <th>
+                      Th
+                    </th>
+                    <th>
+                      Fr
+                    </th>
+                    <th>
+                      Sa
+                    </th>
+                  </tr>
+                  <Week
+                    checkin={null}
+                    checkout={null}
+                    limit={null}
+                    month={0}
+                    vacancy={
+                      Object {
+                        "1": Object {
+                          "price": 177,
+                          "vacancy": true,
+                        },
+                      }
+                    }
+                    week={
+                      Array [
+                        null,
+                        null,
+                        "1",
+                        null,
+                        null,
+                        null,
+                        null,
+                      ]
+                    }
+                    year={2019}
+                  />
+                </tbody>
+              </table>
+            </div>,
+          ],
+          "className": "calendar-body",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="previous-month-button"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fas fa-arrow-left"
+                  />
+                </div>,
+                <div
+                  className="month-header"
+                >
+                  January
+                   
+                  2019
+                </div>,
+                <div
+                  className="next-month-button"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fas fa-arrow-right"
+                  />
+                </div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <i
+                    className="fas fa-arrow-left"
+                  />,
+                  "className": "previous-month-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-arrow-left",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "January",
+                    " ",
+                    2019,
+                  ],
+                  "className": "month-header",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "January",
+                  " ",
+                  2019,
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <i
+                    className="fas fa-arrow-right"
+                  />,
+                  "className": "next-month-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-arrow-right",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <table>
+                <tbody>
+                  <tr>
+                    <th>
+                      Su
+                    </th>
+                    <th>
+                      Mo
+                    </th>
+                    <th>
+                      Tu
+                    </th>
+                    <th>
+                      We
+                    </th>
+                    <th>
+                      Th
+                    </th>
+                    <th>
+                      Fr
+                    </th>
+                    <th>
+                      Sa
+                    </th>
+                  </tr>
+                  <Week
+                    checkin={null}
+                    checkout={null}
+                    limit={null}
+                    month={0}
+                    vacancy={
+                      Object {
+                        "1": Object {
+                          "price": 177,
+                          "vacancy": true,
+                        },
+                      }
+                    }
+                    week={
+                      Array [
+                        null,
+                        null,
+                        "1",
+                        null,
+                        null,
+                        null,
+                        null,
+                      ]
+                    }
+                    year={2019}
+                  />
+                </tbody>
+              </table>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <tbody>
+                  <tr>
+                    <th>
+                      Su
+                    </th>
+                    <th>
+                      Mo
+                    </th>
+                    <th>
+                      Tu
+                    </th>
+                    <th>
+                      We
+                    </th>
+                    <th>
+                      Th
+                    </th>
+                    <th>
+                      Fr
+                    </th>
+                    <th>
+                      Sa
+                    </th>
+                  </tr>
+                  <Week
+                    checkin={null}
+                    checkout={null}
+                    limit={null}
+                    month={0}
+                    vacancy={
+                      Object {
+                        "1": Object {
+                          "price": 177,
+                          "vacancy": true,
+                        },
+                      }
+                    }
+                    week={
+                      Array [
+                        null,
+                        null,
+                        "1",
+                        null,
+                        null,
+                        null,
+                        null,
+                      ]
+                    }
+                    year={2019}
+                  />
+                </tbody>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <tr>
+                      <th>
+                        Su
+                      </th>
+                      <th>
+                        Mo
+                      </th>
+                      <th>
+                        Tu
+                      </th>
+                      <th>
+                        We
+                      </th>
+                      <th>
+                        Th
+                      </th>
+                      <th>
+                        Fr
+                      </th>
+                      <th>
+                        Sa
+                      </th>
+                    </tr>,
+                    Array [
+                      <Week
+                        checkin={null}
+                        checkout={null}
+                        limit={null}
+                        month={0}
+                        vacancy={
+                          Object {
+                            "1": Object {
+                              "price": 177,
+                              "vacancy": true,
+                            },
+                          }
+                        }
+                        week={
+                          Array [
+                            null,
+                            null,
+                            "1",
+                            null,
+                            null,
+                            null,
+                            null,
+                          ]
+                        }
+                        year={2019}
+                      />,
+                    ],
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <th>
+                          Su
+                        </th>,
+                        <th>
+                          Mo
+                        </th>,
+                        <th>
+                          Tu
+                        </th>,
+                        <th>
+                          We
+                        </th>,
+                        <th>
+                          Th
+                        </th>,
+                        <th>
+                          Fr
+                        </th>,
+                        <th>
+                          Sa
+                        </th>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Su",
+                        },
+                        "ref": null,
+                        "rendered": "Su",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Mo",
+                        },
+                        "ref": null,
+                        "rendered": "Mo",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Tu",
+                        },
+                        "ref": null,
+                        "rendered": "Tu",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "We",
+                        },
+                        "ref": null,
+                        "rendered": "We",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Th",
+                        },
+                        "ref": null,
+                        "rendered": "Th",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Fr",
+                        },
+                        "ref": null,
+                        "rendered": "Fr",
+                        "type": "th",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Sa",
+                        },
+                        "ref": null,
+                        "rendered": "Sa",
+                        "type": "th",
+                      },
+                    ],
+                    "type": "tr",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "0",
+                    "nodeType": "function",
+                    "props": Object {
+                      "checkin": null,
+                      "checkout": null,
+                      "limit": null,
+                      "month": 0,
+                      "select": undefined,
+                      "vacancy": Object {
+                        "1": Object {
+                          "price": 177,
+                          "vacancy": true,
+                        },
+                      },
+                      "week": Array [
+                        null,
+                        null,
+                        "1",
+                        null,
+                        null,
+                        null,
+                        null,
+                      ],
+                      "year": 2019,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                ],
+                "type": "tbody",
+              },
+              "type": "table",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div>
+            <span>
+              <div>
+                Updated 1 month ago
+              </div>
+            </span>
+            <div>
+              <button
+                className="clear-dates"
+              >
+                Clear dates
+              </button>
+            </div>
+          </div>,
+          "className": "update-and-clear",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                <div>
+                  Updated 1 month ago
+                </div>
+              </span>,
+              <div>
+                <button
+                  className="clear-dates"
+                >
+                  Clear dates
+                </button>
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  Updated 1 month ago
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Updated 1 month ago",
+                },
+                "ref": null,
+                "rendered": "Updated 1 month ago",
+                "type": "div",
+              },
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <button
+                  className="clear-dates"
+                >
+                  Clear dates
+                </button>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Clear dates",
+                  "className": "clear-dates",
+                  "onClick": undefined,
+                },
+                "ref": null,
+                "rendered": "Clear dates",
+                "type": "button",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="calendar-body"
+          >
+            <div>
+              <div
+                className="previous-month-button"
+                onClick={[Function]}
+              >
+                <i
+                  className="fas fa-arrow-left"
+                />
+              </div>
+              <div
+                className="month-header"
+              >
+                January
+                 
+                2019
+              </div>
+              <div
+                className="next-month-button"
+                onClick={[Function]}
+              >
+                <i
+                  className="fas fa-arrow-right"
+                />
+              </div>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>
+                      Su
+                    </th>
+                    <th>
+                      Mo
+                    </th>
+                    <th>
+                      Tu
+                    </th>
+                    <th>
+                      We
+                    </th>
+                    <th>
+                      Th
+                    </th>
+                    <th>
+                      Fr
+                    </th>
+                    <th>
+                      Sa
+                    </th>
+                  </tr>
+                  <Week
+                    checkin={null}
+                    checkout={null}
+                    limit={null}
+                    month={0}
+                    vacancy={
+                      Object {
+                        "1": Object {
+                          "price": 177,
+                          "vacancy": true,
+                        },
+                      }
+                    }
+                    week={
+                      Array [
+                        null,
+                        null,
+                        "1",
+                        null,
+                        null,
+                        null,
+                        null,
+                      ]
+                    }
+                    year={2019}
+                  />
+                </tbody>
+              </table>
+            </div>
+          </div>,
+          <div
+            className="update-and-clear"
+          >
+            <div>
+              <span>
+                <div>
+                  Updated 1 month ago
+                </div>
+              </span>
+              <div>
+                <button
+                  className="clear-dates"
+                >
+                  Clear dates
+                </button>
+              </div>
+            </div>
+          </div>,
+        ],
+        "className": "calendar-modal",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div>
+                <div
+                  className="previous-month-button"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fas fa-arrow-left"
+                  />
+                </div>
+                <div
+                  className="month-header"
+                >
+                  January
+                   
+                  2019
+                </div>
+                <div
+                  className="next-month-button"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fas fa-arrow-right"
+                  />
+                </div>
+              </div>,
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th>
+                        Su
+                      </th>
+                      <th>
+                        Mo
+                      </th>
+                      <th>
+                        Tu
+                      </th>
+                      <th>
+                        We
+                      </th>
+                      <th>
+                        Th
+                      </th>
+                      <th>
+                        Fr
+                      </th>
+                      <th>
+                        Sa
+                      </th>
+                    </tr>
+                    <Week
+                      checkin={null}
+                      checkout={null}
+                      limit={null}
+                      month={0}
+                      vacancy={
+                        Object {
+                          "1": Object {
+                            "price": 177,
+                            "vacancy": true,
+                          },
+                        }
+                      }
+                      week={
+                        Array [
+                          null,
+                          null,
+                          "1",
+                          null,
+                          null,
+                          null,
+                          null,
+                        ]
+                      }
+                      year={2019}
+                    />
+                  </tbody>
+                </table>
+              </div>,
+            ],
+            "className": "calendar-body",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="previous-month-button"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fas fa-arrow-left"
+                    />
+                  </div>,
+                  <div
+                    className="month-header"
+                  >
+                    January
+                     
+                    2019
+                  </div>,
+                  <div
+                    className="next-month-button"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fas fa-arrow-right"
+                    />
+                  </div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-arrow-left"
+                    />,
+                    "className": "previous-month-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-arrow-left",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "January",
+                      " ",
+                      2019,
+                    ],
+                    "className": "month-header",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "January",
+                    " ",
+                    2019,
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-arrow-right"
+                    />,
+                    "className": "next-month-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-arrow-right",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <table>
+                  <tbody>
+                    <tr>
+                      <th>
+                        Su
+                      </th>
+                      <th>
+                        Mo
+                      </th>
+                      <th>
+                        Tu
+                      </th>
+                      <th>
+                        We
+                      </th>
+                      <th>
+                        Th
+                      </th>
+                      <th>
+                        Fr
+                      </th>
+                      <th>
+                        Sa
+                      </th>
+                    </tr>
+                    <Week
+                      checkin={null}
+                      checkout={null}
+                      limit={null}
+                      month={0}
+                      vacancy={
+                        Object {
+                          "1": Object {
+                            "price": 177,
+                            "vacancy": true,
+                          },
+                        }
+                      }
+                      week={
+                        Array [
+                          null,
+                          null,
+                          "1",
+                          null,
+                          null,
+                          null,
+                          null,
+                        ]
+                      }
+                      year={2019}
+                    />
+                  </tbody>
+                </table>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <tbody>
+                    <tr>
+                      <th>
+                        Su
+                      </th>
+                      <th>
+                        Mo
+                      </th>
+                      <th>
+                        Tu
+                      </th>
+                      <th>
+                        We
+                      </th>
+                      <th>
+                        Th
+                      </th>
+                      <th>
+                        Fr
+                      </th>
+                      <th>
+                        Sa
+                      </th>
+                    </tr>
+                    <Week
+                      checkin={null}
+                      checkout={null}
+                      limit={null}
+                      month={0}
+                      vacancy={
+                        Object {
+                          "1": Object {
+                            "price": 177,
+                            "vacancy": true,
+                          },
+                        }
+                      }
+                      week={
+                        Array [
+                          null,
+                          null,
+                          "1",
+                          null,
+                          null,
+                          null,
+                          null,
+                        ]
+                      }
+                      year={2019}
+                    />
+                  </tbody>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <tr>
+                        <th>
+                          Su
+                        </th>
+                        <th>
+                          Mo
+                        </th>
+                        <th>
+                          Tu
+                        </th>
+                        <th>
+                          We
+                        </th>
+                        <th>
+                          Th
+                        </th>
+                        <th>
+                          Fr
+                        </th>
+                        <th>
+                          Sa
+                        </th>
+                      </tr>,
+                      Array [
+                        <Week
+                          checkin={null}
+                          checkout={null}
+                          limit={null}
+                          month={0}
+                          vacancy={
+                            Object {
+                              "1": Object {
+                                "price": 177,
+                                "vacancy": true,
+                              },
+                            }
+                          }
+                          week={
+                            Array [
+                              null,
+                              null,
+                              "1",
+                              null,
+                              null,
+                              null,
+                              null,
+                            ]
+                          }
+                          year={2019}
+                        />,
+                      ],
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <th>
+                            Su
+                          </th>,
+                          <th>
+                            Mo
+                          </th>,
+                          <th>
+                            Tu
+                          </th>,
+                          <th>
+                            We
+                          </th>,
+                          <th>
+                            Th
+                          </th>,
+                          <th>
+                            Fr
+                          </th>,
+                          <th>
+                            Sa
+                          </th>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Su",
+                          },
+                          "ref": null,
+                          "rendered": "Su",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Mo",
+                          },
+                          "ref": null,
+                          "rendered": "Mo",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Tu",
+                          },
+                          "ref": null,
+                          "rendered": "Tu",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "We",
+                          },
+                          "ref": null,
+                          "rendered": "We",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Th",
+                          },
+                          "ref": null,
+                          "rendered": "Th",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Fr",
+                          },
+                          "ref": null,
+                          "rendered": "Fr",
+                          "type": "th",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Sa",
+                          },
+                          "ref": null,
+                          "rendered": "Sa",
+                          "type": "th",
+                        },
+                      ],
+                      "type": "tr",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "0",
+                      "nodeType": "function",
+                      "props": Object {
+                        "checkin": null,
+                        "checkout": null,
+                        "limit": null,
+                        "month": 0,
+                        "select": undefined,
+                        "vacancy": Object {
+                          "1": Object {
+                            "price": 177,
+                            "vacancy": true,
+                          },
+                        },
+                        "week": Array [
+                          null,
+                          null,
+                          "1",
+                          null,
+                          null,
+                          null,
+                          null,
+                        ],
+                        "year": 2019,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "tbody",
+                },
+                "type": "table",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div>
+              <span>
+                <div>
+                  Updated 1 month ago
+                </div>
+              </span>
+              <div>
+                <button
+                  className="clear-dates"
+                >
+                  Clear dates
+                </button>
+              </div>
+            </div>,
+            "className": "update-and-clear",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  <div>
+                    Updated 1 month ago
+                  </div>
+                </span>,
+                <div>
+                  <button
+                    className="clear-dates"
+                  >
+                    Clear dates
+                  </button>
+                </div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    Updated 1 month ago
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Updated 1 month ago",
+                  },
+                  "ref": null,
+                  "rendered": "Updated 1 month ago",
+                  "type": "div",
+                },
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <button
+                    className="clear-dates"
+                  >
+                    Clear dates
+                  </button>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Clear dates",
+                    "className": "clear-dates",
+                    "onClick": undefined,
+                  },
+                  "ref": null,
+                  "rendered": "Clear dates",
+                  "type": "button",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Availability Render Modal Renders with data 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Modal
+    dates={
+      Object {
+        "2019": Object {
+          "0": Object {
+            "1": Object {
+              "price": 177,
+              "vacancy": true,
+            },
+          },
+          "1": Object {
+            "1": Object {
+              "price": 177,
+              "vacancy": true,
+            },
+          },
+        },
+      }
+    }
+    id={69}
+    price={199}
+    reviews={199}
+    stars="4.7"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <section
+        style={
+          Object {
+            "background": "white",
+            "height": "auto",
+            "left": "50%",
+            "position": "fixed",
+            "top": "50%",
+            "transform": "translate(-50%,-50%)",
+            "width": "80%",
+          }
+        }
+      >
+        <div>
+          <button>
+            X
+          </button>
+        </div>
+        <section>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <span>
+                    $
+                    199
+                  </span>
+                  <span>
+                     / night
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <Star
+                      stars="4.7"
+                    />
+                  </span>
+                  <span>
+                    199
+                  </span>
+                </div>
+                <div>
+                  <div>
+                    -----------------
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label>
+              <span>
+                Dates
+              </span>
+            </label>
+          </div>
+          <div>
+            <CheckIn
+              checkin={null}
+              click={[Function]}
+            />
+            <div>
+              <i
+                className="fas fa-long-arrow-alt-right"
+              />
+            </div>
+            <CheckOut
+              checkout={null}
+              click={[Function]}
+            />
+          </div>
+          <Guests />
+          <div
+            className="final-book"
+          >
+            <button>
+              <div
+                className="button-book"
+                onClick={[Function]}
+              >
+                Book
+              </div>
+            </button>
+          </div>
+          <div>
+            <div>
+              <span>
+                You won't be charged yet.
+              </span>
+            </div>
+          </div>
+        </section>
+      </section>,
+      "style": Object {
+        "display": "none",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <button>
+              X
+            </button>
+          </div>,
+          <section>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <span>
+                      $
+                      199
+                    </span>
+                    <span>
+                       / night
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <Star
+                        stars="4.7"
+                      />
+                    </span>
+                    <span>
+                      199
+                    </span>
+                  </div>
+                  <div>
+                    <div>
+                      -----------------
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label>
+                <span>
+                  Dates
+                </span>
+              </label>
+            </div>
+            <div>
+              <CheckIn
+                checkin={null}
+                click={[Function]}
+              />
+              <div>
+                <i
+                  className="fas fa-long-arrow-alt-right"
+                />
+              </div>
+              <CheckOut
+                checkout={null}
+                click={[Function]}
+              />
+            </div>
+            <Guests />
+            <div
+              className="final-book"
+            >
+              <button>
+                <div
+                  className="button-book"
+                  onClick={[Function]}
+                >
+                  Book
+                </div>
+              </button>
+            </div>
+            <div>
+              <div>
+                <span>
+                  You won't be charged yet.
+                </span>
+              </div>
+            </div>
+          </section>,
+        ],
+        "style": Object {
+          "background": "white",
+          "height": "auto",
+          "left": "50%",
+          "position": "fixed",
+          "top": "50%",
+          "transform": "translate(-50%,-50%)",
+          "width": "80%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <button>
+              X
+            </button>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "X",
+              "onClick": undefined,
+            },
+            "ref": null,
+            "rendered": "X",
+            "type": "button",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <span>
+                        $
+                        199
+                      </span>
+                      <span>
+                         / night
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        <Star
+                          stars="4.7"
+                        />
+                      </span>
+                      <span>
+                        199
+                      </span>
+                    </div>
+                    <div>
+                      <div>
+                        -----------------
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label>
+                  <span>
+                    Dates
+                  </span>
+                </label>
+              </div>,
+              <div>
+                <CheckIn
+                  checkin={null}
+                  click={[Function]}
+                />
+                <div>
+                  <i
+                    className="fas fa-long-arrow-alt-right"
+                  />
+                </div>
+                <CheckOut
+                  checkout={null}
+                  click={[Function]}
+                />
+              </div>,
+              <Guests />,
+              <div
+                className="final-book"
+              >
+                <button>
+                  <div
+                    className="button-book"
+                    onClick={[Function]}
+                  >
+                    Book
+                  </div>
+                </button>
+              </div>,
+              <div>
+                <div>
+                  <span>
+                    You won't be charged yet.
+                  </span>
+                </div>
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div>
+                    <div>
+                      <div>
+                        <span>
+                          $
+                          199
+                        </span>
+                        <span>
+                           / night
+                        </span>
+                      </div>
+                      <div>
+                        <span>
+                          <Star
+                            stars="4.7"
+                          />
+                        </span>
+                        <span>
+                          199
+                        </span>
+                      </div>
+                      <div>
+                        <div>
+                          -----------------
+                        </div>
+                      </div>
+                    </div>
+                  </div>,
+                  <label>
+                    <span>
+                      Dates
+                    </span>
+                  </label>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div>
+                      <div>
+                        <span>
+                          $
+                          199
+                        </span>
+                        <span>
+                           / night
+                        </span>
+                      </div>
+                      <div>
+                        <span>
+                          <Star
+                            stars="4.7"
+                          />
+                        </span>
+                        <span>
+                          199
+                        </span>
+                      </div>
+                      <div>
+                        <div>
+                          -----------------
+                        </div>
+                      </div>
+                    </div>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <div>
+                          <span>
+                            $
+                            199
+                          </span>
+                          <span>
+                             / night
+                          </span>
+                        </div>,
+                        <div>
+                          <span>
+                            <Star
+                              stars="4.7"
+                            />
+                          </span>
+                          <span>
+                            199
+                          </span>
+                        </div>,
+                        <div>
+                          <div>
+                            -----------------
+                          </div>
+                        </div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <span>
+                              $
+                              199
+                            </span>,
+                            <span>
+                               / night
+                            </span>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                "$",
+                                199,
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "$",
+                              199,
+                            ],
+                            "type": "span",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": " / night",
+                            },
+                            "ref": null,
+                            "rendered": " / night",
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <span>
+                              <Star
+                                stars="4.7"
+                              />
+                            </span>,
+                            <span>
+                              199
+                            </span>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <Star
+                                stars="4.7"
+                              />,
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "function",
+                              "props": Object {
+                                "stars": "4.7",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": [Function],
+                            },
+                            "type": "span",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": 199,
+                            },
+                            "ref": null,
+                            "rendered": 199,
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <div>
+                            -----------------
+                          </div>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "-----------------",
+                          },
+                          "ref": null,
+                          "rendered": "-----------------",
+                          "type": "div",
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <span>
+                      Dates
+                    </span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Dates",
+                    },
+                    "ref": null,
+                    "rendered": "Dates",
+                    "type": "span",
+                  },
+                  "type": "label",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <CheckIn
+                    checkin={null}
+                    click={[Function]}
+                  />,
+                  <div>
+                    <i
+                      className="fas fa-long-arrow-alt-right"
+                    />
+                  </div>,
+                  <CheckOut
+                    checkout={null}
+                    click={[Function]}
+                  />,
+                  null,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "checkin": null,
+                    "click": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-long-arrow-alt-right"
+                    />,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-long-arrow-alt-right",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "checkout": null,
+                    "click": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <button>
+                  <div
+                    className="button-book"
+                    onClick={[Function]}
+                  >
+                    Book
+                  </div>
+                </button>,
+                "className": "final-book",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="button-book"
+                    onClick={[Function]}
+                  >
+                    Book
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Book",
+                    "className": "button-book",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Book",
+                  "type": "div",
+                },
+                "type": "button",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <span>
+                    You won't be charged yet.
+                  </span>
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span>
+                    You won't be charged yet.
+                  </span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "You won't be charged yet.",
+                  },
+                  "ref": null,
+                  "rendered": "You won't be charged yet.",
+                  "type": "span",
+                },
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <section
+          style={
+            Object {
+              "background": "white",
+              "height": "auto",
+              "left": "50%",
+              "position": "fixed",
+              "top": "50%",
+              "transform": "translate(-50%,-50%)",
+              "width": "80%",
+            }
+          }
+        >
+          <div>
+            <button>
+              X
+            </button>
+          </div>
+          <section>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <span>
+                      $
+                      199
+                    </span>
+                    <span>
+                       / night
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <Star
+                        stars="4.7"
+                      />
+                    </span>
+                    <span>
+                      199
+                    </span>
+                  </div>
+                  <div>
+                    <div>
+                      -----------------
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label>
+                <span>
+                  Dates
+                </span>
+              </label>
+            </div>
+            <div>
+              <CheckIn
+                checkin={null}
+                click={[Function]}
+              />
+              <div>
+                <i
+                  className="fas fa-long-arrow-alt-right"
+                />
+              </div>
+              <CheckOut
+                checkout={null}
+                click={[Function]}
+              />
+            </div>
+            <Guests />
+            <div
+              className="final-book"
+            >
+              <button>
+                <div
+                  className="button-book"
+                  onClick={[Function]}
+                >
+                  Book
+                </div>
+              </button>
+            </div>
+            <div>
+              <div>
+                <span>
+                  You won't be charged yet.
+                </span>
+              </div>
+            </div>
+          </section>
+        </section>,
+        "style": Object {
+          "display": "none",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div>
+              <button>
+                X
+              </button>
+            </div>,
+            <section>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <span>
+                        $
+                        199
+                      </span>
+                      <span>
+                         / night
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        <Star
+                          stars="4.7"
+                        />
+                      </span>
+                      <span>
+                        199
+                      </span>
+                    </div>
+                    <div>
+                      <div>
+                        -----------------
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label>
+                  <span>
+                    Dates
+                  </span>
+                </label>
+              </div>
+              <div>
+                <CheckIn
+                  checkin={null}
+                  click={[Function]}
+                />
+                <div>
+                  <i
+                    className="fas fa-long-arrow-alt-right"
+                  />
+                </div>
+                <CheckOut
+                  checkout={null}
+                  click={[Function]}
+                />
+              </div>
+              <Guests />
+              <div
+                className="final-book"
+              >
+                <button>
+                  <div
+                    className="button-book"
+                    onClick={[Function]}
+                  >
+                    Book
+                  </div>
+                </button>
+              </div>
+              <div>
+                <div>
+                  <span>
+                    You won't be charged yet.
+                  </span>
+                </div>
+              </div>
+            </section>,
+          ],
+          "style": Object {
+            "background": "white",
+            "height": "auto",
+            "left": "50%",
+            "position": "fixed",
+            "top": "50%",
+            "transform": "translate(-50%,-50%)",
+            "width": "80%",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <button>
+                X
+              </button>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "X",
+                "onClick": undefined,
+              },
+              "ref": null,
+              "rendered": "X",
+              "type": "button",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <span>
+                          $
+                          199
+                        </span>
+                        <span>
+                           / night
+                        </span>
+                      </div>
+                      <div>
+                        <span>
+                          <Star
+                            stars="4.7"
+                          />
+                        </span>
+                        <span>
+                          199
+                        </span>
+                      </div>
+                      <div>
+                        <div>
+                          -----------------
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <label>
+                    <span>
+                      Dates
+                    </span>
+                  </label>
+                </div>,
+                <div>
+                  <CheckIn
+                    checkin={null}
+                    click={[Function]}
+                  />
+                  <div>
+                    <i
+                      className="fas fa-long-arrow-alt-right"
+                    />
+                  </div>
+                  <CheckOut
+                    checkout={null}
+                    click={[Function]}
+                  />
+                </div>,
+                <Guests />,
+                <div
+                  className="final-book"
+                >
+                  <button>
+                    <div
+                      className="button-book"
+                      onClick={[Function]}
+                    >
+                      Book
+                    </div>
+                  </button>
+                </div>,
+                <div>
+                  <div>
+                    <span>
+                      You won't be charged yet.
+                    </span>
+                  </div>
+                </div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div>
+                      <div>
+                        <div>
+                          <span>
+                            $
+                            199
+                          </span>
+                          <span>
+                             / night
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <Star
+                              stars="4.7"
+                            />
+                          </span>
+                          <span>
+                            199
+                          </span>
+                        </div>
+                        <div>
+                          <div>
+                            -----------------
+                          </div>
+                        </div>
+                      </div>
+                    </div>,
+                    <label>
+                      <span>
+                        Dates
+                      </span>
+                    </label>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <div>
+                        <div>
+                          <span>
+                            $
+                            199
+                          </span>
+                          <span>
+                             / night
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <Star
+                              stars="4.7"
+                            />
+                          </span>
+                          <span>
+                            199
+                          </span>
+                        </div>
+                        <div>
+                          <div>
+                            -----------------
+                          </div>
+                        </div>
+                      </div>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <div>
+                            <span>
+                              $
+                              199
+                            </span>
+                            <span>
+                               / night
+                            </span>
+                          </div>,
+                          <div>
+                            <span>
+                              <Star
+                                stars="4.7"
+                              />
+                            </span>
+                            <span>
+                              199
+                            </span>
+                          </div>,
+                          <div>
+                            <div>
+                              -----------------
+                            </div>
+                          </div>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <span>
+                                $
+                                199
+                              </span>,
+                              <span>
+                                 / night
+                              </span>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": Array [
+                                  "$",
+                                  199,
+                                ],
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                "$",
+                                199,
+                              ],
+                              "type": "span",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": " / night",
+                              },
+                              "ref": null,
+                              "rendered": " / night",
+                              "type": "span",
+                            },
+                          ],
+                          "type": "div",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <span>
+                                <Star
+                                  stars="4.7"
+                                />
+                              </span>,
+                              <span>
+                                199
+                              </span>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <Star
+                                  stars="4.7"
+                                />,
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "function",
+                                "props": Object {
+                                  "stars": "4.7",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": [Function],
+                              },
+                              "type": "span",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": 199,
+                              },
+                              "ref": null,
+                              "rendered": 199,
+                              "type": "span",
+                            },
+                          ],
+                          "type": "div",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <div>
+                              -----------------
+                            </div>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "-----------------",
+                            },
+                            "ref": null,
+                            "rendered": "-----------------",
+                            "type": "div",
+                          },
+                          "type": "div",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span>
+                        Dates
+                      </span>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Dates",
+                      },
+                      "ref": null,
+                      "rendered": "Dates",
+                      "type": "span",
+                    },
+                    "type": "label",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <CheckIn
+                      checkin={null}
+                      click={[Function]}
+                    />,
+                    <div>
+                      <i
+                        className="fas fa-long-arrow-alt-right"
+                      />
+                    </div>,
+                    <CheckOut
+                      checkout={null}
+                      click={[Function]}
+                    />,
+                    null,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "checkin": null,
+                      "click": [Function],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <i
+                        className="fas fa-long-arrow-alt-right"
+                      />,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "fas fa-long-arrow-alt-right",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "i",
+                    },
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "checkout": null,
+                      "click": [Function],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  null,
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <button>
+                    <div
+                      className="button-book"
+                      onClick={[Function]}
+                    >
+                      Book
+                    </div>
+                  </button>,
+                  "className": "final-book",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="button-book"
+                      onClick={[Function]}
+                    >
+                      Book
+                    </div>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Book",
+                      "className": "button-book",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Book",
+                    "type": "div",
+                  },
+                  "type": "button",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <span>
+                      You won't be charged yet.
+                    </span>
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <span>
+                      You won't be charged yet.
+                    </span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "You won't be charged yet.",
+                    },
+                    "ref": null,
+                    "rendered": "You won't be charged yet.",
+                    "type": "span",
+                  },
+                  "type": "div",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "section",
+          },
+        ],
+        "type": "section",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Availability Render Navbar Renders with data 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Navbar
+    location="Houston"
+    price={199}
+    reviews={199}
+    stars="4.7"
+    type="Apartment"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="inner1-navbar"
+        style={
+          Object {
+            "margin": "0 auto -16px auto",
+            "maxWidth": "100%",
+            "padding": "15px 24px 29px 24px",
+            "width": "auto",
+          }
+        }
+      >
+        <div
+          className="inner2-navbar"
+          style={
+            Object {
+              "margin": "0",
+            }
+          }
+        >
+          <div
+            className="table-navbar"
+            style={
+              Object {
+                "display": "table",
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                  "width": "100%",
+                }
+              }
+            >
+              <Summary
+                location="Houston"
+                reviews={199}
+                stars="4.7"
+                type="Apartment"
+              />
+            </div>
+            <div
+              className="divider"
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <div
+                className="vertical-line"
+                style={
+                  Object {
+                    "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                    "height": "40px",
+                    "width": "1px",
+                  }
+                }
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Price
+                price={199}
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Book />
+            </div>
+          </div>
+        </div>
+      </div>,
+      "className": "navbar",
+      "style": Object {
+        "backgroundColor": "#fff !important",
+        "bottom": "0",
+        "boxShadow": "0 1px 4px 1px rgba(0, 0, 0, 0.14)",
+        "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif",
+        "margin": "0",
+        "overflow": "hidden",
+        "position": "fixed",
+        "width": "101%",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="inner2-navbar"
+          style={
+            Object {
+              "margin": "0",
+            }
+          }
+        >
+          <div
+            className="table-navbar"
+            style={
+              Object {
+                "display": "table",
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                  "width": "100%",
+                }
+              }
+            >
+              <Summary
+                location="Houston"
+                reviews={199}
+                stars="4.7"
+                type="Apartment"
+              />
+            </div>
+            <div
+              className="divider"
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <div
+                className="vertical-line"
+                style={
+                  Object {
+                    "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                    "height": "40px",
+                    "width": "1px",
+                  }
+                }
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Price
+                price={199}
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Book />
+            </div>
+          </div>
+        </div>,
+        "className": "inner1-navbar",
+        "style": Object {
+          "margin": "0 auto -16px auto",
+          "maxWidth": "100%",
+          "padding": "15px 24px 29px 24px",
+          "width": "auto",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="table-navbar"
+            style={
+              Object {
+                "display": "table",
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                  "width": "100%",
+                }
+              }
+            >
+              <Summary
+                location="Houston"
+                reviews={199}
+                stars="4.7"
+                type="Apartment"
+              />
+            </div>
+            <div
+              className="divider"
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <div
+                className="vertical-line"
+                style={
+                  Object {
+                    "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                    "height": "40px",
+                    "width": "1px",
+                  }
+                }
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Price
+                price={199}
+              />
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                }
+              }
+            >
+              <Book />
+            </div>
+          </div>,
+          "className": "inner2-navbar",
+          "style": Object {
+            "margin": "0",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Summary
+                  location="Houston"
+                  reviews={199}
+                  stars="4.7"
+                  type="Apartment"
+                />
+              </div>,
+              <div
+                className="divider"
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <div
+                  className="vertical-line"
+                  style={
+                    Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    }
+                  }
+                />
+              </div>,
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Price
+                  price={199}
+                />
+              </div>,
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Book />
+              </div>,
+            ],
+            "className": "table-navbar",
+            "style": Object {
+              "display": "table",
+              "width": "100%",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Summary
+                  location="Houston"
+                  reviews={199}
+                  stars="4.7"
+                  type="Apartment"
+                />,
+                "style": Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                  "width": "100%",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "location": "Houston",
+                  "reviews": 199,
+                  "stars": "4.7",
+                  "type": "Apartment",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="vertical-line"
+                  style={
+                    Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    }
+                  }
+                />,
+                "className": "divider",
+                "style": Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "vertical-line",
+                  "style": Object {
+                    "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                    "height": "40px",
+                    "width": "1px",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Price
+                  price={199}
+                />,
+                "style": Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "price": 199,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Book />,
+                "style": Object {
+                  "display": "table-cell",
+                  "verticalAlign": "middle",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "click": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="inner1-navbar"
+          style={
+            Object {
+              "margin": "0 auto -16px auto",
+              "maxWidth": "100%",
+              "padding": "15px 24px 29px 24px",
+              "width": "auto",
+            }
+          }
+        >
+          <div
+            className="inner2-navbar"
+            style={
+              Object {
+                "margin": "0",
+              }
+            }
+          >
+            <div
+              className="table-navbar"
+              style={
+                Object {
+                  "display": "table",
+                  "width": "100%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Summary
+                  location="Houston"
+                  reviews={199}
+                  stars="4.7"
+                  type="Apartment"
+                />
+              </div>
+              <div
+                className="divider"
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <div
+                  className="vertical-line"
+                  style={
+                    Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    }
+                  }
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Price
+                  price={199}
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Book />
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "navbar",
+        "style": Object {
+          "backgroundColor": "#fff !important",
+          "bottom": "0",
+          "boxShadow": "0 1px 4px 1px rgba(0, 0, 0, 0.14)",
+          "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif",
+          "margin": "0",
+          "overflow": "hidden",
+          "position": "fixed",
+          "width": "101%",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="inner2-navbar"
+            style={
+              Object {
+                "margin": "0",
+              }
+            }
+          >
+            <div
+              className="table-navbar"
+              style={
+                Object {
+                  "display": "table",
+                  "width": "100%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Summary
+                  location="Houston"
+                  reviews={199}
+                  stars="4.7"
+                  type="Apartment"
+                />
+              </div>
+              <div
+                className="divider"
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <div
+                  className="vertical-line"
+                  style={
+                    Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    }
+                  }
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Price
+                  price={199}
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Book />
+              </div>
+            </div>
+          </div>,
+          "className": "inner1-navbar",
+          "style": Object {
+            "margin": "0 auto -16px auto",
+            "maxWidth": "100%",
+            "padding": "15px 24px 29px 24px",
+            "width": "auto",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="table-navbar"
+              style={
+                Object {
+                  "display": "table",
+                  "width": "100%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Summary
+                  location="Houston"
+                  reviews={199}
+                  stars="4.7"
+                  type="Apartment"
+                />
+              </div>
+              <div
+                className="divider"
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <div
+                  className="vertical-line"
+                  style={
+                    Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    }
+                  }
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Price
+                  price={199}
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <Book />
+              </div>
+            </div>,
+            "className": "inner2-navbar",
+            "style": Object {
+              "margin": "0",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  style={
+                    Object {
+                      "display": "table-cell",
+                      "verticalAlign": "middle",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Summary
+                    location="Houston"
+                    reviews={199}
+                    stars="4.7"
+                    type="Apartment"
+                  />
+                </div>,
+                <div
+                  className="divider"
+                  style={
+                    Object {
+                      "display": "table-cell",
+                      "verticalAlign": "middle",
+                    }
+                  }
+                >
+                  <div
+                    className="vertical-line"
+                    style={
+                      Object {
+                        "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                        "height": "40px",
+                        "width": "1px",
+                      }
+                    }
+                  />
+                </div>,
+                <div
+                  style={
+                    Object {
+                      "display": "table-cell",
+                      "verticalAlign": "middle",
+                    }
+                  }
+                >
+                  <Price
+                    price={199}
+                  />
+                </div>,
+                <div
+                  style={
+                    Object {
+                      "display": "table-cell",
+                      "verticalAlign": "middle",
+                    }
+                  }
+                >
+                  <Book />
+                </div>,
+              ],
+              "className": "table-navbar",
+              "style": Object {
+                "display": "table",
+                "width": "100%",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Summary
+                    location="Houston"
+                    reviews={199}
+                    stars="4.7"
+                    type="Apartment"
+                  />,
+                  "style": Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                    "width": "100%",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "location": "Houston",
+                    "reviews": 199,
+                    "stars": "4.7",
+                    "type": "Apartment",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="vertical-line"
+                    style={
+                      Object {
+                        "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                        "height": "40px",
+                        "width": "1px",
+                      }
+                    }
+                  />,
+                  "className": "divider",
+                  "style": Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "vertical-line",
+                    "style": Object {
+                      "borderLeft": "1px solid rgba(72,72,72,0.12)",
+                      "height": "40px",
+                      "width": "1px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Price
+                    price={199}
+                  />,
+                  "style": Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "price": 199,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Book />,
+                  "style": Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "click": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;
