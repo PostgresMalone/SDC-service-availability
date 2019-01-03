@@ -17,7 +17,7 @@
     "build": "webpack --watch",
     "start": "nodemon server/index.js",
     "seed": "mongod | node database/seeder.js",
-    "test": "jest",
+    "test": "jest -u",
     "test-w": "jest --watch"
   },
   "dependencies": {
