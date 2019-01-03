@@ -68,6 +68,7 @@ describe('Availability Render', () => {
     checkout: null,
     dates: data.dates,
   }
+
   describe('Calendar', () => {
     test('Renders with data', () => {
       const wrapper = shallow(
@@ -80,21 +81,9 @@ describe('Availability Render', () => {
       );
       expect(wrapper).toMatchSnapshot();
     });
-
-    test('Renders initial state with null/empty array and object', () => {
-      const fn = jest.fn;
-      const component = mount(
-        <Calendar 
-          dates={data.dates}
-          checkin={data.in}
-          checkout={data.out}
-          limit={data.limit}
-        /> 
-      );
-      component.find('.next-month-button').simulate('click');
-
-    });
   });
+
+  
 
 
 });
