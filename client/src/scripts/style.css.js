@@ -55,7 +55,7 @@ const body = {
 };
 
 const innerNavbar = {
-  margin: '0 auto -10px auto',
+  margin: '0 auto -16px auto',
   width: 'auto',
   padding: '15px 24px 29px 24px',
   maxWidth: '100%',
