@@ -1,9 +1,10 @@
 import React from 'react';
+import style from '../scripts/style.css.js';
 
 const Book = ({click}) => (
-  <div>
-    <button onClick={click} className="button-modal">
-      <span>Request to Book</span>
+  <div className='book-container' style={style.bookContainer}>
+    <button onClick={click} className="book-button" style={style.bookButton}>
+      <span>Book</span>
     </button>
   </div>
 );
