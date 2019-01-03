@@ -10,7 +10,7 @@ const Navbar = ({ type, location, stars, reviews, price, click }) => {
       <div className="inner1-navbar" style={style.innerNavbar}>
         <div className="inner2-navbar" style={style.innerNavbar2}>
           <div className="table-navbar" style={style.tableNavbar}>
-            <div style={style.cellOtherNavbar}>
+            <div style={style.cellSummaryNavbar}>
             <Summary type={type} location={location}
               stars={stars} reviews={reviews}/>
             </div>
