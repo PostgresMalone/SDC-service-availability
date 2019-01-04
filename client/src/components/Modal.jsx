@@ -163,34 +163,42 @@ class Modal extends React.Component {
                         <div style={{margin: '16px 0 16px 0', borderTop: '1px solid', borderColor: '#EBEBEB'}}></div>
                       </div>
                     </div>
-                    <label>
-                      <span>Dates</span>
-                    </label>
-                    </div>
+                  </div>
                   <div>
-                    <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
-                    <div><i className="fas fa-long-arrow-alt-right"></i></div>
-                    <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
-                    {this.state.calendar 
-                      ? <Calendar 
-                        dates={this.state.dates}
-                        select={(e) => this.selectDates(e)}
-                        checkin={this.state.in}
-                        checkout={this.state.out}
-                        limit={this.state.limit}
-                        clear={() => this.clearDates()}
-                      /> 
-                      : null}
-                  </div>
-                  <Guests />
-                  <div className="final-book" style={{marginTop: '24px', textAlign: 'center'}}>
-                    <button className="button-book" style={style.buttonBook} onClick={() => this.bookDates(this.state.in, this.state.out)}>
-                      <div style={style.bookText}>Book</div>
-                    </button>
-                  </div>
-                  <div style={{marginTop: '8px'}}>
-                    <div style={{textAlign: 'center'}}>
-                      <span className="charged-text" style={style.chargedText}>You won't be charged yet</span>
+                    <div style={{margin: '16px 0 8px 0'}}>
+                      <label style={style.dateLabel}>
+                        <span>Dates</span>
+                      </label>
+                      <div style={{position: 'relative', display: 'block'}}>
+                        <div className="checkinout-box" style={{border: '1px solid rgb(235, 235, 235)', borderRadius: '2px'}}>
+                          <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
+                          <div style={{display: 'inline-block', verticalAlign: 'middle', position: 'relative'}}>
+                            <i className="fas fa-long-arrow-alt-right" style={{display: 'block', fontSize: '18px', color: 'rgb(117, 117, 117)', marginRight: '4px'}}></i>
+                          </div>
+                          <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
+                        </div>
+                      </div>
+                      {this.state.calendar 
+                        ? <Calendar 
+                          dates={this.state.dates}
+                          select={(e) => this.selectDates(e)}
+                          checkin={this.state.in}
+                          checkout={this.state.out}
+                          limit={this.state.limit}
+                          clear={() => this.clearDates()}
+                        /> 
+                        : null}
+                    </div>
+                    <Guests />
+                    <div className="final-book" style={{marginTop: '24px', textAlign: 'center'}}>
+                      <button className="button-book" style={style.buttonBook} onClick={() => this.bookDates(this.state.in, this.state.out)}>
+                        <div style={style.bookText}>Book</div>
+                      </button>
+                    </div>
+                    <div style={{marginTop: '8px'}}>
+                      <div style={{textAlign: 'center'}}>
+                        <span className="charged-text" style={style.chargedText}>You won't be charged yet</span>
+                      </div>
                     </div>
                   </div>
                 </section>

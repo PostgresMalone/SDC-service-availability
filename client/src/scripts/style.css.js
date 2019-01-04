@@ -44,7 +44,7 @@ const navbar = {
   bottom: '0',
   width: '101%',
   boxShadow: '0 1px 4px 1px rgba(0, 0, 0, 0.14)',
-  backgroundColor: '#fff !important'
+  backgroundColor: '#fff',
 };
 
 const body = {
@@ -446,8 +446,46 @@ const guestButtonClose = {
   fontSize: '16px',
 };
 
+const dateLabel = {
+  margin: '0 0 0 4px', 
+  fontSize: '12px', 
+  fontWeight: '480', 
+  lineHeight: '1.3333em', 
+  color: '#484848'
+};
+
+const checkinoutBox = {
+  border: '1px solid rgb(235, 235, 235)',
+  borderRadius: '2px',
+};
+
+const checkBox = {
+  lineHeight: '24px',
+  position: 'relative',
+  display: 'inline-block',
+  verticalAlign: 'middle',
+  margin: '0',
+  padding: '4',
+  width: '46%'
+};
+
+const inputBox = {
+  fontSize: '17px',
+  fontWeight: '300',
+  color: 'rgb(117, 117, 117)',
+  top: '0',
+  left: '0',
+  height: '100%',
+  width: '70%',
+  borderWidth: '0',
+  padding: '8px 14px 8px 14px',
+};
 
 module.exports = {
+  inputBox,
+  checkBox,
+  checkinoutBox,
+  dateLabel,
   guestButtonClose,
   guestClose,
   counterSubtext,
