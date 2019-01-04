@@ -348,7 +348,115 @@ const guestNum = {
   width: '100%',
 };
 
+const countContainer = {
+  position: 'absolute',
+  background: '#fff',
+  boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 6px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px',
+  width: '100%',
+  minWidth: '280px',
+  textAlign: 'left',
+  marginBottom: '16px',
+  zIndex: '2',
+  left: '0',
+  borderRadius: '3px',
+  padding: '0 16px',
+  maxWidth: '295px',
+  right: '0'
+};
+
+const counterContainer = {
+  display: 'table',
+  width: '100%',
+  borderSpacing: '0',
+};
+
+const counterName = {
+  display: 'table-cell',
+  width: '100%',
+  verticalAlign: 'middle', 
+  margin: '0 12px 0 0',
+  fontSize: '16px',
+  fontWeight: '500',
+  lineHeight: '1.375em',
+  color: '#484848'
+};
+
+const counterSubtext = {
+  margin: '0px',
+  wordWrap: 'break-word',
+  fontSize: '14px',
+  fontWeight: '320',
+  lineHeight: '1.2857142857142858em',
+}
+
+const buttonCounterEnabled = {
+  height: '32px',
+  width: '32px',
+  boxShadow: 'none',
+  display: 'inline-block',
+  cursor: 'pointer',
+  textAlign: 'center',
+  lineHeight: '1',
+  position: 'relative',
+  border: '1px solid rgb(166, 29, 85)',
+  background: 'transparent',
+  borderRadius: '50%',
+  color: 'rgb(166, 29, 85)',
+};
+
+const buttonCounterDisabled = {
+  height: '32px',
+  width: '32px',
+  boxShadow: 'none',
+  display: 'inline-block',
+  cursor: 'pointer',
+  textAlign: 'center',
+  lineHeight: '1',
+  position: 'relative',
+  border: '1px solid rgba(166, 29, 85, 0.3)',
+  background: 'transparent',
+  borderRadius: '50%',
+  color: 'rgba(166, 29, 85, 0.3)',
+}
+
+const counterNum = {
+  fontSize: '16px',
+  fontWeight: '500',
+  lineHeight: '1.375em',
+  color: '#484848'
+};
+
+const guestClose = {
+  textAlign: 'center',
+  lineHeight: '0',
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+};
+
+const guestButtonClose = {
+  wordWrap: 'break-word',
+  fontWeight: '500',
+  lineHeight: '1.375em',
+  color: '#A61D55', 
+  textDecoration: 'none',
+  background: 'transparent',
+  border: '0',
+  cursor: 'pointer',
+  fontSize: '16px',
+};
+
+
 module.exports = {
+  guestButtonClose,
+  guestClose,
+  counterSubtext,
+  counterNum,
+  buttonCounterDisabled,
+  buttonCounterEnabled,
+  counterName,
+  counterContainer,
+  countContainer,
   guestNum,
   guestButtonContainer,
   guestButton,

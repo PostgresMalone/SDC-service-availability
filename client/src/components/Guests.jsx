@@ -69,45 +69,45 @@ class Guests extends React.Component {
     const children = this.state.children;
     const infants = this.state.infants;
     const guests = total > 1 ? 'guests' : 'guest';
+    const numInfants = infants ? ', ' + infants : '';
+    const wordInfants = infants <= 0 ? '' : infants === 1 ? 'infant' : 'infants';
     return (
       <div style={{marginBottom: '16px'}}>
         <div style={style.guestText}>Guests</div>
         <div style={{position: 'relative'}}>
-          <div onClick={() => this.setState({showGuests: !this.state.showGuests})}>
-            <div>
-              <button type="text" className="show-count" style={style.guestButton}>
-                <div style={{margin: '0 8px 0 8px'}}>
-                  <div style={style.guestButtonContainer}>
-                    <div style={style.guestNum}>
-                      <span style={{fontSize: '17px', margin: '0', padding: '0'}}>{this.state.total} {guests}</span>
-                    </div>
-                    <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
-                      <span style={{display: 'block', fontSize: '17px', color: '#484848'}}>
-                        {this.state.showGuests
-                          ? <i className="fas fa-chevron-up"></i>
-                          : <i className="fas fa-chevron-down"></i>}
-                      </span>
-                    </div>
+          <div style={{position: 'relative', width: '100%'}}>
+            <button type="text" className="show-count" style={style.guestButton} onClick={() => this.setState({showGuests: !this.state.showGuests})}>
+              <div style={{margin: '0 8px 0 8px'}}>
+                <div style={style.guestButtonContainer}>
+                  <div style={style.guestNum}>
+                    <span style={{fontSize: '17px', margin: '0', padding: '0'}}>{this.state.total} {guests}{numInfants} {wordInfants}</span>
+                  </div>
+                  <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                    <span style={{display: 'block', fontSize: '17px', color: '#484848'}}>
+                      {this.state.showGuests
+                        ? <i className="fas fa-chevron-up"></i>
+                        : <i className="fas fa-chevron-down"></i>}
+                    </span>
                   </div>
                 </div>
-              </button>
-            </div>
+              </div>
+            </button>
+            {this.state.showGuests
+              ? <Count 
+                total={total} 
+                adults={adults} 
+                children={children} 
+                infants={infants} 
+                close={() => this.hideGuests()} 
+                addAdult={() => this.addAdult()} 
+                minusAdult={() => this.minusAdult()}
+                addChildren={() => this.addChildren()} 
+                minusChildren={() => this.minusChildren()}
+                addInfant={() => this.addInfant()} 
+                minusInfant={() => this.minusInfant()}
+              />
+              : <div></div>}
           </div>
-          {this.state.showGuests
-            ? <Count 
-              total={total} 
-              adults={adults} 
-              children={children} 
-              infants={infants} 
-              close={() => this.hideGuests()} 
-              addAdult={() => this.addAdult()} 
-              minusAdult={() => this.minusAdult()}
-              addChildren={() => this.addChildren()} 
-              minusChildren={() => this.minusChildren()}
-              addInfant={() => this.addInfant()} 
-              minusInfant={() => this.minusInfant()}
-            />
-            : <div></div>}
         </div>
       </div>
     );
