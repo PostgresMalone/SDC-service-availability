@@ -116,6 +116,15 @@ const stars = {
   marginRight: '2px',
 };
 
+const logo = {
+  fontSize: '32px',
+   paddingRight: '28px',
+   marginTop: '4px',
+   color: '#A61D55',
+   marginLeft: '8px',
+   display: 'inline-block',
+}
+
 const starReviewSpan = {
   lineHeight: '21px',
 };
@@ -219,5 +228,6 @@ module.exports = {
   priceNum,
   night, 
   bookContainer,
-  bookButton
+  bookButton,
+  logo
 };

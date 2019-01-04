@@ -10,6 +10,11 @@ const Navbar = ({ type, location, stars, reviews, price, click }) => {
       <div className="inner1-navbar" style={style.innerNavbar}>
         <div className="inner2-navbar" style={style.innerNavbar2}>
           <div className="table-navbar" style={style.tableNavbar}>
+            <div style={style.cellOtherNavbar}>
+              <div style={style.logo}>
+                <span><i class="fab fa-autoprefixer"></i></span>
+              </div>
+            </div>
             <div style={style.cellSummaryNavbar}>
             <Summary type={type} location={location}
               stars={stars} reviews={reviews}/>
