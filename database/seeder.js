@@ -64,16 +64,6 @@ for (let i = 1; i < 101; i++) {
   database.push(obj);
 }
 
-const vacancySchema = new Schema({
-  roomId: {
-    type: Number,
-    min: 1,
-    max: 100,
-    unique: true
-  },
-  availability: Object
-});
-
 fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err => {
   if (err) { return console.log('Error in writing', err); }
   fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
