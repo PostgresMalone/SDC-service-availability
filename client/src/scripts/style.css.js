@@ -472,7 +472,7 @@ const checkBox = {
 const inputBox = {
   fontSize: '17px',
   fontWeight: '300',
-  color: 'rgb(117, 117, 117)',
+  color: 'rgb(72, 72, 72)',
   top: '0',
   left: '0',
   height: '100%',
@@ -481,7 +481,36 @@ const inputBox = {
   padding: '8px 14px 8px 14px',
 };
 
+const calendarModal = {
+  zIndex: '1',
+  backgroundColor: '#fff',
+  position: 'absolute',
+  // top: '51px',
+  // left: '0',
+};
+
+const calendarBody = {
+  position: 'relative',
+  textAlign: 'left',
+  boxShadow: 'rgba(0, 0, 0, 0.25) 0px 2px 6px rgba(0, 0, 0, 0.07) 0px 0px 0px 1px ',
+  backgroundColor: '#fff',
+  border: '1px solid rgb(235, 235, 235)',
+  borderRadius: '3px',
+  width: '326px',
+};
+
+const calendarHeader = {
+  color: 'rgb(72,72,72)',
+  fontSize: '18px',
+  textAlign: 'center',
+  padding: '22px 0 37px 0',
+  display: 'table',
+};
+
 module.exports = {
+  calendarHeader,
+  calendarBody,
+  calendarModal,
   inputBox,
   checkBox,
   checkinoutBox,

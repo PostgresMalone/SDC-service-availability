@@ -25,6 +25,10 @@ class Modal extends React.Component {
     this.setState({calendar: true});
   }
 
+  toggleCalender() {
+    this.setState({calendar: !this.state.calendar})
+  }
+
   clearDates() {
     this.setState({in: null, out: null, limit: null});
   }
@@ -171,11 +175,11 @@ class Modal extends React.Component {
                       </label>
                       <div style={{position: 'relative', display: 'block'}}>
                         <div className="checkinout-box" style={{border: '1px solid rgb(235, 235, 235)', borderRadius: '2px'}}>
-                          <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
+                          <CheckIn checkin={this.state.in} click={() => this.toggleCalender()}/>
                           <div style={{display: 'inline-block', verticalAlign: 'middle', position: 'relative'}}>
                             <i className="fas fa-long-arrow-alt-right" style={{display: 'block', fontSize: '18px', color: 'rgb(117, 117, 117)', marginRight: '4px'}}></i>
                           </div>
-                          <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
+                          <CheckOut checkout={this.state.out} click={() => this.toggleCalender()}/>
                         </div>
                       </div>
                       {this.state.calendar 
