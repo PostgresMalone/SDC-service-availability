@@ -12,7 +12,7 @@ const Navbar = ({ type, location, stars, reviews, price, click }) => {
           <div className="table-navbar" style={style.tableNavbar}>
             <div style={style.cellOtherNavbar}>
               <div style={style.logo}>
-                <span><i class="fab fa-autoprefixer"></i></span>
+                <span><i className="fab fa-autoprefixer"></i></span>
               </div>
             </div>
             <div style={style.cellSummaryNavbar}>

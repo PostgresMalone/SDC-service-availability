@@ -1,6 +1,7 @@
 import React from 'react';
 import Week from './Week.jsx';
 import convertToMonth from '../scripts/monthConverter.js';
+import style from '../scripts/style.css.js';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -170,50 +171,60 @@ class Calendar extends React.Component {
     const month = convertToMonth(this.state.month);
     const year = this.state.year;
     return (
-      <div className="calendar-modal">
-        <div className="calendar-body">
-          <div>
-            <div className="previous-month-button" onClick={() => this.minusMonth()}><i className="fas fa-arrow-left"></i></div>
-            <div className="month-header">{month} {year}</div>
-            <div className="next-month-button" onClick={() => this.plusMonth()}><i className="fas fa-arrow-right"></i></div>
-          </div>
-          <div>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Su</th>
-                  <th>Mo</th>
-                  <th>Tu</th>
-                  <th>We</th>
-                  <th>Th</th>
-                  <th>Fr</th>
-                  <th>Sa</th>
-                </tr>
-                {this.state.weeks.length
-                  ? this.state.weeks.map((week, ind) => 
-                    <Week 
-                      key={ind} 
-                      week={week}
-                      year={this.state.year}
-                      month={this.state.month}
-                      vacancy={this.state.vacancies}
-                      select={this.props.select}
-                      checkin={this.props.checkin}
-                      checkout={this.props.checkout}
-                      limit={this.props.limit}
-                    />)
-                  : null}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="update-and-clear">
-          <div>
-            <span>
-              <div>Updated 1 month ago</div>
-            </span>
+      <div className="calendar-modal" style={style.calendarModal}>
+        <div className="calendar-body" style={style.calendarBody}>
+          <div style={{height: '308px', padding: '0 26px', textAlign: 'center', verticalAlign: 'top'}}>
+            <div style={style.calendarHeader}>
+              <div className="previous-month-button" style={style.cellOtherNavbar}onClick={() => this.minusMonth()}>
+                <div style={{textAlign: 'left', border: '1px solid rgb(235, 235, 235)', padding: '2px 9px'}}>
+                    <i className="fas fa-arrow-left"></i>
+                </div>
+              </div>
+              <div className="month-header" style={{fontWeight: '600', textAlign: 'center', margin: '0 55px'}}>{month} {year}</div>
+              <div className="next-month-button" style={style.cellOtherNavbar}onClick={() => this.plusMonth()}>
+                <div style={{textAlign: 'right', border: '1px solid rgb(235, 235, 235)', padding: '2px 9px'}}>
+                    <i className="fas fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
             <div>
-              <button className="clear-dates" onClick={this.props.clear}>Clear dates</button>
+              <table style={{borderCollapse: 'collapse', borderSpacing: '0px', width: '100%'}}>
+                <tbody>
+                  <tr>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Su</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Mo</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Tu</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>We</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Th</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Fr</th>
+                    <th style={{fontWeight: '400', fontSize: '0.85em', margin: '1px 0', }}>Sa</th>
+                  </tr>
+                  {this.state.weeks.length
+                    ? this.state.weeks.map((week, ind) => 
+                      <Week 
+                        key={ind} 
+                        week={week}
+                        year={this.state.year}
+                        month={this.state.month}
+                        vacancy={this.state.vacancies}
+                        select={this.props.select}
+                        checkin={this.props.checkin}
+                        checkout={this.props.checkout}
+                        limit={this.props.limit}
+                      />)
+                    : null}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="update-and-clear">
+            <div>
+              <span>
+                <div>Updated 1 month ago</div>
+              </span>
+              <div>
+                <button className="clear-dates" onClick={this.props.clear}>Clear dates</button>
+              </div>
             </div>
           </div>
         </div>
