@@ -138,60 +138,66 @@ class Modal extends React.Component {
   render () {
     const displayModal = this.props.show ? style.showModal : style.hideModal;
     return (
-      <div style={displayModal}>
-        <section style={style.modalMain}>
-          <div>
-            <button onClick={this.props.hide}>X</button>
-          </div>
-          <section>
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <span>${this.props.price}</span>
-                    <span> / night</span>
-                  </div>
-                  <div>
-                    <span><Star stars={this.props.stars}/></span>
-                    <span>{this.props.reviews}</span>
-                  </div>
-                  <div>
-                    <div>-----------------</div>
-                  </div>
+      <div className="modal" style={displayModal}>
+        <div className="modal-container" style={style.modalContainer}>
+          <div className="modal-padder" style={style.modalPadder}>
+            <div className="modal-center" style={style.modalCenter}>
+              <section style={style.modalMain}>
+                <div className="button-close" style={style.buttonClose}>
+                  <button onClick={this.props.hide} style={style.buttonCloseX}>
+                    <i className="fas fa-times"></i>
+                  </button>
                 </div>
-              </div>
-              <label>
-                <span>Dates</span>
-              </label>
+                <section className="info" style={{display: 'block'}}>
+                  <div style={{boxSizing: 'border-box'}}>
+                    <div>
+                      <div className="info-price" style={style.infoPrice}>
+                        <div className="info-price-container" style={style.infoPriceContainer}>
+                          <span className="info-price-text" style={style.infoPriceText}>${this.props.price}</span>
+                          <span className="info-price-night" style={style.infoPriceNight}> / night</span>
+                        </div>
+                        <div style={{boxSizing: 'border-box'}}>
+                          <span className="info-star" style={style.infoStar}><Star stars={this.props.stars}/></span>
+                          <span className="info-review-num" style={style.infoReviewNum}>{this.props.reviews}</span>
+                        </div>
+                        <div style={{margin: '16px 0 16px 0', borderTop: '1px solid', borderColor: '#EBEBEB'}}></div>
+                      </div>
+                    </div>
+                    <label>
+                      <span>Dates</span>
+                    </label>
+                    </div>
+                  <div>
+                    <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
+                    <div><i className="fas fa-long-arrow-alt-right"></i></div>
+                    <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
+                    {this.state.calendar 
+                      ? <Calendar 
+                        dates={this.state.dates}
+                        select={(e) => this.selectDates(e)}
+                        checkin={this.state.in}
+                        checkout={this.state.out}
+                        limit={this.state.limit}
+                        clear={() => this.clearDates()}
+                      /> 
+                      : null}
+                  </div>
+                  <Guests />
+                  <div className="final-book" style={{marginTop: '24px', textAlign: 'center'}}>
+                    <button className="button-book" style={style.buttonBook} onClick={() => this.bookDates(this.state.in, this.state.out)}>
+                      <div style={style.bookText}>Book</div>
+                    </button>
+                  </div>
+                  <div style={{marginTop: '8px'}}>
+                    <div style={{textAlign: 'center'}}>
+                      <span className="charged-text" style={style.chargedText}>You won't be charged yet</span>
+                    </div>
+                  </div>
+                </section>
+              </section>
             </div>
-            <div>
-              <CheckIn checkin={this.state.in} click={() => this.showCalendar()}/>
-              <div><i className="fas fa-long-arrow-alt-right"></i></div>
-              <CheckOut checkout={this.state.out} click={() => this.showCalendar()}/>
-              {this.state.calendar 
-                ? <Calendar 
-                  dates={this.state.dates}
-                  select={(e) => this.selectDates(e)}
-                  checkin={this.state.in}
-                  checkout={this.state.out}
-                  limit={this.state.limit}
-                  clear={() => this.clearDates()}
-                /> 
-                : null}
-            </div>
-            <Guests />
-            <div className="final-book">
-              <button>
-                <div className="button-book" onClick={() => this.bookDates(this.state.in, this.state.out)}>Book</div>
-              </button>
-            </div>
-            <div>
-              <div>
-                <span>You won't be charged yet.</span>
-              </div>
-            </div>
-          </section>
-        </section>
+          </div>
+        </div>
       </div>
     );
   }
