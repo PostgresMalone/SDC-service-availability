@@ -409,7 +409,7 @@ const buttonCounterDisabled = {
   width: '32px',
   boxShadow: 'none',
   display: 'inline-block',
-  cursor: 'pointer',
+  cursor: 'default',
   textAlign: 'center',
   lineHeight: '1',
   position: 'relative',
