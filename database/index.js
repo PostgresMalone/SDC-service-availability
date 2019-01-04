@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://database/test', { useNewUrlParser: true }, err => {
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
   if (err) { return console.log('Failed in connecting to MongoDB.'); }
   console.log('Connected to MongoDB!');
 });
@@ -24,11 +24,14 @@ const getVacancy = (listingId, callback) => {
     .catch(err => console.log('Error in getting from DB.', err));
 };
 
-const saveVacancy = (data, callback) => {
-  Vacancy.insertMany(data, err => {
-    if (err) { return console.log('Error in seeding.', err); }
-    callback(data);
-  });
+const saveVacancy = (data) => {
+  Vacancy.collection.drop()
+    .then(
+    Vacancy.insertMany(data, err => {
+      if (err) { return console.log('Error in seeding.', err); }
+      Vacancy.drop
+      mongoose.connection.close();
+    }));
 };
 
 const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
