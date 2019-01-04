@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../scripts/style.css.js';
 
 class Counter extends React.Component {
   constructor(props) {
@@ -34,21 +35,27 @@ class Counter extends React.Component {
   }
 
   render() {
+    const minusStyle = this.state.minusDisabled ? style.buttonCounterDisabled : style.buttonCounterEnabled;
+    const plusStyle = this.state.addDisabled ? style.buttonCounterDisabled : style.buttonCounterEnabled;
     return (
-      <div>
-        <div>
-          <button disabled={this.state.minusDisabled} onClick={() => this.minusClick()}>
-            <i className="fas fa-minus"></i>
+      <div style={{display: 'table', width: '120px'}}>
+        <div style={{display: 'table-cell', verticalAlign: 'middle',textAlign: 'left'}}>
+          <button disabled={this.state.minusDisabled} onClick={() => this.minusClick()} style={minusStyle}>
+            <span>
+              <i className="fas fa-minus"></i>
+            </span>
           </button>
         </div>
-        <div>
-          <div>
+        <div style={{display: 'table-cell', verticalAlign: 'middle',textAlign: 'middle'}}>
+          <div style={style.countrNum}>
             {this.props.who}
           </div>
         </div>
-        <div>
-          <button disabled={this.state.addDisabled} onClick={() => this.addClick()}>
-            <i className="fas fa-plus"></i>
+        <div style={{display: 'table-cell', verticalAlign: 'middle',textAlign: 'right'}}>
+          <button disabled={this.state.addDisabled} onClick={() => this.addClick()} style={plusStyle}>
+            <span>
+              <i className="fas fa-plus"></i>
+            </span>
           </button>
         </div>
       </div>
