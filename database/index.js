@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
 const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://database/test', { useNewUrlParser: true }, err => {
@@ -26,6 +24,13 @@ const getVacancy = (listingId, callback) => {
     .catch(err => console.log('Error in getting from DB.', err));
 };
 
+const saveVacancy = (data, callback) => {
+  Vacancy.insertMany(data, err => {
+    if (err) { return console.log('Error in seeding.', err); }
+    callback(data);
+  });
+};
+
 const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
   Vacancy.update({roomId: listingId}, {availability: updatedObj}, (err, raw) => {
     if (err) { return console.log('Err in database in saving, error ', raw); }
@@ -33,4 +38,4 @@ const updateVacancy = (listingId, updatedObj, callback) => { // delete this call
   });
 };
 
-module.exports = { getVacancy, updateVacancy };
+module.exports = { getVacancy, updateVacancy, saveVacancy };

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
-const Schema = mongoose.Schema;
+const db = require('./index.js');
 
 let database = [];
 const months = Array.from(Array(12), (el, ind) => ind);
@@ -74,22 +74,12 @@ const vacancySchema = new Schema({
   availability: Object
 });
 
-const Vacancy = mongoose.model('vacancy', vacancySchema);
-
 fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err => {
   if (err) { return console.log('Error in writing', err); }
-  mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
-    if (err) { return console.log('Failed in connecting to MongoDB.', err); }
-    console.log('Connected to MongoDB!');
-    fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
-      if (err) { return console.log('Error in reading file.', err); }
-      const parsed = JSON.parse(data);
-      Vacancy.insertMany(parsed, err => {
-        mongoose.connection.close(); 
-        if (err) { return console.log('Error in saving.', err); }
-        console.log('Success in saving!');
-      });
-    });
+  fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
+    if (err) { return console.log('Error in reading file.', err); }
+    const parsed = JSON.parse(data);
+    db.saveVacancy(parsed);
   });
 });
 
