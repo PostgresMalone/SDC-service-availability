@@ -1,6 +1,7 @@
 import React from 'react';
 import Count from './Count.jsx';
 import focusText from '../scripts/focusText.js';
+import style from '../scripts/style.css.js';
 
 class Guests extends React.Component {
   constructor(props) {
@@ -69,19 +70,28 @@ class Guests extends React.Component {
     const infants = this.state.infants;
     const guests = total > 1 ? 'guests' : 'guest';
     return (
-      <div>
-        <div>Guests</div>
-        <div>
-          <div onClick={() => this.showGuests()}>
+      <div style={{marginBottom: '16px'}}>
+        <div style={style.guestText}>Guests</div>
+        <div style={{position: 'relative'}}>
+          <div onClick={() => this.setState({showGuests: !this.state.showGuests})}>
             <div>
-              <input readOnly type="text" onClick={(e) => focusText(e)}
-                className="show-count" value={`${this.state.total} ${guests}`}></input>
+              <button type="text" className="show-count" style={style.guestButton}>
+                <div style={{margin: '0 8px 0 8px'}}>
+                  <div style={style.guestButtonContainer}>
+                    <div style={style.guestNum}>
+                      <span style={{fontSize: '17px', margin: '0', padding: '0'}}>{this.state.total} {guests}</span>
+                    </div>
+                    <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                      <span style={{display: 'block', fontSize: '17px', color: '#484848'}}>
+                        {this.state.showGuests
+                          ? <i className="fas fa-chevron-up"></i>
+                          : <i className="fas fa-chevron-down"></i>}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
-            <span>
-              {this.state.showGuests
-                ? <i className="fas fa-chevron-up"></i>
-                : <i className="fas fa-chevron-down"></i>}
-            </span>
           </div>
           {this.state.showGuests
             ? <Count 

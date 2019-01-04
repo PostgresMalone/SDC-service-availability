@@ -297,7 +297,7 @@ const buttonBook ={
   textTransform: 'uppercase',
   width: '100%',
   padding: '10px 22px 10px 22px',
-  fontWeight: '720px',
+  fontWeight: '680',
   boxShadow: 'none',
   wordWrap: 'break-word',
   backgroundColor: '#A61D55',
@@ -310,7 +310,49 @@ const bookText = {
   marginTop: '-2px',
 };
 
+const guestText = {
+  fontSize: '12px',
+  fontWeight: '500',
+  margin: '0',
+  paddingBottom: '4px',
+  wordWrap: 'break-word',
+  lineHeight: '1.33333333333333333em',
+  color: '#484848',
+};
+
+const guestButton = {
+  textAlign: 'left',
+  lineHeight: 'normal',
+  display: 'block',
+  width: '100%',
+  background: '#fff',
+  borderRadius: '2px',
+  padding: '8px',
+  border: '1px solid rgb(235, 235, 235)',
+};
+
+const guestButtonContainer = {
+  margin: '0',
+  wordWrap: 'break-word',
+  fontSize: '16px',
+  fontWeight: '300',
+  lineHeight: '1.375em',
+  color: '#484848',
+  display: 'table',
+  width: '100%',
+};
+
+const guestNum = {
+  display: 'table-cell',
+  verticalAlign: 'middle',
+  width: '100%',
+};
+
 module.exports = {
+  guestNum,
+  guestButtonContainer,
+  guestButton,
+  guestText,
   bookText,
   buttonBook,
   chargedText,
