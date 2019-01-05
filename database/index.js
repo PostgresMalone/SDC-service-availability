@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
+mongoose.connect('mongodb://172.17.0.2/test', { useNewUrlParser: true }, err => {
   if (err) { return console.log('Failed in connecting to MongoDB.'); }
   console.log('Connected to MongoDB!');
 });
@@ -25,13 +25,13 @@ const getVacancy = (listingId, callback) => {
 };
 
 const saveVacancy = (data) => {
-  Vacancy.collection.drop()
-    .then(
+  Vacancy.collection.drop({} , err => {
+    if (err) { return console.log('Error in dropping', err); }
     Vacancy.insertMany(data, err => {
       if (err) { return console.log('Error in seeding.', err); }
-      Vacancy.drop
       mongoose.connection.close();
-    }));
+    });
+  });
 };
 
 const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
