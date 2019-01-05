@@ -18,7 +18,8 @@
     "start": "nodemon server/index.js",
     "seed": "mongod | node database/seeder.js",
     "test": "jest -u",
-    "test-w": "jest --watch"
+    "test-w": "jest --watch",
+    "compress": "webpack -p"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -36,6 +37,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.4",
+    "compression": "^1.7.3",
     "cypress": "^3.1.4",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
