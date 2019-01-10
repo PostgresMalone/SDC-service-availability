@@ -67,11 +67,11 @@ const daysAssigner = (databaseUpToYear, month, year) => {
 /////////////////////////////////
 // Record Generation and Write //
 /////////////////////////////////
-const TOTAL_RECORDS = 10000;
+const TOTAL_RECORDS = 1000;
 const MAX_PER_FILE = 1000;
 let recordsSoFar = 0;
 const TOTAL_FILES = 10;
-const before = Date.now();
+console.time('dataGen');
 
 //>>> Create Read and Write Streams <<<//
 
@@ -91,6 +91,7 @@ const before = Date.now();
 const outputStream = fs.createWriteStream(__dirname + '/data.csv');
 const fields = [
   'roomId',
+  'roomName',
   'availability',
   'reviewSummary',
   'type',
@@ -114,6 +115,7 @@ const writeEntries = () => {
       recordsSoFar++;  
       let obj = {
         roomId: recordsSoFar,
+        roomName: recordsSoFar + '-' + faker.name.findName(),
         availability: {},
         reviewSummary: generateReviews(),
         type: generateType(),
@@ -156,7 +158,7 @@ const writeEntries = () => {
 
 writeEntries();
 
-console.log('time taken: ', (Date.now() - before) / 60000);
+console.timeEnd('dataGen');
 process.exit();
 
 //>>>>>>>>>> Data Shape <<<<<<<<<<//
