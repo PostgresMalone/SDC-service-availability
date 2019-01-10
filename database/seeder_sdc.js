@@ -67,8 +67,11 @@ const daysAssigner = (databaseUpToYear, month, year) => {
 /////////////////////////////////
 // Record Generation and Write //
 /////////////////////////////////
-const TOTAL_RECORDS = 2;
-let i = 0;
+const TOTAL_RECORDS = 1000;
+const MAX_PER_FILE = 1000;
+let recordsSoFar = 0;
+const TOTAL_FILES = 10;
+console.time('dataGen');
 
 //>>> Create Read and Write Streams <<<//
 
@@ -88,6 +91,7 @@ let i = 0;
 const outputStream = fs.createWriteStream(__dirname + '/data.csv');
 const fields = [
   'roomId',
+  'roomName',
   'availability',
   'reviewSummary',
   'type',
@@ -101,51 +105,61 @@ const header = false;
 
 
 const writeEntries = () => {
+  let docID = 1;
+  let record = 1;
 
-  while(i < TOTAL_RECORDS) {
+  while(recordsSoFar < TOTAL_RECORDS) {
 
-    let obj = {
-      roomId: i,
-      availability: {},
-      reviewSummary: generateReviews(),
-      type: generateType(),
-      location: generateLocation(),
-      reviewNum: generateReviewNum(),
-      monthMin: generateVacancy(),
+    for (let i = 1; i <= MAX_PER_FILE; i++) {
+      console.log('Current RoomId: ', recordsSoFar);
+      recordsSoFar++;  
+      let obj = {
+        roomId: recordsSoFar,
+        roomName: recordsSoFar + '-' + faker.name.findName(),
+        availability: {},
+        reviewSummary: generateReviews(),
+        type: generateType(),
+        location: generateLocation(),
+        reviewNum: generateReviewNum(),
+        monthMin: generateVacancy(),
+      }
+      //Availability calendar generator
+      obj.availability[2019] = {};
+        months.map(month => {
+          obj.availability[2019][month] = {};
+          daysAssigner(obj.availability[2019], month, 2019);
+        });
+        
+      if(i === 1) {
+        const opts = { fields, quote };
+        fs.appendFileSync(__dirname + `/data${docID}.csv`, json2csv(obj, opts) + "'\n");
+        // if(!outputStream.write(json2csv(obj, opts) + "'\n")) { 
+        //   return;
+        // }
+      } else {
+        const opts = {header, quote};
+        fs.appendFileSync(__dirname + `/data${docID}.csv`, json2csv(obj, opts) + "'\n");
+        // if(!outputStream.write(json2csv(obj, opts) + "'\n")) { 
+        //   return;
+        // }
+      }
     }
-    //Availability calendar generator
-    obj.availability[2019] = {};
-      months.map(month => {
-        obj.availability[2019][month] = {};
-        daysAssigner(obj.availability[2019], month, 2019);
-      });
-      
-    if(i === 0) {
-      const opts = { fields, quote };
-      fs.appendFileSync(__dirname + '/data.csv', json2csv(obj, opts) + '/n');
-    }else {
-      const opts = {header, quote};
-      fs.appendFileSync(__dirname + '/data.csv', json2csv(obj, opts));
-      // if(!outputStream.write(json2csv(obj, opts))) { 
-      //   return;
-      // }
-    }
-    i++;
+    docID++;
   }
-
-  outputStream.end(() => {
-    console.log('Done');
-    process.exit();
-  })  
+  // outputStream.end(() => {
+  //   console.log('Done');
+  //   process.exit();
+  // })  
 }
 
-outputStream.on('drain', () => {
-  writeEntries();
-});
+// outputStream.on('drain', () => {
+//   writeEntries();
+// });
 
 writeEntries();
 
-
+console.timeEnd('dataGen');
+process.exit();
 
 //>>>>>>>>>> Data Shape <<<<<<<<<<//
 // data = [
