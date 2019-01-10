@@ -1,10 +1,10 @@
 const fs = require('graceful-fs');
 const path = require('path');
-const db = require('./index.js');
 const faker = require('faker');
 const ProgressBar = require('progress');
-// const csvWriter = require('csv-write-stream');
+const zlib = require('zlib');
 const json2csv = require('json2csv').parse;
+const db = require('./index.js');
 
 
 /////////////////////////////
@@ -29,24 +29,24 @@ const generateLocation = () => loc[Math.floor(Math.random() * 5)];
 const generateInfo = () => {
   return {
     price: generatePrice(),
-    vacancy: generateVacancy()
+    vacancy: generateVacancy(),
   };
 };
 
 const daysAssigner = (databaseUpToYear, month, year) => {
   if (month === 1) {
-    days28.map(day => {
+    days28.map((day) => {
       databaseUpToYear[month][day] = generateInfo();
     });
     if (year % 4 === 0) {
       databaseUpToYear[month][29] = generateInfo();
     }
   } else if (month === 0 || month === 2 || month === 4 || month === 6 || month === 7 || month === 9 || month === 11) {
-    days31.map(day => {
+    days31.map((day) => {
       databaseUpToYear[month][day] = generateInfo();
     });
   } else {
-    days30.map(day => {
+    days30.map((day) => {
       databaseUpToYear[month][day] = generateInfo();
     });
   }
@@ -88,7 +88,7 @@ console.time('dataGen');
 // writer.pipe(fs.createWriteStream(__dirname + '/data.csv'));
 
 ////////// json2csv npm ///////////
-const outputStream = fs.createWriteStream(__dirname + '/data.csv');
+// const outputStream = fs.createWriteStream(path.join(__dirname, '/data.csv'));
 const fields = [
   'roomId',
   'roomName',
@@ -99,21 +99,18 @@ const fields = [
   'reviewNum',
   'monthMin',
 ];
-const flatten = true;
 const quote = true;
 const header = false;
 
 
 const writeEntries = () => {
   let docID = 1;
-  let record = 1;
 
-  while(recordsSoFar < TOTAL_RECORDS) {
-
+  while (recordsSoFar < TOTAL_RECORDS) {
     for (let i = 1; i <= MAX_PER_FILE; i++) {
       console.log('Current RoomId: ', recordsSoFar);
       recordsSoFar++;  
-      let obj = {
+      const obj = {
         roomId: recordsSoFar,
         roomName: recordsSoFar + '-' + faker.name.findName(),
         availability: {},
@@ -122,24 +119,24 @@ const writeEntries = () => {
         location: generateLocation(),
         reviewNum: generateReviewNum(),
         monthMin: generateVacancy(),
-      }
+      };
       //Availability calendar generator
       obj.availability[2019] = {};
-        months.map(month => {
-          obj.availability[2019][month] = {};
-          daysAssigner(obj.availability[2019], month, 2019);
-        });
-        
-      if(i === 1) {
+      months.map((month) => {
+        obj.availability[2019][month] = {};
+        daysAssigner(obj.availability[2019], month, 2019);
+      });
+
+      if (i === 1) {
         const opts = { fields, quote };
-        fs.appendFileSync(__dirname + `/data${docID}.csv`, json2csv(obj, opts) + "'\n");
+        fs.appendFileSync(path.join(__dirname, `/data${docID}.csv`), json2csv(obj, opts) + "'\n");
         // if(!outputStream.write(json2csv(obj, opts) + "'\n")) { 
         //   return;
         // }
       } else {
-        const opts = {header, quote};
-        fs.appendFileSync(__dirname + `/data${docID}.csv`, json2csv(obj, opts) + "'\n");
-        // if(!outputStream.write(json2csv(obj, opts) + "'\n")) { 
+        const opts = { header, quote };
+        fs.appendFileSync(path.join(__dirname, `/data${docID}.csv`), json2csv(obj, opts) + "'\n");
+        // if(!outputStream.write(json2csv(obj, opts) + "'\n")) {
         //   return;
         // }
       }
@@ -149,8 +146,8 @@ const writeEntries = () => {
   // outputStream.end(() => {
   //   console.log('Done');
   //   process.exit();
-  // })  
-}
+  // })
+};
 
 // outputStream.on('drain', () => {
 //   writeEntries();
