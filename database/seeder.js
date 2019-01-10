@@ -71,5 +71,3 @@ fs.writeFile(path.resolve(__dirname, 'data.txt'), JSON.stringify(database), err 
     db.saveVacancy(parsed);
   });
 });
-
-// console.log(database);

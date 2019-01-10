@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://172.17.0.2/test', { useNewUrlParser: true }, err => {
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
   if (err) { return console.log('Failed in connecting to MongoDB.'); }
   console.log('Connected to MongoDB!');
 });
