@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'), // to folder with index.html
   },
-  mode: 'production',
+  mode: 'development',
   devtool: 'inline-source-map',
   module: {
     rules: [
