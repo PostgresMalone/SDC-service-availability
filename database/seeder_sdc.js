@@ -79,9 +79,9 @@ const roomRecordGenerator = (id) => {
   };
 
   if (id === 1) {
-    return (json2csv(obj, roomOptsHeader) + "'\n");
+    return (json2csv(obj, roomOptsHeader) + "\n");
   } else {
-    return (json2csv(obj, roomOptsOther) + "'\n");
+    return (json2csv(obj, roomOptsOther) + "\n");
   }
 }
 
@@ -105,11 +105,10 @@ const reservationRecordGenerator = (id) =>{
 ///////////////////////////
 // Write Records to Disk //
 ///////////////////////////
-const TOTAL_RECORDS = 100000;
-const MAX_PER_FILE = 10000;
+const TOTAL_RECORDS = 10000000;
+const MAX_PER_FILE = 1000000;
 let roomsSoFar = 0;
 let rezSoFar = 0;
-
 
 const writeRoomEntries = (totalRecords, recordsPerFile) => {
   console.time('dataGen');

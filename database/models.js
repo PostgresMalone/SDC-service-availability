@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({ //Make this into just a roomID table2
   roomId: {
     type: Number,
+    index: true,
     unique: true
   },
   roomName: String,
@@ -18,10 +20,11 @@ const reservationSchema = new Schema({
   _id: Number,
   roomId: {
     type: Number,
+    index: true,
     unique: true
   },
-  checkIn: Date,
-  checkOut: Date,
+  checkIn: String,
+  checkOut: String,
   adults: Number,
   children: Number,
   infants: Number
