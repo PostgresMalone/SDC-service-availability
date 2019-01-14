@@ -5,28 +5,28 @@ const json2csv = require('json2csv').parse;
 
 ////////// json2csv npm ///////////
 const roomFields = [
-  'roomId',
-  'roomName',
-  'price',
-  'reviewSummary',
-  'type',
-  'location',
-  'reviewNum',
-  'monthMin',
+  'roomId.int64()',
+  'roomName.string()',
+  'price.int64()',
+  'reviewSummary.string()',
+  'type.string()',
+  'location.string()',
+  'reviewNum.int64()',
+  'monthMin.boolean()',
 ];
 const rezFields = [
-  'roomId',
-  'checkIn',
-  'checkOut',
-  'adults',
-  'children',
-  'infants'
+  'roomId.int64()',
+  'checkIn.string()',
+  'checkOut.string()',
+  'adults.int64()',
+  'children.int64()',
+  'infants.int64()'
 ];
-const quote = "'";
+
 const header = false;
-const roomOptsHeader = { roomFields, quote };
-const rezOptsHeader = { rezFields, quote };
-const roomOptsOther = { header, quote };
+const roomOptsHeader = { roomFields };
+const rezOptsHeader = { rezFields };
+const roomOptsOther = { header };
 
 /////////////////////////////
 // Helper Data & Functions //
@@ -66,7 +66,7 @@ const generateRandomDate = (idx, type) => {
 /////////////////////
 // Record Generator//
 ////////////////////
-const roomRecordGenerator = (id) => {
+const roomRecordGenerator = (i, id) => {
   const obj = {
     roomId: id,
     roomName: id + '-' + faker.name.findName(),
@@ -78,14 +78,14 @@ const roomRecordGenerator = (id) => {
     monthMin: generateVacancy(),
   };
 
-  if (id === 1) {
+  if (i === 0) {
     return (json2csv(obj, roomOptsHeader) + "\n");
   } else {
     return (json2csv(obj, roomOptsOther) + "\n");
   }
 }
 
-const reservationRecordGenerator = (id) =>{
+const reservationRecordGenerator = (i, id) =>{
   const obj = {
     roomId: id,
     checkIn: generateRandomDate(id, 'checkIn'),
@@ -95,7 +95,7 @@ const reservationRecordGenerator = (id) =>{
     infants: getRandomInt(0, 2),
   };
 
-  if(id === 1) {
+  if(i === 0) {
     return (json2csv(obj, rezOptsHeader) + "'\n");
   } else {
     return (json2csv(obj, roomOptsOther) + "'\n");
@@ -105,7 +105,7 @@ const reservationRecordGenerator = (id) =>{
 ///////////////////////////
 // Write Records to Disk //
 ///////////////////////////
-const TOTAL_RECORDS = 10000000;
+const TOTAL_RECORDS = 15000000;
 const MAX_PER_FILE = 1000000;
 let roomsSoFar = 0;
 let rezSoFar = 0;
@@ -135,7 +135,7 @@ const writeRoomEntries = (totalRecords, recordsPerFile) => {
       return;
     }
     roomsSoFar++;
-    const ok2Write = outputStream.write(roomRecordGenerator(roomsSoFar));
+    const ok2Write = outputStream.write(roomRecordGenerator(i, roomsSoFar));
     if (ok2Write) {
       i++;
       write();
@@ -173,7 +173,7 @@ const writeRezEntries = (totalRecords, recordsPerFile) => {
       return;
     }
     rezSoFar++;
-    const ok2Write = outputStream.write(reservationRecordGenerator(rezSoFar));
+    const ok2Write = outputStream.write(reservationRecordGenerator(i, rezSoFar));
     if (ok2Write) {
       i++;
       write();
