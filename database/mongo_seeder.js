@@ -7,3 +7,4 @@ mongoose.connect('mongodb://localhost/sdc', { useNewUrlParser: true }, err => {
 });
 
 //mongoimport -d sdc --collection rooms --type csv --columnsHaveTypes --file data1.csv --headerline
+//mongoimport -d sdc --collection reservations --type csv --columnsHaveTypes --file data1.csv --headerline

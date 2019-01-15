@@ -16,6 +16,7 @@ const roomFields = [
 ];
 const rezFields = [
   'roomId.int64()',
+  'rezName.string()',
   'checkIn.string()',
   'checkOut.string()',
   'adults.int64()',
@@ -88,6 +89,7 @@ const roomRecordGenerator = (i, id) => {
 const reservationRecordGenerator = (i, id) =>{
   const obj = {
     roomId: id,
+    rezName: id + '-' + faker.name.findName(),
     checkIn: generateRandomDate(id, 'checkIn'),
     checkOut: generateRandomDate(id, 'checkOut'),
     adults: getRandomInt(1, 4),
@@ -96,9 +98,9 @@ const reservationRecordGenerator = (i, id) =>{
   };
 
   if(i === 0) {
-    return (json2csv(obj, rezOptsHeader) + "'\n");
+    return (json2csv(obj, rezOptsHeader) + "\n");
   } else {
-    return (json2csv(obj, roomOptsOther) + "'\n");
+    return (json2csv(obj, roomOptsOther) + "\n");
   }
 }
 
@@ -185,5 +187,5 @@ const writeRezEntries = (totalRecords, recordsPerFile) => {
   }
   write();
 }
-writeRoomEntries(TOTAL_RECORDS, MAX_PER_FILE);
+// writeRoomEntries(TOTAL_RECORDS, MAX_PER_FILE);
 writeRezEntries(TOTAL_RECORDS, MAX_PER_FILE);
