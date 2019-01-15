@@ -24,6 +24,7 @@
     "docker": "node database/seeder.js && node server/index.js"
   },
   "dependencies": {
+    "artillery": "^1.6.0-26",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "csv-stringify": "^5.1.2",
