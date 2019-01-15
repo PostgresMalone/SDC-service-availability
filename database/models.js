@@ -23,6 +23,7 @@ const reservationSchema = new Schema({
     index: true,
     unique: true
   },
+  rezName: String,
   checkIn: String,
   checkOut: String,
   adults: Number,
