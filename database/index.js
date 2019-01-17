@@ -13,4 +13,11 @@ const getAvailabilityById = (id, cb) => {
   });
 };
 
-module.exports = getAvailabilityById;
+const modifyAvailabilityById = (id, options, cb) => {
+  // TODO: updated query to find and modify reservations table by id
+};
+
+module.exports = {
+  getAvailabilityById,
+  modifyAvailabilityById,
+};

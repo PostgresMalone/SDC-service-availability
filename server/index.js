@@ -1,9 +1,8 @@
-// require('newrelic');
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('../database/index');
-const getAvailabilityById = require('../database/index');
+const { getAvailabilityById } = require('../database/index');
 
 const app = express();
 
@@ -19,7 +18,7 @@ app.get('/availabilities/:id', (req, res, next) => {
   const id = req.params.id;
   getAvailabilityById(id, (err, result) => {
     if (err) {
-      throw err;
+      res.status(400).send(err);
     } else {
       res.status(200).json(result);
     }
@@ -27,12 +26,7 @@ app.get('/availabilities/:id', (req, res, next) => {
 });
 
 app.put('/availabilities/:id', (req, res, next) => {
-  const listingId = req.params.id;
-  const reservation = req.body.avaiability;
-  db.updateVacancy(listingId, reservation, () => { // delete this callback later
-    console.log('Success in updating!');
-    res.status(204).end();
-  })
+  // TODO: Write a function to modify a reservation
 });
 
 app.post('/availabilities', (req, res, next) => {
