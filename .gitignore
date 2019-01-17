@@ -27,3 +27,6 @@ __tests__/__snapshots__/
 # Data files
 database/reservationdata/*
 database/roomdata/*
+
+#Database Credentials
+/database/config.js
