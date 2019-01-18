@@ -17,7 +17,10 @@ class Modal extends React.Component {
       in: null,
       out: null,
       limit: null,
-      dates: this.props.dates
+      dates: this.props.dates,
+      adults: 2,
+      children: 0,
+      infants: 0,
     };
   }
 
@@ -49,13 +52,33 @@ class Modal extends React.Component {
   }
 
   bookDates(start, end) {
+    // debugger;
     if (start && end) {
-      const dates = this.createBookedArray(start, end);
-      const avaiability = this.updateAvailabilities(dates, this.state.dates);
+      let startDate = getMonthDayYear(start);
+      let startMonth = startDate[0] + 1;
+      let startDay = startDate[1];
+      let startYear = startDate[2];
+      startDate = [startYear, startMonth, startDay].join('-');
+
+      let endDate = getMonthDayYear(end);
+      let endMonth = endDate[0] + 1;
+      let endDay = endDate[1];
+      let endYear = endDate[2];
+      endDate = [endYear, endMonth, endDay].join('-');
+      // const dates = this.createBookedArray(start, end);
+      // const avaiability = this.updateAvailabilities(dates, this.state.dates);
+      let reservation = {
+        checkIn: startDate,
+        checkOut: endDate,
+        adults: this.state.adults,
+        children: this.state.children,
+        infants: this.state.infants,
+      };
+
       axios({
         method: 'put',
-        url: `/availabilities/${this.props.id}`,
-        data: { avaiability }
+        url: `/api/availabilities/${this.props.id}/reservations`,
+        data: reservation
       })
         .then(() => {
           window.alert(`You have booked the dates ${start} to ${end}`);
@@ -94,7 +117,7 @@ class Modal extends React.Component {
         }
       }
       month++;
-      date = [month, day, year].join('/');
+      date = [year, month, day].join('-');
     }
     dates.push(end);
     return dates;

@@ -16,7 +16,7 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "nodemon server/index.js",
-    "seed": "node database/seeder.js",
+    "seed": "node database/old_seeder.js",
     "seed-sdc": "node database/seeder_sdc.js",
     "test": "jest -u",
     "test-w": "jest --watch",
@@ -43,7 +43,8 @@
     "progress": "^2.0.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "uglify-js": "^3.4.9"
+    "uglify-js": "^3.4.9",
+    "url-parse": "^1.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -60,6 +61,7 @@
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.10.0",
     "jest": "^23.6.0",
+    "morgan": "^1.9.1",
     "newrelic": "^5.0.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.0",

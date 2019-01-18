@@ -1,22 +1,20 @@
 require('newrelic');
 const express = require('express');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { getAvailabilityById } = require('../database/index');
+const { getReservationsById, modifyAvailabilityById, createNewRez } = require('../database/index');
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '/../public')));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use('/availabilities/:id', express.static('public'));
+app.use(bodyParser.urlencoded( { extended: true } ));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
-app.get('/availabilities', (req, res, next) => {
-  // TODO: Write function here to retrieve all roomId reservations
-});
-
-app.get('/availabilities/:id', (req, res, next) => {
+app.get('/api/availabilities/:id/reservations', (req, res, next) => {
   const id = req.params.id;
-  getAvailabilityById(id, (err, result) => {
+  getReservationsById(id, (err, result) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -25,12 +23,31 @@ app.get('/availabilities/:id', (req, res, next) => {
   });
 });
 
-app.put('/availabilities/:id', (req, res, next) => {
-  // TODO: Write a function to modify a reservation
+app.put('/api/availabilities/:id/reservations', (req, res, next) => {
+  const id = req.params.id;
+  const options = req.body;
+  console.log('Booking request heard by server: ', id, options);
+  modifyAvailabilityById(id, options, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(201).send('Booking Updated');
+    }
+  });
 });
 
-app.post('/availabilities', (req, res, next) => {
-  // TODO: Write a function to insert a new room record and empty reservation object
+app.post('/api/availabilities/:id', (req, res, next) => {
+  const id = req.params.id;
+  const options = {
+
+  };
+  createNewRez(id, options, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(201).end();
+    }
+  });
 });
 
 const port = 1001;
