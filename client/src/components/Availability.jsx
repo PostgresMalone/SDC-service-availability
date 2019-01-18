@@ -64,10 +64,11 @@ class App extends React.Component {
   componentDidMount() {
     let availability = this.generateCalendar();
     let pathname = urlParser().pathname;
-    let roomId = Number(pathname.split('/')[2]);
+    const re = /\/(\d+)\//gm;
+    let roomId = Number((re.exec(pathname))[1]);
     document.body.style.margin = '0';
 
-    fetch(`/api/availabilities/${roomId}/reservations`)
+    fetch(`/api/availabilities/${roomId}/reservations`, { headers:{ "accepts":"application/json" } } )
       .then(result => {
         return result.json();
       })
