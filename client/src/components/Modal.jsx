@@ -8,6 +8,8 @@ import Star from './Star.jsx';
 import getMonthDayYear from '../scripts/getMonthDayYear.js';
 import axios from 'axios';
 import monthLengths from '../scripts/monthLengths.js';
+import faker from 'faker';
+import urlParser from 'url-parse';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -51,9 +53,12 @@ class Modal extends React.Component {
     }
   }
 
-  bookDates(start, end) {
-    // debugger;
+  bookDates(start, end) {    
     if (start && end) {
+      let pathname = urlParser().pathname;
+      let roomId = Number(pathname.split('/')[2]);
+      let rezName = roomId + '-' + faker.name.findName();
+
       let startDate = getMonthDayYear(start);
       let startMonth = startDate[0] + 1;
       let startDay = startDate[1];
@@ -65,9 +70,9 @@ class Modal extends React.Component {
       let endDay = endDate[1];
       let endYear = endDate[2];
       endDate = [endYear, endMonth, endDay].join('-');
-      // const dates = this.createBookedArray(start, end);
-      // const avaiability = this.updateAvailabilities(dates, this.state.dates);
+      
       let reservation = {
+        rezName: rezName,
         checkIn: startDate,
         checkOut: endDate,
         adults: this.state.adults,
@@ -81,7 +86,7 @@ class Modal extends React.Component {
         data: reservation
       })
         .then(() => {
-          window.alert(`You have booked the dates ${start} to ${end}`);
+          window.alert(`You have booked the dates ${start} to ${end}, Boooking reference: ${rezName}`);
           axios.get(`/availabilities/${this.props.id}`)
             .then(result => {
               const data = result.data[0].availability;

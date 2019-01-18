@@ -24,11 +24,10 @@ const getReservationsById = (id, cb) => {
     });
 };
 
-const modifyAvailabilityById = (id, options, cb) => {
-  let rezName = id + '-' + faker.name.findName();
+const modifyAvailabilityById = (id, options, cb) => {  
   pool.connect()
     .then((client) => {
-      return client.query(`INSERT INTO reservations VALUES (${id},'${rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+      return client.query(`INSERT INTO reservations VALUES (${id},'${options.rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
         .then((res) => {
           client.release();
           cb(null, res.rows[0]);
@@ -41,10 +40,24 @@ const modifyAvailabilityById = (id, options, cb) => {
 };
 
 const createNewRez = (id, options, cb) => {
-  let rezName = id + '-' + faker.name.findName();
   pool.connect()
     .then((client) => {
-      return client.query(`INSERT INTO reservations VALUES (${id},'${rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+      return client.query(`INSERT INTO reservations VALUES (${id},'${options.rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+        .then((res) => {
+          client.release();
+          cb(null, res.rows[0]);
+        })
+        .catch((err) => {
+          client.release();
+          cb(err.stack);
+        });
+    });
+};
+
+const deleteRezByName = (id, rezName, cb) => {
+  pool.connect()
+    .then((client) => {
+      return client.query(`DELETE FROM reservations WHERE roomid=${id} AND rezname='${rezName}'`)
         .then((res) => {
           client.release();
           cb(null, res.rows[0]);
@@ -57,7 +70,8 @@ const createNewRez = (id, options, cb) => {
 };
 
 module.exports = {
+  createNewRez,
   getReservationsById,
   modifyAvailabilityById,
-  createNewRez,
+  deleteRezByName
 };
