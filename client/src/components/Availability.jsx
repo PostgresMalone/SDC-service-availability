@@ -72,7 +72,6 @@ class App extends React.Component {
         return result.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({
           listingId: roomId,
           price: data.price,

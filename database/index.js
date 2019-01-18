@@ -41,7 +41,19 @@ const modifyAvailabilityById = (id, options, cb) => {
 };
 
 const createNewRez = (id, options, cb) => {
-
+  let rezName = id + '-' + faker.name.findName();
+  pool.connect()
+    .then((client) => {
+      return client.query(`INSERT INTO reservations VALUES (${id},'${rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+        .then((res) => {
+          client.release();
+          cb(null, res.rows[0]);
+        })
+        .catch((err) => {
+          client.release();
+          cb(err.stack);
+        });
+    });
 };
 
 module.exports = {

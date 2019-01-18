@@ -76,7 +76,7 @@ class Modal extends React.Component {
       };
 
       axios({
-        method: 'put',
+        method: 'post',
         url: `/api/availabilities/${this.props.id}/reservations`,
         data: reservation
       })

@@ -24,28 +24,18 @@ app.get('/api/availabilities/:id/reservations', (req, res, next) => {
 });
 
 app.put('/api/availabilities/:id/reservations', (req, res, next) => {
+  // TODO: write a function to find and update a reservation
+});
+
+app.post('/api/availabilities/:id/reservations', (req, res, next) => {
   const id = req.params.id;
   const options = req.body;
   console.log('Booking request heard by server: ', id, options);
-  modifyAvailabilityById(id, options, (err, result) => {
-    if (err) {
-      res.status(400).send(err);
-    } else {
-      res.status(201).send('Booking Updated');
-    }
-  });
-});
-
-app.post('/api/availabilities/:id', (req, res, next) => {
-  const id = req.params.id;
-  const options = {
-
-  };
   createNewRez(id, options, (err, result) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(201).end();
+      res.status(201).send('Booking Created!');
     }
   });
 });

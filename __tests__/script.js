@@ -11,7 +11,7 @@ import { check, sleep } from 'k6';
 
 export default function () {
   let id = Math.floor(Math.random() * (14000000 - 2000000)) + 2000000;
-  let res = http.get(`http://127.0.0.1:1001/availabilities/${id}`);
+  let res = http.get(`http://127.0.0.1:1001/api/availabilities/${id}/reservations`);
   check(res, {
     'status was 200': r => r.status === 200
   });
