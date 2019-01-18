@@ -1,29 +1,43 @@
+require('newrelic');
 const express = require('express');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const db = require('../database/index');
-const compression = require('compression');
 const path = require('path');
+const { getReservationsById, modifyAvailabilityById, createNewRez } = require('../database/index');
+
 const app = express();
 
-app.use(express.static(path.resolve(__dirname + '/../public')));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use('/availabilities/:id', express.static('public'));
+app.use(bodyParser.urlencoded( { extended: true } ));
 app.use(bodyParser.json());
-app.use(compression());
+app.use(morgan('dev'));
 
-app.get('/availabilities/:id', (req, res) => {
-  const listingId = req.params.id;
-  db.getVacancy(listingId, result => {
-    res.status(200).send(JSON.stringify(result));
+app.get('/api/availabilities/:id/reservations', (req, res, next) => {
+  const id = req.params.id;
+  getReservationsById(id, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).json(result);
+    }
   });
 });
 
-app.put('/availabilities/:id', (req, res) => {
-  const listingId = req.params.id;
-  const availability = req.body.avaiability;
-  db.updateVacancy(listingId, availability, () => { // delete this callback later
-    console.log('Success in updating!');
-    res.status(204).end();
-  })
+app.put('/api/availabilities/:id/reservations', (req, res, next) => {
+  // TODO: write a function to find and update a reservation
+});
+
+app.post('/api/availabilities/:id/reservations', (req, res, next) => {
+  const id = req.params.id;
+  const options = req.body;
+  console.log('Booking request heard by server: ', id, options);
+  createNewRez(id, options, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(201).send('Booking Created!');
+    }
+  });
 });
 
 const port = 1001;

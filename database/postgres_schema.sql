@@ -26,9 +26,9 @@ CREATE TABLE reservations (
     ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE INDEX roomId_index ON rooms (roomId);
+-- CREATE INDEX roomId_index ON rooms (roomId);
 CREATE INDEX roomName_index ON rooms (roomName);
-CREATE INDEX roomId_rez_index ON reservations (roomId);
+-- CREATE INDEX roomId_rez_index ON reservations (roomId);
 CREATE INDEX rezName_index ON reservations (rezName);
 
 -- COPY rooms FROM '/Users/Meandeane/Documents/GitHub/SDC-service-availability/database/roomdata/data1.csv' DELIMITER ',' CSV HEADER;

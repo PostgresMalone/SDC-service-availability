@@ -1,32 +1,63 @@
-const mongoose = require('mongoose');
-const { Room, Reservation } = require('./models.js');
+const pg = require('pg');
+const config = require('./config.js');
+const faker = require('faker');
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, err => {
-  if (err) { return console.log('Failed in connecting to MongoDB.'); }
-  console.log('Connected to MongoDB!');
+const pool = new pg.Pool(config);
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
 });
 
-const getVacancy = (listingId, callback) => {
-  Reservation.find({roomId: listingId})
-    .then(results => callback(results))
-    .catch(err => console.log('Error in getting from DB.', err));
-};
-
-const saveVacancy = (data) => {
-  Reservation.collection.drop({} , err => {
-    if (err) { return console.log('Error in dropping', err); }
-    Reservation.insertMany(data, err => {
-      if (err) { return console.log('Error in seeding.', err); }
-      mongoose.connection.close();
+const getReservationsById = (id, cb) => {
+  pool.connect()
+    .then((client) => {
+      return client.query(`SELECT * FROM rooms, reservations WHERE rooms.roomid=reservations.roomid AND rooms.roomid=${id}`)
+        .then((res) => {
+          client.release();
+          cb(null, res.rows[0]);
+        })
+        .catch((err) => {
+          client.release();
+          cb(err.stack);
+        });
     });
-  });
 };
 
-const updateVacancy = (listingId, updatedObj, callback) => { // delete this callback later
-  Reservation.update({roomId: listingId}, {availability: updatedObj}, (err, raw) => {
-    if (err) { return console.log('Err in database in saving, error ', raw); }
-    callback(null);
-  });
+const modifyAvailabilityById = (id, options, cb) => {
+  let rezName = id + '-' + faker.name.findName();
+  pool.connect()
+    .then((client) => {
+      return client.query(`INSERT INTO reservations VALUES (${id},'${rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+        .then((res) => {
+          client.release();
+          cb(null, res.rows[0]);
+        })
+        .catch((err) => {
+          client.release();
+          cb(err.stack);
+        });
+    });
 };
 
-module.exports = { getVacancy, updateVacancy, saveVacancy };
+const createNewRez = (id, options, cb) => {
+  let rezName = id + '-' + faker.name.findName();
+  pool.connect()
+    .then((client) => {
+      return client.query(`INSERT INTO reservations VALUES (${id},'${rezName}','${options.checkIn}','${options.checkOut}',${options.adults},${options.children},${options.infants})`)
+        .then((res) => {
+          client.release();
+          cb(null, res.rows[0]);
+        })
+        .catch((err) => {
+          client.release();
+          cb(err.stack);
+        });
+    });
+};
+
+module.exports = {
+  getReservationsById,
+  modifyAvailabilityById,
+  createNewRez,
+};

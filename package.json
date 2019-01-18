@@ -15,8 +15,8 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "start": "node server/index.js",
-    "seed": "node database/seeder.js",
+    "start": "nodemon server/index.js",
+    "seed": "node database/old_seeder.js",
     "seed-sdc": "node database/seeder_sdc.js",
     "test": "jest -u",
     "test-w": "jest --watch",
@@ -24,7 +24,6 @@
     "docker": "node database/seeder.js && node server/index.js"
   },
   "dependencies": {
-    "artillery": "^1.6.0-26",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "csv-stringify": "^5.1.2",
@@ -32,17 +31,20 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "express": "^4.16.4",
+    "express-promise-router": "^3.0.3",
     "faker": "^4.1.0",
     "fast-csv": "^2.4.1",
     "flat": "^4.1.0",
     "graceful-fs": "^4.1.15",
     "json2csv": "^4.3.2",
     "mongoose": "^5.4.0",
+    "nodemon": "^1.18.9",
     "pg": "^7.8.0",
     "progress": "^2.0.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "uglify-js": "^3.4.9"
+    "uglify-js": "^3.4.9",
+    "url-parse": "^1.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -59,6 +61,8 @@
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.10.0",
     "jest": "^23.6.0",
+    "morgan": "^1.9.1",
+    "newrelic": "^5.0.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.0",
     "webpack-cli": "^3.1.2",
